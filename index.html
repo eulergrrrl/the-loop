@@ -54,6 +54,7 @@
     .sit-btn { padding: 7px 14px; font-size: 12px; font-weight: 500; border: 0.5px solid var(--border); border-radius: var(--rm); cursor: pointer; background: transparent; color: var(--text2); -webkit-tap-highlight-color: transparent; }
     .sit-btn.sel { background: var(--bg3); color: var(--text); border-color: var(--border2); }
     .scan-chip { display: flex; align-items: center; justify-content: space-between; background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--rl); padding: 12px 14px; margin-bottom: 1rem; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .scan-chip:hover { border-color: var(--border2); }
     .chip-label { font-size: 11px; font-weight: 500; color: var(--text3); letter-spacing: .06em; text-transform: uppercase; margin-right: 10px; flex-shrink: 0; }
     .chip-edit { font-size: 11px; color: var(--text3); white-space: nowrap; }
     .pip { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
@@ -76,12 +77,13 @@
     .priority-label { color: var(--text3); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; }
     .gmode { font-size: 12px; font-weight: 500; margin-bottom: 6px; }
     .gmode.stabilize { color: #f87171; } .gmode.maintain { color: #fbbf24; } .gmode.build { color: #4ade80; }
-    .gitems { display: flex; flex-direction: column; gap: 3px; }
-    .gitem { display: flex; align-items: flex-start; gap: 6px; font-size: 11px; color: var(--text2); line-height: 1.4; }
-    .gdot { width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
-    .gdot.stabilize { background: #f87171; } .gdot.maintain { background: #fbbf24; } .gdot.build { background: #4ade80; }
-    .do-sum { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px; line-height: 1.5; }
-    .do-sub { font-size: 11px; color: var(--text2); line-height: 1.5; }
+    .criteria { font-size: 11px; color: var(--text2); line-height: 1.6; margin-bottom: 8px; }
+    .pick-prompt { font-size: 12px; font-weight: 500; color: var(--text); margin-top: 8px; }
+    .do-sub { font-size: 11px; color: var(--text2); line-height: 1.5; margin-bottom: 8px; }
+    .execute-prompt { font-size: 13px; font-weight: 500; color: var(--text); padding: 10px 12px; background: var(--bg3); border-radius: var(--rm); border-left: 2px solid var(--border2); margin-top: 4px; }
+    .execute-prompt.stabilize { border-color: #f87171; }
+    .execute-prompt.maintain { border-color: #fbbf24; }
+    .execute-prompt.build { border-color: #4ade80; }
     .sit-tag { display: inline-block; margin-top: 6px; padding: 2px 8px; font-size: 10px; font-weight: 500; border-radius: var(--rm); border: 0.5px solid; }
     .note-box { margin-top: 8px; }
     .note-box textarea { width: 100%; background: var(--bg3); border: 0.5px solid var(--border); border-radius: var(--rm); color: var(--text); font-family: inherit; font-size: 13px; padding: 8px 10px; resize: none; outline: none; line-height: 1.5; }
@@ -91,12 +93,6 @@
     .save-note-btn { flex:1; padding: 10px; font-size: 12px; font-weight: 500; border-radius: var(--rm); border: 0.5px solid var(--border2); cursor: pointer; background: transparent; color: var(--text2); -webkit-tap-highlight-color: transparent; }
     .save-note-btn.saved { color: #4ade80; border-color: rgba(22,163,74,.4); }
     .rescan-btn { flex:1; padding: 10px; font-size: 12px; font-weight: 500; border-radius: var(--rm); border: 0.5px solid var(--border); cursor: pointer; background: transparent; color: var(--text2); -webkit-tap-highlight-color: transparent; }
-    .restore-bar { font-size: 11px; color: var(--text3); margin-bottom: 1rem; display: flex; align-items: center; gap: 6px; }
-    .period-brief { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--rl); padding: 12px 14px; margin-bottom: 1.25rem; }
-    .brief-header { font-size: 10px; font-weight: 500; color: var(--text3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
-    .brief-lines { display: flex; flex-direction: column; gap: 4px; }
-    .brief-line { font-size: 11px; color: var(--text2); line-height: 1.5; display: flex; gap: 6px; align-items: baseline; }
-    .brief-line-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
     .hist-entry { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--rl); padding: 12px 14px; margin-bottom: 10px; }
     .hist-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
     .hist-date { font-size: 11px; color: var(--text3); }
@@ -105,6 +101,7 @@
     .hist-note { font-size: 12px; color: var(--text2); margin-top: 8px; padding-top: 8px; border-top: 0.5px solid var(--border); line-height: 1.6; font-style: italic; }
     .hist-empty { font-size: 13px; color: var(--text3); text-align: center; padding: 3rem 0; }
     .hist-del { font-size: 10px; color: var(--text3); cursor: pointer; margin-left: auto; background: none; border: none; padding: 2px 6px; border-radius: 4px; -webkit-tap-highlight-color: transparent; }
+    .hist-del:hover { color: #f87171; }
     .trend-section { margin-bottom: 1.5rem; }
     .trend-label { font-size: 12px; color: var(--text2); font-weight: 500; margin-bottom: 10px; }
     .trend-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
@@ -118,48 +115,41 @@
     .trend-window { display: flex; gap: 6px; margin-bottom: 1.25rem; }
     .tw-btn { padding: 6px 12px; font-size: 11px; border: 0.5px solid var(--border); border-radius: var(--rm); cursor: pointer; background: transparent; color: var(--text3); -webkit-tap-highlight-color: transparent; }
     .tw-btn.active { border-color: var(--border2); color: var(--text2); background: var(--bg3); }
+    .period-brief { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--rl); padding: 12px 14px; margin-bottom: 1.25rem; }
+    .brief-header { font-size: 10px; font-weight: 500; color: var(--text3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+    .brief-lines { display: flex; flex-direction: column; gap: 4px; }
+    .brief-line { font-size: 11px; color: var(--text2); line-height: 1.5; display: flex; gap: 6px; align-items: baseline; }
+    .brief-line-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
   </style>
 </head>
 <body>
-<div class="app">
+<div class="app" id="app-root">
   <div class="wordmark">The Loop</div>
   <div class="nav">
-    <button class="nav-btn active" id="nav-now" onclick="setMode('now');showView('scan')">Now</button>
-    <button class="nav-btn" id="nav-horizon" onclick="setMode('horizon');showView('scan')">Horizon</button>
+    <button class="nav-btn active" id="nav-now" onclick="showView('now')">Now</button>
+    <button class="nav-btn" id="nav-horizon" onclick="showView('horizon')">Horizon</button>
     <button class="nav-btn" id="nav-hist" onclick="showView('hist')">History</button>
   </div>
 
-  <div id="view-scan">
-    <div id="restore-bar" class="restore-bar" style="display:none;">
-      <div style="width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;"></div>
-      <span id="restore-text"></span>
-      <button onclick="resetAll()" style="margin-left:auto;font-size:11px;background:none;border:none;cursor:pointer;color:var(--text3);text-decoration:underline;">clear</button>
-    </div>
-    <div id="period-brief" style="display:none;"></div>
-    <div id="scan-chip" class="scan-chip" style="display:none;" onclick="expandScan()">
+  <div id="view-now">
+    <div id="period-brief-now" style="display:none;"></div>
+    <div id="scan-chip-now" class="scan-chip" style="display:none;" onclick="expandScan('now')">
       <span class="chip-label">Scan</span>
-      <div id="chip-pips" style="flex:1;display:flex;align-items:center;gap:6px;flex-wrap:wrap;"></div>
+      <div id="chip-pips-now" style="flex:1;display:flex;align-items:center;gap:6px;flex-wrap:wrap;"></div>
       <span class="chip-edit">edit ↑</span>
     </div>
-    <div id="scan-full">
+    <div id="scan-full-now">
       <div class="slabel">Scan</div>
       <div class="stitle">What's true right now?</div>
-      <div id="now-section">
-        <div class="ssub">Condition bars</div>
-        <div style="height:8px;"></div>
-        <div id="bars-cond"></div>
-        <hr class="reg-divider">
-        <div id="bars-reg"></div>
-      </div>
-      <div id="horizon-section" style="display:none;">
-        <div class="ssub">Areas of focus</div>
-        <div style="height:8px;"></div>
-        <div id="bars-areas"></div>
-      </div>
+      <div class="ssub">Condition bars</div>
+      <div style="height:8px;"></div>
+      <div id="bars-cond"></div>
+      <hr class="reg-divider">
+      <div id="bars-reg"></div>
       <div class="ssub" style="margin-top:1rem;">Situation</div>
-      <div class="sit-row" id="sit-row"></div>
+      <div class="sit-row" id="sit-row-now"></div>
     </div>
-    <div id="compact-steps" class="compact-steps">
+    <div id="steps-now" class="compact-steps">
       <div class="cstep">
         <div class="cstep-header"><span class="cstep-num">Frame</span></div>
         <div class="frame-cards-compact">
@@ -168,7 +158,6 @@
           <div class="fc build" id="fc-build" onclick="selectFrame('build')"><div class="fc-name">Build</div><div class="fc-hint">Deep work, big moves</div></div>
         </div>
         <div class="frame-rule" id="frame-rule"></div>
-        <div id="priority-area-box" style="display:none;"></div>
       </div>
       <div class="cstep">
         <div class="cstep-header"><span class="cstep-num">Choose</span></div>
@@ -176,12 +165,57 @@
       </div>
       <div class="cstep">
         <div class="cstep-header"><span class="cstep-num">Do</span></div>
-        <div id="do-box"><div class="do-sum" style="color:var(--text3);font-weight:400;font-size:12px;">Complete the steps above.</div></div>
+        <div id="do-box"><div style="font-size:12px;color:var(--text3);">Complete the steps above.</div></div>
         <div class="note-box">
           <textarea id="note-input" rows="2" placeholder="Add a note to this scan (optional)..."></textarea>
           <div class="btn-row">
             <button class="save-note-btn" id="save-note-btn" onclick="saveNote()">Save note</button>
-            <button class="rescan-btn" onclick="resetAll()">Re-scan ↺</button>
+            <button class="rescan-btn" onclick="resetScan('now')">Re-scan ↺</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="view-horizon" style="display:none;">
+    <div id="period-brief-horizon" style="display:none;"></div>
+    <div id="scan-chip-horizon" class="scan-chip" style="display:none;" onclick="expandScan('horizon')">
+      <span class="chip-label">Scan</span>
+      <div id="chip-pips-horizon" style="flex:1;display:flex;align-items:center;gap:6px;flex-wrap:wrap;"></div>
+      <span class="chip-edit">edit ↑</span>
+    </div>
+    <div id="scan-full-horizon">
+      <div class="slabel">Scan</div>
+      <div class="stitle">What's the broader picture?</div>
+      <div class="ssub">Areas of focus</div>
+      <div style="height:8px;"></div>
+      <div id="bars-areas"></div>
+      <div class="ssub" style="margin-top:1rem;">Situation</div>
+      <div class="sit-row" id="sit-row-horizon"></div>
+    </div>
+    <div id="steps-horizon" class="compact-steps">
+      <div class="cstep">
+        <div class="cstep-header"><span class="cstep-num">Frame</span></div>
+        <div class="frame-cards-compact">
+          <div class="fc stabilize" id="hfc-stabilize" onclick="selectHFrame('stabilize')"><div class="fc-name">Stabilize</div><div class="fc-hint">Recover, reduce load</div></div>
+          <div class="fc maintain" id="hfc-maintain" onclick="selectHFrame('maintain')"><div class="fc-name">Maintain</div><div class="fc-hint">Steady, no heroics</div></div>
+          <div class="fc build" id="hfc-build" onclick="selectHFrame('build')"><div class="fc-name">Build</div><div class="fc-hint">Deep work, big moves</div></div>
+        </div>
+        <div class="frame-rule" id="hframe-rule"></div>
+        <div id="hpriority-area-box" style="display:none;"></div>
+      </div>
+      <div class="cstep">
+        <div class="cstep-header"><span class="cstep-num">Choose</span></div>
+        <div id="hgbox"><div style="font-size:12px;color:var(--text3);">Select a mode above.</div></div>
+      </div>
+      <div class="cstep">
+        <div class="cstep-header"><span class="cstep-num">Do</span></div>
+        <div id="hdo-box"><div style="font-size:12px;color:var(--text3);">Complete the steps above.</div></div>
+        <div class="note-box">
+          <textarea id="hnote-input" rows="2" placeholder="Add a note to this scan (optional)..."></textarea>
+          <div class="btn-row">
+            <button class="save-note-btn" id="hsave-note-btn" onclick="saveHNote()">Save note</button>
+            <button class="rescan-btn" onclick="resetScan('horizon')">Re-scan ↺</button>
           </div>
         </div>
       </div>
@@ -199,7 +233,7 @@
 </div>
 
 <script>
-const SK='loop_v1',HK='loop_hist_v1';
+const SK='loop_pub_now', HKS='loop_pub_horizon', HIST='loop_pub_hist';
 const NOW_BARS=['Rest','Fuel','Energy','Focus','Social','Joy'];
 const REG_BAR='Regulation';
 const HORIZON_AREAS=['Work','Health','Relationships','Growth','Admin'];
@@ -219,165 +253,352 @@ const RUB={
   Work:{g:'Core responsibilities handled. Demanding but manageable — no fires being ignored.',y:'Uneven. Some drift or backlog accumulating. Work is starting to create background stress.',r:'Behind, avoidant, or under siege. Something important is being missed or indefinitely deferred.'},
   Health:{g:'Basics are intact — sleep, food, movement, recovery. Body feels supported.',y:'One or two basics are slipping. Still functional, but running thinner than is sustainable.',r:'Genuinely depleted — under-slept, under-moved, or leaning hard on food as a coping mechanism.'},
   Relationships:{g:'Feeling connected. The important relationships in your life are getting enough attention.',y:'A bit withdrawn or thin. Present enough but not really there.',r:'Withdrawn or strained — or both. The distance is noticeable, even if no one\'s saying it yet.'},
-  Growth:{g:'Learning, creating, or moving toward something that matters. This part of life has air.',y:'Growth is mostly intention right now. The math, the minis, the creative stuff keeps getting bumped.',r:'Flatlined. Everything is going to maintenance and obligation. The meaningful stuff has disappeared.'},
+  Growth:{g:'Learning, creating, or moving toward something that matters. This part of life has air.',y:'Growth is mostly intention right now. The things that matter to you creatively keep getting bumped.',r:'Flatlined. Everything is going to maintenance and obligation. The meaningful stuff has disappeared.'},
   Admin:{g:'Practical life is under control. Logistics, finances, and chores aren\'t creating hidden drag.',y:'Some backlog building up. The friction is manageable but increasing.',r:'Practical life is messy enough to be genuinely stressful. Admin is stealing mental bandwidth.'},
 };
 
-function getReg(){return(state.bars||{})[REG_BAR]||null;}
+let nowState={bars:{},sit:null,frame:null,priority:null,logId:null,complete:false};
+let horizonState={areas:{},sit:null,frame:null,priority:null,logId:null,complete:false};
+let history=[], currentView='now', histTab='trends', trendDays=30;
+
+function getReg(){return(nowState.bars||{})[REG_BAR]||null;}
+function getLastHorizon(){return history.find(e=>e.mode==='horizon')||null;}
+
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.info-btn')&&!e.target.closest('.rub-row')){
+    document.querySelectorAll('.rub-row.open').forEach(x=>x.classList.remove('open'));
+  }
+});
 
 function getNowGuidance(frame,priority){
   const reg=getReg()||'g';
-  const G={
+  const CHOOSE={
     stabilize:{
-      base:{g:['Basics only — your kid, your partner, your body','Smallest next action that reduces the most pressure','Capture what surfaces; rest is a legitimate move','Nothing heroic today'],y:['Basics only — and notice you\'re not quite steady','Smallest possible action — your margin is thin','Capture what surfaces; don\'t try to process it now','Rest is a legitimate choice'],r:['You\'re dysregulated. That\'s the whole situation right now.','Alone time and low demand — that\'s the prescription','Movement if you can — a walk, a drive, being outside','Don\'t make decisions. Don\'t have hard conversations. Just regulate.']},
-      Work:{g:['Find the one open work loop causing the most pressure and close it','Don\'t try to catch up — stop the bleed, then step back','One work action maximum'],y:['One very small work action only — you\'re not steady enough for more','Close the most urgent loop; capture everything else','Don\'t push into anything complex'],r:['Work is offline right now. That\'s correct, not failure.','The work will be there when you\'re steadier','Don\'t make work decisions while dysregulated — they\'re suspect','Regulate first. Everything else waits.']},
-      Health:{g:['Body first — sleep, water, or actual food (not comfort food)','If Fuel is red, notice whether you\'re eating to cope rather than to fuel','A lift or a walk is valid if the energy is genuinely there'],y:['Body first — and notice the urge to comfort eat if it\'s there','Something real to eat or drink before anything else','Gentle movement if you have it'],r:['Body and nervous system both need attention right now','Real food — not comfort food, even though that\'s what it wants','Movement can help regulation — a walk, even a short one','Don\'t demand more from your body than it has today']},
-      Relationships:{g:['You\'re probably withdrawing right now — worth naming to yourself','You don\'t have to fix anything today','Go home. Be in the same room. That\'s enough for now.','Your kid doesn\'t need a performance. Just your presence.'],y:['You\'re a bit withdrawn and not quite steady — a difficult combination','Don\'t go in hot. Don\'t force connection either.','Physical presence without pressure — be nearby, be quiet, be there','Your kid especially doesn\'t need you to perform. Just show up.'],r:['You\'re dysregulated and things may be strained. Don\'t go in hot.','The repair can\'t happen from this state — it\'ll make things worse','Get regulated first: alone time, movement, music, being outside','When you\'re steadier, then you can think about what home looks like']},
-      Growth:{g:['Growth pauses today. Rest is what the system needs.','The minis, the math, the games — they\'ll wait','Capture anything that surfaces'],y:['Growth is mostly off today — but low-stakes tactile stuff might be okay','Handling minis, something with your hands, low-demand and absorbing','Not deep math. Not anything that requires full presence.'],r:['Demanding creative work will fight you right now — don\'t force it','Low-stakes tactile work might actually help regulate: minis, something physical','Or just rest. Both are valid.']},
-      Admin:{g:['One admin item that stops something from escalating','Not tidy — just contained','Capture the rest, process later'],y:['One small admin action — something routine and low-stakes','Routine tasks can actually be steadying when you\'re not quite regulated','Nothing that requires big decisions'],r:['Routine admin might actually help right now — it\'s low-demand and completable','Pick something small and mechanical, not anything requiring decisions','Or skip it entirely and just regulate. Both are fine.']},
+      base:{g:{criteria:'Your next move should be low demand and restorative. It does not have to be productive. Rest, food, something with your hands, being outside — all valid.',pick:'What\'s the one thing that fits right now?'},y:{criteria:'Your next move should be low demand. You\'re not quite steady, so anything requiring full presence or emotional output is the wrong pick. Self-care counts.',pick:'What\'s the one low-demand thing available to you right now?'},r:{criteria:'You have permission to not be productive today. Your next move should regulate your nervous system — alone time, movement, outside, music, something absorbing and low-stakes. Not work. Not hard conversations.',pick:'What will actually help you regulate right now?'}},
+      Work:{g:{criteria:'One work action only — the one that closes the most pressure. Everything else stays in your system.',pick:'What\'s the single work loop you can close right now?'},y:{criteria:'One very small work action. You\'re not steady enough for more. If it requires full concentration, it\'s the wrong pick.',pick:'What\'s the smallest work action available to you?'},r:{criteria:'Work is offline right now. That\'s correct, not failure. Your next move is regulation, not productivity.',pick:'What will help you regulate? That\'s the pick.'}},
+      Health:{g:{criteria:'Your next move should address the body first — real food, water, rest, or movement.',pick:'What does your body actually need right now?'},y:{criteria:'Body first. Notice if the urge to comfort eat is there — your body needs fuel, not comfort.',pick:'What will actually help your body right now?'},r:{criteria:'Body and nervous system both need attention. Real food, movement, or outside time.',pick:'What does your body and nervous system need most right now?'}},
+      Relationships:{g:{criteria:'You might be withdrawing. You don\'t have to fix anything. Your next move is just presence — being in the same room, near the people who matter.',pick:'What\'s the smallest move toward presence you can make right now?'},y:{criteria:'You\'re a bit withdrawn and not quite steady. Physical presence without pressure. Don\'t push into emotional territory — just be nearby.',pick:'Can you be in the room without it costing too much right now?'},r:{criteria:'You\'re dysregulated. Don\'t go into a strained situation from this state. Regulate first — alone time, movement, outside.',pick:'What do you need to get regulated before you engage with others?'}},
+      Growth:{g:{criteria:'Growth pauses today. Your next move is rest or something low-stakes — something absorbing that doesn\'t demand much.',pick:'What low-stakes thing would actually feel good right now?'},y:{criteria:'Low-stakes tactile or creative work might be okay — something with your hands, not something cognitively demanding.',pick:'Is there something tactile and absorbing available to you?'},r:{criteria:'Demanding creative work will fight you right now. Low-stakes tactile work might actually help regulate. Or rest. Both are valid.',pick:'Something low-stakes, rest, or regulation — which fits best right now?'}},
+      Admin:{g:{criteria:'One admin item only — the one creating the most background noise. Not a full tidy.',pick:'What\'s the one admin item that would most reduce your background stress?'},y:{criteria:'Routine admin might actually be steadying right now — small, mechanical, completable. Nothing requiring big decisions.',pick:'Is there a small mechanical admin task that doesn\'t require decisions?'},r:{criteria:'Routine admin might help regulate — low-demand and completable. Or skip it and regulate. Either is fine.',pick:'Routine admin or regulation — which does your nervous system need more?'}},
     },
     maintain:{
-      base:{g:['Work from your trusted system — what\'s the next action?','One meaningful task per active area, no more','No new commitments without something coming off the list'],y:['Work from your system, but notice you\'re not fully steady','One task per area — and be selective about which one','Protect your margin; don\'t overcommit'],r:['You\'re dysregulated — maintain is probably too ambitious right now','Consider dropping to Stabilize, or at minimum: one very small thing only','Regulate first, then reassess what maintain actually looks like today']},
-      Work:{g:['Core work — curriculum, consult, what\'s in your system','One focused block in your best hours','Don\'t let scope creep in'],y:['Core work only — and shorter tasks given you\'re not fully steady','One concrete next action from your system','Protect your focus; it\'s thinner than usual'],r:['Work is offline while you\'re dysregulated — this is correct triage','Don\'t start complex work from this state. It won\'t go well.','When you\'re regulated, the work will be there']},
-      Health:{g:['Maintain the baseline — lift, cook real food, sleep','If Fuel is yellow, check whether comfort food is doing extra work','Consistency is the job'],y:['Maintain the baseline — and notice if you\'re grazing to cope','Something real to eat. Movement if you can.','Don\'t let the basics slip just because you\'re not quite steady'],r:['The body and nervous system are both struggling — address that first','Real food over comfort food, even if comfort food is louder right now','Movement can help regulation when you\'re dysregulated']},
-      Relationships:{g:['You might be a little withdrawn — notice it without spiraling','Physical presence is a form of connection even when you\'re not fully open','Be in the room. Sit near your wife. Do a thing with your kid.'],y:['You\'re a bit withdrawn and not quite steady — tread carefully','Physical presence without pressure — nearby, quiet, not performing','Don\'t push into emotional territory from this state'],r:['You\'re dysregulated — this is not the moment for relational repair','Think carefully about whether going home into tension is right from this state','Get regulated first: alone time, movement, being outside','The relationship needs you regulated, not just present']},
-      Growth:{g:['Protect one slot for something that\'s actually yours — math, minis, DnD, a game session','These aren\'t extras — they\'re part of what makes you functional','Steady beats sporadic'],y:['Protect one growth slot — but choose something lower-demand given you\'re not fully steady','Minis or something tactile over deep math today','Light engagement still counts'],r:['Deep creative work won\'t land while you\'re dysregulated — don\'t force it','Low-stakes tactile or absorbing work might help regulate: minis, something physical','If nothing sounds good, that\'s data — rest instead']},
-      Admin:{g:['Clear one or two things from your system','Maintenance mode, not overhaul','Set up one thing that reduces future friction'],y:['One routine admin task — something mechanical and completable','Routine tasks can be steadying when you\'re not quite regulated','Don\'t tackle anything requiring big decisions'],r:['Routine admin might actually be accessible and even calming right now','Small, mechanical, completable — not decision-heavy','Or skip and regulate. Either is fine.']},
+      base:{g:{criteria:'Your next move should come from your trusted system. One meaningful task per active area — no more. Self-care and rest count as valid moves.',pick:'What\'s the next action in your system?'},y:{criteria:'One task, chosen carefully. You\'re not fully steady — protect your margin. Don\'t pick something that requires more than you have.',pick:'What\'s one task you can actually complete from where you are right now?'},r:{criteria:'You\'re dysregulated — maintain may be too much. Your next move should be stabilizing first.',pick:'What\'s the smallest possible move, or should you drop to Stabilize?'}},
+      Work:{g:{criteria:'Core work only — whatever\'s most important in your system. One focused block. No scope creep.',pick:'What\'s the next concrete work action in your system?'},y:{criteria:'Core work, shorter tasks. Your focus is thinner than usual — pick something concrete and completable.',pick:'What\'s one concrete work task you can actually finish right now?'},r:{criteria:'Work is offline while you\'re dysregulated. Your next move is regulation, not work.',pick:'What will help you regulate? That\'s the pick.'}},
+      Health:{g:{criteria:'Maintain your baseline — the things that keep you functional. Sleep, food, movement.',pick:'Which baseline health thing most needs your attention right now?'},y:{criteria:'Maintain the baseline and notice if comfort food is doing extra work. Something real to eat or drink. Movement if you can.',pick:'What does your body actually need — not want, need?'},r:{criteria:'Body and nervous system are struggling. Real food over comfort. Movement can help regulate.',pick:'What will address your body and nervous system most directly right now?'}},
+      Relationships:{g:{criteria:'Physical presence is a form of connection even when you\'re not fully open. You don\'t have to be emotionally available — just not absent.',pick:'What\'s one small move toward presence with the people who matter?'},y:{criteria:'You\'re a bit withdrawn and not quite steady. Physical presence without pressure — nearby, quiet, not performing.',pick:'Can you be present without it costing more than you have?'},r:{criteria:'You\'re dysregulated. Going into a tense situation from this state makes things worse. Regulate first.',pick:'What do you need before you can safely engage with the people at home?'}},
+      Growth:{g:{criteria:'Protect one slot for something that\'s actually yours — whatever restores or engages you creatively.',pick:'What growth or creative thing will you protect time for today?'},y:{criteria:'Lower-demand creative work — something tactile or absorbing over anything cognitively heavy.',pick:'What\'s a lower-demand creative or growth thing available to you right now?'},r:{criteria:'Deep creative work won\'t land while you\'re dysregulated. Low-stakes tactile work might help regulate, or rest instead.',pick:'Something low-stakes, absorbing, or rest — which fits your state right now?'}},
+      Admin:{g:{criteria:'Clear one or two things from your system. Maintenance mode — not overhaul.',pick:'What\'s the one admin thing most worth clearing right now?'},y:{criteria:'Routine admin — something mechanical and completable. Nothing requiring big decisions.',pick:'Is there a small mechanical admin task that won\'t cost much from where you are?'},r:{criteria:'Routine admin might actually be calming right now — small, mechanical, completable. Or skip it and regulate.',pick:'Routine admin or regulation — which does your system need more?'}},
     },
     build:{
-      base:{g:['What\'s the next action on your most meaningful project? Do that.','Block the time, protect the session, trust the system with the rest','Ambitious but scoped — what actually gets done today?'],y:['Build is available but you\'re not fully steady — be selective','Protect your best work for your clearest hours','One substantial thing; don\'t try to do everything'],r:['You\'re dysregulated — Build is not the right frame right now','Drop to Maintain or Stabilize. Seriously.','Deep work from a dysregulated state is not deep work — it\'s expensive thrashing','Regulate first. The build window will come back.']},
-      Work:{g:['Go deep on the curriculum work or consult project that matters most','Block the time. Close the tabs. This is the session.','One substantial output — something that actually moved'],y:['Deep work is available but your margin is thinner than usual','Protect the session — interruptions will cost more today','One focused thing; don\'t add more to the queue'],r:['Deep work is offline while you\'re dysregulated','You might be tempted to "power through" — don\'t. The output won\'t be worth it.','Work waits. Regulate first.']},
-      Health:{g:['Build something sustainable — a lift cycle, a real meal habit, an actual routine','If Fuel is chronically off, this is the window to address the food thing properly','Something that compounds, not just today\'s checkbox'],y:['Build a health habit — but from a steadier base than right now if possible','A lift is still good even when not fully regulated','Notice if you\'re eating to cope — this is the window to make a different choice'],r:['The body and nervous system need regulation before you build anything','Movement can help — a walk or a drive, something not demanding','Real food. Alone time. Outside if possible.','Build comes after regulate.']},
-      Relationships:{g:['This is the window to actually be present — not just nearby','Presence and groundedness, not performance','A real conversation with your wife. Real floor time with your kid.','You don\'t have to go all in — but lean in a little'],y:['Build is available but you\'re not fully steady — presence over depth','Be there without demanding yourself to go deep. Groundedness is the right level.','Don\'t push into vulnerable territory from this state'],r:['You\'re dysregulated — relational depth is not available right now','Don\'t try to connect from a flooded or shut-down state — it won\'t land','Regulate first: alone time, movement, music, being outside','When you\'re steadier, the relationship will still be there']},
-      Growth:{g:['This is the window — go deep on something that\'s actually yours','Deep math, a real creative session, a home project — protect this time like work time','Start the thing. Finish the thing. It counts.'],y:['Creative work is available but you\'re not fully steady','Minis or something tactile might be more accessible than deep math today','Either is real growth — choose what fits your actual state'],r:['Demanding creative work won\'t go well right now — don\'t set yourself up to feel worse','Low-stakes tactile work might help regulate — minis, something with your hands','That\'s not failing the build agenda. That\'s appropriate triage.']},
-      Admin:{g:['Sort the backlog properly — not just patch it','Set up a system that removes future drag','Tackle the thing you\'ve been putting off — this is the window'],y:['Admin is probably fine even when not fully steady — it\'s often lower-demand','Clear things; set up something that reduces friction','Don\'t tackle anything requiring big decisions or long-horizon thinking'],r:['Routine admin might be the most accessible thing right now','Small, mechanical, completable','Don\'t make big financial or logistical decisions while dysregulated — those can wait']},
+      base:{g:{criteria:'Your next move should be your most meaningful project. Block the time, protect the session. Ambitious but scoped.',pick:'What\'s the next action on your most meaningful project?'},y:{criteria:'Build is available but your margin is thinner than usual. Pick one substantial thing and protect it.',pick:'What\'s the one most meaningful thing you can actually complete today?'},r:{criteria:'You\'re dysregulated — Build is not the right frame. Deep work from this state is expensive thrashing. You have permission to not be productive today.',pick:'What will help you regulate? Drop to Stabilize or Maintain.'}},
+      Work:{g:{criteria:'Deep work on the thing that matters most. Block the time and protect it.',pick:'What\'s the next action on your most important work project?'},y:{criteria:'Deep work is available but your margin is thinner. Protect the session — interruptions will cost more today.',pick:'What\'s the one focused work task worth protecting time for today?'},r:{criteria:'Work is offline while you\'re dysregulated. You have permission to not be productive today.',pick:'What will help you regulate? That\'s the pick.'}},
+      Health:{g:{criteria:'Build or deepen something sustainable — a habit, a routine, something that compounds.',pick:'What health practice will you build or deepen today?'},y:{criteria:'Build a health habit — movement is good even when not fully regulated. Notice if comfort eating is doing extra work.',pick:'What health thing are you building or maintaining today?'},r:{criteria:'Body and nervous system need attention before you build anything. Movement, real food, alone time, outside.',pick:'What will regulate your body and nervous system right now?'}},
+      Relationships:{g:{criteria:'This is a window for actual presence — not just being nearby. Presence and groundedness, not performance.',pick:'What does genuine presence look like for you today?'},y:{criteria:'Build is available but you\'re not fully steady — presence over depth. Be there without demanding yourself to perform connection.',pick:'What level of presence is honest and sustainable from where you are?'},r:{criteria:'You\'re dysregulated — relational depth isn\'t available right now. Regulate first.',pick:'What do you need to get regulated before you can be present with the people you love?'}},
+      Growth:{g:{criteria:'This is the window — go deep on something that\'s actually yours. Protect this time like work time.',pick:'What\'s the growth or creative thing you\'re going deep on today?'},y:{criteria:'Creative work is available — something tactile might be more accessible than cognitively heavy work. Either counts.',pick:'What creative or growth thing fits your actual state today?'},r:{criteria:'Demanding creative work won\'t go well right now. Low-stakes tactile work might help regulate. Or rest.',pick:'Something low-stakes, tactile, or rest — which fits right now?'}},
+      Admin:{g:{criteria:'Sort the backlog properly — not just patch it. Set up systems. Tackle the thing you\'ve been putting off.',pick:'What\'s the admin thing worth sorting properly today?'},y:{criteria:'Admin is usually fine even when not fully steady — often lower demand. Clear things; nothing requiring big decisions.',pick:'What\'s one admin thing worth clearing today?'},r:{criteria:'Routine admin might be the most accessible thing right now — small, mechanical, completable. Don\'t make big decisions while dysregulated.',pick:'Is there a small mechanical admin task, or do you need to regulate first?'}},
     },
   };
-  const map=G[frame];
+  const map=CHOOSE[frame];
   const areaMap=(priority&&map[priority])?map[priority]:map.base;
-  return{label:frame.charAt(0).toUpperCase()+frame.slice(1),items:areaMap[reg]||areaMap.g};
+  const chosen=(areaMap[reg])||areaMap.g;
+  return{label:frame.charAt(0).toUpperCase()+frame.slice(1),criteria:chosen.criteria,pick:chosen.pick};
 }
 
 function getNowDo(frame,sit,priority){
   const reg=getReg()||'g';
   const sitM=SM[sit]||SM.Calm;
-  const D={
-    stabilize:{
-      base:{g:{Calm:{s:'Smallest action that reduces the most pressure — then stop.',b:'Recovery is the job. Capture what surfaces, close the one loop that matters, protect your capacity.'},Raid:{s:'Triage. Minimum viable response, nothing else.',b:'Low capacity plus external pressure. One move to contain it, then step back.'},Fire:{s:'Handle the fire. Everything else waits.',b:'One action that stops the bleeding. Rest afterward — you\'ll need it.'},Drop:{s:'Something opened up — but you\'re depleted. Capture it, don\'t act yet.',b:'Note it in your system. Come back when you have capacity.'},Recovery:{s:'Ease back in. This is not the day to make up ground.',b:'One gentle next action. Protect sleep, food, and whatever actually restores you.'}},y:{Calm:{s:'Smallest action that reduces pressure — and notice you\'re not quite steady.',b:'Thin margin today. Capture, close the one thing, rest.'},Raid:{s:'Triage, but carefully — you\'re not fully steady either.',b:'Minimum response. Don\'t let the raid and your own state compound each other.'},Fire:{s:'Handle the fire minimally — you\'re not steady.',b:'Stop the escalation. Rest after.'},Drop:{s:'Something opened up but you\'re depleted and not quite steady.',b:'Capture it and leave it alone. Come back when you\'re both rested and regulated.'},Recovery:{s:'Ease back in — even gentler than usual given your regulation state.',b:'One small thing. Notice if you\'re pushing when you shouldn\'t be.'}},r:{Calm:{s:'You\'re dysregulated. That\'s the whole situation.',b:'Alone time and low demand. Movement if you can — a walk, a drive, being outside. Music sometimes helps. Don\'t make decisions right now.'},Raid:{s:'External pressure and dysregulation at the same time. Don\'t try to manage both at once.',b:'Get regulated first. The raid will still be there.'},Fire:{s:'Something is wrong and you\'re dysregulated.',b:'If the fire needs immediate action, do the absolute minimum. Then regulate.'},Drop:{s:'Something opened up but you\'re not in a state to use it.',b:'Note it. Walk away. Come back regulated.'},Recovery:{s:'Coming down from strain and dysregulated. Both at once.',b:'Alone time. Low demand. Movement. Outside.'}}},
-      Relationships:{g:{Calm:{s:'You\'re probably pulling away right now. You don\'t have to fix it — just go home.',b:'Be in the same room as the people who matter. That\'s the whole ask for today.'},Raid:{s:'Under pressure and withdrawing — predictable combination.',b:'You don\'t have to be open right now. Just be present. In the house, in the room, near your kid.'},Fire:{s:'Something is wrong and you\'re pulling back. Go home — you don\'t have to have the conversation today.',b:'Physical presence when things are hard is its own form of showing up.'},Drop:{s:'Something eased. You\'re distant but steady enough to be present.',b:'Low-stakes moment to be near your people without agenda.'},Recovery:{s:'Coming out of strain. Being home, being present — that\'s relational recovery too.',b:'You don\'t need to perform connection. Just stop creating distance.'}},y:{Calm:{s:'You\'re a bit withdrawn and not quite steady. Tread carefully.',b:'Physical presence without pressure. Be nearby, be quiet. Don\'t push into emotional territory.'},Raid:{s:'Under pressure, withdrawn, and not quite steady. A lot at once.',b:'Be in the house if it\'s safe. Don\'t try to repair anything today.'},Fire:{s:'Things are strained and you\'re not steady. Go carefully.',b:'Physical presence only. No big conversations.'},Drop:{s:'Something eased but you\'re not quite steady.',b:'Low-key presence. Don\'t push into more than you have right now.'},Recovery:{s:'Recovering but not quite regulated. Gentle presence.',b:'In the room, near your people. No performance required.'}},r:{Calm:{s:'You\'re dysregulated. Think carefully about whether going home into tension is right from this state.',b:'Regulate first — alone time, movement, being outside, music. When you\'re steadier, then think about what going home looks like.'},Raid:{s:'External pressure, relational strain, and dysregulation. That\'s a lot.',b:'Get regulated before you go anywhere near a hard conversation.'},Fire:{s:'Things are strained and you\'re dysregulated. Don\'t go in hot.',b:'Alone time, movement, outside. Get regulated. Then assess what going home looks like.'},Drop:{s:'Something eased — but you\'re still dysregulated.',b:'Don\'t mistake a lull for the right moment. Get steady first.'},Recovery:{s:'Coming down from strain and dysregulated. Both count.',b:'Regulate before you engage relationally.'}}},
-      Work:{g:{Calm:{s:'Find the open work loop causing the most pressure and close it.',b:'Don\'t try to catch up. Stop the bleed.'},Raid:{s:'Triage your work commitments. One action only.',b:'External pressure plus low capacity. Handle the minimum and step back.'},Fire:{s:'Address the work fire. That\'s the whole job today.',b:'Smallest action that stops escalation. Capture everything else.'},Drop:{s:'There\'s a work opportunity but you\'re not resourced for it.',b:'Capture it clearly. Come back to it recovered.'},Recovery:{s:'One small work task to re-enter gently.',b:'Don\'t ramp up yet.'}},y:{Calm:{s:'One very small work action — you\'re not steady enough for more.',b:'Close the most pressing loop. Capture the rest. Don\'t push.'},Raid:{s:'External pressure and not quite regulated. Minimum work action only.',b:'Don\'t try to handle the raid and complex work simultaneously.'},Fire:{s:'Handle the fire minimally — you\'re not steady.',b:'Stop the escalation. Then rest.'},Drop:{s:'Work opportunity, low capacity, not fully regulated. Leave it.',b:'Capture it. Come back when you\'re both resourced and steady.'},Recovery:{s:'One tiny work re-entry.',b:'Steady and slow.'}},r:{Calm:{s:'Work is offline right now. That\'s correct triage, not failure.',b:'Don\'t make work decisions while dysregulated. The work will be there when you\'re steadier.'},Raid:{s:'Work and external pressure while dysregulated. Don\'t try to manage all three.',b:'Regulate first.'},Fire:{s:'Something is on fire and you\'re dysregulated. Absolute minimum response only.',b:'Stop the escalation. Then regulate.'},Drop:{s:'Work opportunity while dysregulated. Don\'t act on it.',b:'Capture it and walk away. Come back regulated.'},Recovery:{s:'Recovering and dysregulated. Work waits.',b:'Regulate first.'}}},
-      Health:{g:{Calm:{s:'Body first — real food, water, or rest. Not comfort food.',b:'If Fuel is red because you\'ve been using food to cope, that\'s worth acknowledging. The body still needs something better.'},Raid:{s:'Under pressure and under-resourced. Body before response.',b:'Comfort eating under stress is understandable but won\'t help. Give your body something that actually fuels it.'},Fire:{s:'Handle the fire — but eat something real first.',b:'You\'ll address the situation better from a steadier physical base.'},Drop:{s:'An opening arrived. Tend to your body before you try to use it.',b:'Rest, hydrate, eat properly.'},Recovery:{s:'Rest is the work today. Real food is part of that.',b:'Notice if the urge is to comfort eat instead — that\'s the pattern.'}},y:{Calm:{s:'Body first — and notice if the urge to comfort eat is there.',b:'Something real to eat or drink. Your regulation state and your fuel state are probably talking to each other.'},Raid:{s:'Under pressure, body off, not fully regulated. Address the body first.',b:'Real food. Water.'},Fire:{s:'Handle the fire — but don\'t skip food and water.',b:'Your ability to handle the fire depends on your physical state.'},Drop:{s:'Body first, even with an opening available.',b:'Tend to your physical state before you try to use the opportunity.'},Recovery:{s:'Real food and rest — notice if the comfort eating pattern is active.',b:'Recovery means the body and the nervous system.'}},r:{Calm:{s:'Body and nervous system both need attention right now.',b:'Real food — not comfort food even though that\'s what it wants. Movement can help regulation.'},Raid:{s:'Dysregulated, under pressure, body struggling. Address the body and nervous system first.',b:'You cannot respond well from this state.'},Fire:{s:'Something is wrong and both your body and nervous system are struggling.',b:'Minimum fire response, then: real food, movement, alone time, outside.'},Drop:{s:'Opening arrived. Your body and regulation state need to come first.',b:'Tend to yourself.'},Recovery:{s:'Recovery means the nervous system and the body together.',b:'Real food. Movement. Alone time. Outside.'}}},
-      Growth:{g:{Calm:{s:'Growth pauses today. Rest is what the system needs.',b:'The minis, the math, the games — they\'ll wait.'},Raid:{s:'Growth is off the table while managing external pressure at low capacity.',b:'Protect any existing habit minimally.'},Fire:{s:'Handle the fire. Growth resumes when you\'re stable.',b:'Capture any ideas.'},Drop:{s:'A creative opening surfaced but you\'re running low.',b:'Write it down. Return to it recovered.'},Recovery:{s:'Low-stakes creative engagement is valid recovery.',b:'Minis, a game, a short math detour — if it genuinely restores you, it counts.'}},y:{Calm:{s:'Low-stakes creative work only — tactile, absorbing, not demanding.',b:'Minis or something with your hands over deep math.'},Raid:{s:'Growth is mostly off. Low-stakes tactile work only if anything.',b:'Don\'t add creative pressure.'},Fire:{s:'Handle the fire. Creative work waits.',b:'One less thing to manage.'},Drop:{s:'Creative opening but not quite regulated. Low-stakes only.',b:'Something tactile and absorbing if anything.'},Recovery:{s:'Low-stakes creative engagement — minis, something with your hands.',b:'Light creative work; not demanding creative work.'}},r:{Calm:{s:'Demanding creative work will fight you right now. Don\'t force it.',b:'Low-stakes tactile work might actually help regulate — minis, something physical and absorbing. Or just rest.'},Raid:{s:'Growth is off while dysregulated and managing external pressure.',b:'One less thing.'},Fire:{s:'Handle the fire. Creative work waits.',b:'Come back to it when you\'re stable and regulated.'},Drop:{s:'Creative opening but dysregulated. Low-stakes tactile only, or nothing.',b:'Don\'t use creative work as pressure when you\'re already flooded.'},Recovery:{s:'Dysregulated recovery. Low-stakes tactile creative work might help.',b:'Minis, something with your hands — absorbing and not demanding.'}}},
-      Admin:{g:{Calm:{s:'One admin item causing the most hidden stress — close it.',b:'Clearing background noise frees more capacity than almost anything else.'},Raid:{s:'Admin plus external pressure. One action to stop escalation.',b:'Small move to stop something getting worse.'},Fire:{s:'If admin is feeding the fire, address it. Otherwise — fire first.',b:'Stop the escalation.'},Drop:{s:'One small capture-and-clarify.',b:'Nothing more.'},Recovery:{s:'Clear one admin item that\'s been hanging over you.',b:'Small progress reduces background stress. Then rest.'}},y:{Calm:{s:'Routine admin might actually be steadying right now.',b:'Small, mechanical, completable. Nothing requiring big decisions.'},Raid:{s:'One routine admin action — something that reduces friction.',b:'Don\'t tackle anything decision-heavy.'},Fire:{s:'Admin that\'s feeding the fire only. Otherwise leave it.',b:'Mechanical and minimal.'},Drop:{s:'One small admin item. Routine and low-stakes.',b:'Don\'t push into anything requiring decisions.'},Recovery:{s:'Routine admin can be calming. One small thing.',b:'Mechanical. Completable.'}},r:{Calm:{s:'Routine admin might be the most accessible thing right now.',b:'Small, mechanical, completable. Not decision-heavy. This can actually help regulation.'},Raid:{s:'One tiny admin action at most — something mechanical.',b:'Don\'t make decisions. Just close small loops.'},Fire:{s:'Admin only if it\'s feeding the fire and requires no decisions.',b:'Otherwise: regulate.'},Drop:{s:'One mechanical admin item if anything.',b:'Don\'t make financial or logistical decisions while dysregulated.'},Recovery:{s:'Routine admin can be regulating. Small and mechanical.',b:'Not decisions. Just completable tasks.'}}},
-    },
-    maintain:{
-      base:{g:{Calm:{s:'What\'s the next action in your system? Do that.',b:'Steady and consistent. No heroics, no new commitments, no scope creep.'},Raid:{s:'Shore up your commitments and defer what you can.',b:'Don\'t let external pressure pull you off your core work.'},Fire:{s:'Address the situation efficiently, then return to your routine.',b:'Your routine is load-bearing.'},Drop:{s:'Something useful arrived. Fold it in where it fits.',b:'Integrate or defer — those are the options.'},Recovery:{s:'Routine only. This isn\'t the time to ramp up.',b:'Maintain is the right pace for coming back from strain.'}},y:{Calm:{s:'Next action from your system — and notice you\'re not fully steady.',b:'One task. Protect your margin.'},Raid:{s:'Core commitments plus not quite regulated. Keep it very tight.',b:'Minimum viable maintain.'},Fire:{s:'Handle the situation minimally — you\'re not fully steady.',b:'Don\'t let the fire and your regulation state compound each other.'},Drop:{s:'Something arrived but you\'re not fully steady. Integrate carefully or defer.',b:'Don\'t blow up your plan.'},Recovery:{s:'Routine only — even more carefully given your regulation state.',b:'Thin margin. Don\'t push.'}},r:{Calm:{s:'You\'re dysregulated — Maintain is probably too much right now.',b:'Consider dropping to Stabilize. If you stay: one very small thing only, regulate first.'},Raid:{s:'Dysregulated plus external pressure. Maintain is too ambitious.',b:'Drop to Stabilize. Handle the minimum. Regulate.'},Fire:{s:'Dysregulated plus a fire. Absolute minimum.',b:'Stop the escalation. Then regulate.'},Drop:{s:'Something useful arrived but you\'re dysregulated.',b:'Defer it. Come back regulated.'},Recovery:{s:'Dysregulated during recovery. Drop to Stabilize.',b:'Rest and regulation are the whole job right now.'}}},
-      Relationships:{g:{Calm:{s:'You might be a little withdrawn. Physical presence counts.',b:'Be in the room. Sit near your wife. Do a thing with your kid. You don\'t have to be fully open — just not absent.'},Raid:{s:'Under pressure and probably pulling back. Don\'t disappear.',b:'Being in the same space. A moment of contact with your wife. That\'s enough.'},Fire:{s:'Something is hard right now. Don\'t let it make you go quiet.',b:'Stay in the house, stay in the room.'},Drop:{s:'Good capacity. Use some of it to actually be present.',b:'Not performing connection — actually being there.'},Recovery:{s:'Coming back from strain. Be home. Be present.',b:'That\'s the relational maintenance right now.'}},y:{Calm:{s:'A bit withdrawn and not quite steady — notice it.',b:'Physical presence without pressure. Be nearby, quiet. Don\'t push into emotional territory.'},Raid:{s:'Under pressure, withdrawn, not quite regulated.',b:'Just be in the house if it\'s safe.'},Fire:{s:'Things are strained and you\'re not steady.',b:'Physical presence only. No conversations that need you at full capacity.'},Drop:{s:'Something eased and you have some capacity — but not fully steady.',b:'Gentle presence. Don\'t push.'},Recovery:{s:'Recovering but not quite regulated. Gentle presence.',b:'In the room, near your people. No performance required.'}},r:{Calm:{s:'You\'re dysregulated. Think carefully about whether going home into tension is right from this state.',b:'Regulate first — alone time, movement, being outside. When you\'re steadier, think about what going home looks like.'},Raid:{s:'Dysregulated, under pressure, relational strain. A lot at once.',b:'Don\'t go into a difficult home situation from a dysregulated state. Regulate first.'},Fire:{s:'Things are strained and you\'re dysregulated. Don\'t go in hot.',b:'Alone time, movement, outside. Get regulated. Then assess.'},Drop:{s:'Something eased but you\'re still dysregulated.',b:'Don\'t mistake a lull for the right moment. Get steady first.'},Recovery:{s:'Recovering and dysregulated. Relational engagement requires regulation.',b:'Rest, alone time, regulation. Then home.'}}},
-      Work:{g:{Calm:{s:'Next action on the curriculum work or consult — what specifically?',b:'One focused block. Don\'t let the day expand.'},Raid:{s:'Core work first, then deal with the raid.',b:'Your most important work doesn\'t become less important because something else showed up.'},Fire:{s:'Handle the work situation, then return to your routine.',b:'Don\'t let one fire consume everything.'},Drop:{s:'There\'s a work opening. Use it without blowing up your commitments.',b:'Integrate cleanly or defer cleanly.'},Recovery:{s:'Core work, steady pace.',b:'The system knows what\'s next. Trust it.'}},y:{Calm:{s:'Core work only — shorter tasks given you\'re not fully steady.',b:'One concrete next action.'},Raid:{s:'Core work and not quite regulated. Keep the scope very tight.',b:'One action. Then assess.'},Fire:{s:'Handle minimally — you\'re not fully steady.',b:'Don\'t try to do everything.'},Drop:{s:'Work opening but not fully steady. Integrate carefully.',b:'Don\'t expand scope.'},Recovery:{s:'Steady and simple work tasks only.',b:'Nothing complex while you\'re not quite regulated.'}},r:{Calm:{s:'Work is offline while you\'re dysregulated.',b:'Don\'t start complex work from this state.'},Raid:{s:'Dysregulated plus work demands. Work waits.',b:'Regulate first.'},Fire:{s:'Work fire plus dysregulation. Absolute minimum response.',b:'Stop the escalation. Then regulate.'},Drop:{s:'Work opportunity while dysregulated. Leave it.',b:'Capture and defer.'},Recovery:{s:'Recovering and dysregulated. Work waits.',b:'Regulation is the precondition.'}}},
-      Health:{g:{Calm:{s:'Maintain the baseline — lift, cook actual food, sleep.',b:'If Fuel is yellow, check whether you\'re grazing on comfort food.'},Raid:{s:'Under pressure — protect the basics anyway.',b:'A shorter lift counts. Real food matters even when things are hard.'},Fire:{s:'Handle the situation but protect your body basics.',b:'You\'ll handle everything better rested and fed.'},Drop:{s:'Good capacity. Do the health thing you\'ve been deferring.',b:'Use the window.'},Recovery:{s:'Steady health maintenance.',b:'Notice if comfort food is doing extra work right now.'}},y:{Calm:{s:'Maintain the baseline — and notice if comfort eating is doing extra work today.',b:'Real food. Movement.'},Raid:{s:'Under pressure and not fully regulated. Body basics are important.',b:'Real food over comfort food.'},Fire:{s:'Handle the situation and protect your body basics.',b:'Physical state affects how you handle everything.'},Drop:{s:'Good capacity — tend to the health basics.',b:'What does your body actually need versus what it wants?'},Recovery:{s:'Steady maintenance — and notice the comfort food pattern.',b:'Recovery includes what you\'re putting in your body.'}},r:{Calm:{s:'Body and nervous system both need attention.',b:'Real food — not comfort food even if that\'s what it wants. Movement helps regulation.'},Raid:{s:'Dysregulated and under pressure. Body and nervous system before everything else.',b:'You can\'t respond well from here.'},Fire:{s:'Dysregulated with a fire. Address the body and nervous system.',b:'Real food. Movement. Then deal with the fire from a steadier base.'},Drop:{s:'Something opened up but body and regulation need to come first.',b:'Tend to yourself.'},Recovery:{s:'Real recovery includes the nervous system and the body.',b:'Real food. Movement. Alone time. Outside.'}}},
-      Growth:{g:{Calm:{s:'Protect one slot for something that\'s actually yours.',b:'Math, minis, a game session, DnD prep — these aren\'t extras.'},Raid:{s:'Under pressure — protect the one growth slot if you can.',b:'Even a short session keeps the habit alive.'},Fire:{s:'Handle the fire. One small creative act if anything\'s left.',b:'20 minutes counts.'},Drop:{s:'Good capacity. Make real progress on something you care about.',b:'This is a good moment for the thing that keeps getting bumped.'},Recovery:{s:'Gentle engagement with something you love.',b:'Low-stakes creative or physical.'}},y:{Calm:{s:'Low-demand creative work — minis or something tactile over deep math.',b:'Not quite steady enough for cognitively demanding creative work.'},Raid:{s:'Under pressure and not quite regulated. Low-stakes creative only.',b:'Don\'t add creative pressure.'},Fire:{s:'Handle the fire. Small creative act only if energy genuinely remains.',b:'Low-stakes and absorbing.'},Drop:{s:'Creative opening but not fully steady. Tactile or absorbing work.',b:'Minis over math today.'},Recovery:{s:'Low-stakes creative engagement.',b:'Tactile, absorbing, low-demand.'}},r:{Calm:{s:'Demanding creative work won\'t go well right now. Don\'t force it.',b:'Low-stakes tactile work might help regulate — minis, something physical. Or rest.'},Raid:{s:'Growth is off while dysregulated and managing external pressure.',b:'One less thing.'},Fire:{s:'Handle the fire. Creative work waits.',b:'Come back to it when you\'re stable and regulated.'},Drop:{s:'Creative opening but dysregulated. Low-stakes tactile only, or nothing.',b:'Don\'t add creative pressure.'},Recovery:{s:'Dysregulated recovery — low-stakes tactile creative work if anything.',b:'Minis, something with your hands.'}}},
-      Admin:{g:{Calm:{s:'Clear one or two things from your system.',b:'Maintenance mode. Keep the friction low.'},Raid:{s:'Admin plus pressure. Handle what\'s blocking you.',b:'Don\'t let the backlog grow.'},Fire:{s:'Handle the fire. Clear any admin feeding it.',b:'Reduce friction.'},Drop:{s:'Good capacity. Make a real dent.',b:'Set up one thing that reduces future drag.'},Recovery:{s:'Steady admin maintenance.',b:'Clear one item.'}},y:{Calm:{s:'Routine admin — something mechanical and completable.',b:'Routine tasks can be steadying. Nothing decision-heavy.'},Raid:{s:'One routine admin action — something that reduces friction.',b:'Not decision-heavy.'},Fire:{s:'Admin that\'s feeding the fire only.',b:'Mechanical and minimal.'},Drop:{s:'One small routine admin item.',b:'Don\'t push into anything requiring decisions.'},Recovery:{s:'Routine admin can be calming. One small thing.',b:'Mechanical. Completable.'}},r:{Calm:{s:'Routine admin might be the most accessible and calming thing right now.',b:'Small, mechanical, completable. Not decision-heavy.'},Raid:{s:'One tiny mechanical admin action at most.',b:'Don\'t make decisions. Just close small loops.'},Fire:{s:'Admin only if it\'s feeding the fire and requires no decisions.',b:'Otherwise: regulate.'},Drop:{s:'One mechanical admin item if anything.',b:'Don\'t make financial or logistical decisions while dysregulated.'},Recovery:{s:'Routine admin can be regulating. Small and mechanical.',b:'Not decisions. Just completable tasks.'}}},
-    },
-    build:{
-      base:{g:{Calm:{s:'What\'s the next action on your most meaningful project? Do that.',b:'Good conditions. Block the time, protect the session, trust the system with the rest.'},Raid:{s:'Capacity is solid. Do the deep work first — the raid gets whatever\'s left.',b:'Don\'t let external pressure be a reason to do easier things instead.'},Fire:{s:'Address it decisively, then come back to the build agenda.',b:'Don\'t let a fire consume the whole window.'},Drop:{s:'Something opened up and you have full capacity. Go ambitious.',b:'High-leverage moment. Use it.'},Recovery:{s:'Building in a recovery window — sustainable pace.',b:'Meaningful work that doesn\'t require maximum output.'}},y:{Calm:{s:'Build is available but you\'re not fully steady — be selective.',b:'Protect your best work for your clearest hours. One substantial thing.'},Raid:{s:'Solid capacity but not fully steady. Deep work first, carefully.',b:'Protect the session — you have less margin than usual.'},Fire:{s:'Address it, then return to build — but notice you\'re not fully steady.',b:'Don\'t push into more than you have after the fire.'},Drop:{s:'Good opportunity but not fully steady. Use it carefully.',b:'One substantial thing.'},Recovery:{s:'Build at a sustainable pace — and notice your regulation state.',b:'Don\'t push past your margin.'}},r:{Calm:{s:'You\'re dysregulated. Build is not the right frame.',b:'Drop to Maintain or Stabilize. Deep work from a dysregulated state is expensive thrashing. Regulate first.'},Raid:{s:'Dysregulated plus external pressure. Build is off.',b:'Regulate. Handle the minimum. Come back to Build when you\'re steady.'},Fire:{s:'Dysregulated with a fire. Absolute minimum response. Build waits.',b:'Stop the escalation. Regulate. The build window will come back.'},Drop:{s:'Something opened up but you\'re dysregulated. Don\'t try to use it from here.',b:'Capture it. Come back regulated.'},Recovery:{s:'Dysregulated during recovery. Build waits.',b:'Regulate first.'}}},
-      Relationships:{g:{Calm:{s:'This is the window to actually be present — not just nearby.',b:'A real conversation with your wife. Real floor time with your kid. Presence and groundedness, not performance.'},Raid:{s:'Capacity is solid. Don\'t let the pressure be a reason to be distant.',b:'You can hold the external thing and still be present at home.'},Fire:{s:'Something is hard. Being present anyway — that\'s the move.',b:'You don\'t have to have the big conversation. Just be there, grounded, available.'},Drop:{s:'Something opened up. Use the capacity to actually connect.',b:'Present, grounded, with your people. The real thing.'},Recovery:{s:'Coming back from strain with capacity. Some of it belongs at home.',b:'Don\'t spend it all on work.'}},y:{Calm:{s:'Build is available but you\'re not fully steady — presence over depth.',b:'Be there without demanding yourself to go deep. Groundedness is the right level.'},Raid:{s:'Capacity but not fully regulated. Physical presence without pressure.',b:'Don\'t push into deep relational territory.'},Fire:{s:'Something is hard and you\'re not fully steady. Be present but don\'t push.',b:'In the room, available. That\'s enough.'},Drop:{s:'Something opened up but you\'re not fully regulated. Presence without pressure.',b:'Real but not demanding.'},Recovery:{s:'Build connection gently — you\'re not at full regulation.',b:'Presence and groundedness.'}},r:{Calm:{s:'You\'re dysregulated. Relational depth is not available right now.',b:'Don\'t try to connect from a flooded or shut-down state. Regulate first. The relationship will still be there.'},Raid:{s:'Dysregulated plus relational strain. Don\'t go into difficult relational territory.',b:'Regulate first.'},Fire:{s:'Things are strained and you\'re dysregulated. Don\'t go in hot.',b:'Alone time, movement, outside. Get regulated. The repair requires you to be present, not just there.'},Drop:{s:'Something eased but you\'re still dysregulated.',b:'Get steady first.'},Recovery:{s:'Recovering and dysregulated. Relational investment requires regulation.',b:'Rest, alone time, regulation. Then connection.'}}},
-      Work:{g:{Calm:{s:'Go deep on the work that matters most today.',b:'Block the time. Close the tabs. This is the session.'},Raid:{s:'Solid capacity but pressure is incoming. Deep work first.',b:'The most important work gets your best hours.'},Fire:{s:'Address the work situation, then return to the real work.',b:'Don\'t let a fire be an excuse to avoid the hard thing.'},Drop:{s:'A work opportunity arrived and you\'re fully resourced. Use it.',b:'High-leverage moment.'},Recovery:{s:'Build on work in this good window — sustainable pace.',b:'Meaningful progress without tapping out.'}},y:{Calm:{s:'Deep work is available but your margin is thinner — protect the session.',b:'Interruptions will cost more today.'},Raid:{s:'Solid capacity but not fully steady. Deep work first, carefully.',b:'Protect the session.'},Fire:{s:'Address the work situation — then return. Notice you\'re not fully steady.',b:'Don\'t push into more than you have.'},Drop:{s:'Work opportunity but not fully steady. One focused thing.',b:'Don\'t try to do everything.'},Recovery:{s:'Build at a sustainable pace given your regulation state.',b:'Meaningful but not draining.'}},r:{Calm:{s:'Work is offline while you\'re dysregulated.',b:'Deep work from a dysregulated state isn\'t deep work — it\'s expensive. Wait until you\'re regulated.'},Raid:{s:'Dysregulated plus work demands. Work waits.',b:'Regulate first.'},Fire:{s:'Work fire plus dysregulation. Absolute minimum response only.',b:'Stop the escalation. Then regulate.'},Drop:{s:'Work opportunity while dysregulated. Capture and defer.',b:'Come back regulated.'},Recovery:{s:'Recovering and dysregulated. Work waits.',b:'Regulation is the precondition.'}}},
-      Health:{g:{Calm:{s:'Build something sustainable — a lift cycle, a real meal habit, an actual routine.',b:'If Fuel is chronically off, this is the window to address the food thing properly.'},Raid:{s:'Capacity is there. Protect your health practice even under pressure.',b:'Don\'t let the raid erode something you\'re building.'},Fire:{s:'Handle the situation. Then protect the health habit.',b:'This window matters.'},Drop:{s:'Extra capacity — invest some in health.',b:'Good window to start or deepen something that compounds.'},Recovery:{s:'Build gently during this recovery window.',b:'Use the uptick to establish something sustainable.'}},y:{Calm:{s:'Build a health habit — and notice if comfort eating is doing extra work today.',b:'A lift is still good even when not fully regulated. Real food over comfort food — this is the window.'},Raid:{s:'Capacity but not fully steady. Protect your health practice.',b:'Real food. Movement if you can.'},Fire:{s:'Handle the situation and protect the health habit.',b:'Physical state affects everything.'},Drop:{s:'Extra capacity — tend to health, and notice your regulation state.',b:'What does your body actually need versus what it wants?'},Recovery:{s:'Build gently — and notice the comfort food pattern if active.',b:'Recovery includes what you\'re putting in your body.'}},r:{Calm:{s:'Body and nervous system both need attention before you build anything.',b:'Movement can help — a walk, a drive. Real food. Alone time. Outside if possible.'},Raid:{s:'Dysregulated and under pressure. Body and nervous system first.',b:'You can\'t build well from here.'},Fire:{s:'Dysregulated with a fire. Address the nervous system and body first.',b:'Then handle the fire from a steadier base.'},Drop:{s:'Opening arrived but body and regulation need to come first.',b:'Tend to yourself.'},Recovery:{s:'Real recovery includes nervous system and body together.',b:'Real food. Movement. Alone time. Outside.'}}},
-      Growth:{g:{Calm:{s:'This is the window — go deep on something that\'s actually yours.',b:'Deep math, a real creative session, a home project — protect this time like work time. Start the thing. Finish the thing.'},Raid:{s:'Solid capacity despite the noise. Do the creative work first.',b:'The raid gets what\'s left.'},Fire:{s:'Handle the fire, then come back to your growth agenda.',b:'Don\'t lose the window entirely.'},Drop:{s:'Full capacity and an unexpected opening. Go ambitious.',b:'This is the moment. Use it.'},Recovery:{s:'Good recovery window — go deep at a sustainable pace.',b:'Math, minis, a session you\'ve been deferring.'}},y:{Calm:{s:'Creative work is available but you\'re not fully steady.',b:'Minis or something tactile might be more accessible than deep math today.'},Raid:{s:'Capacity but not fully regulated. Creative work — lower-demand given your state.',b:'Tactile over cognitively demanding.'},Fire:{s:'Handle the fire, then light creative work if anything\'s left.',b:'Absorbing and low-demand.'},Drop:{s:'Creative opening but not fully steady. Tactile or absorbing work.',b:'Minis over math today.'},Recovery:{s:'Build growth gently — you\'re not at full regulation.',b:'Tactile or absorbing creative work.'}},r:{Calm:{s:'Demanding creative work won\'t go well right now.',b:'Low-stakes tactile work might help regulate — minis, something with your hands. Or rest.'},Raid:{s:'Growth is off while dysregulated and under pressure.',b:'One less thing.'},Fire:{s:'Handle the fire. Creative work waits.',b:'Come back when stable and regulated.'},Drop:{s:'Creative opening but dysregulated. Low-stakes tactile only or nothing.',b:'Don\'t use creative work as pressure.'},Recovery:{s:'Dysregulated recovery. Low-stakes tactile creative work if anything.',b:'Minis, something with your hands.'}}},
-      Admin:{g:{Calm:{s:'Sort the backlog properly today — not just patch it.',b:'Set up systems. Tackle the thing you\'ve been putting off.'},Raid:{s:'Capacity is solid. Handle the admin that\'s been feeding pressure.',b:'Clearing friction now frees you for what matters.'},Fire:{s:'If admin is fuelling the fire, that\'s where you start.',b:'Then set up something that prevents recurrence.'},Drop:{s:'Good capacity — clear the decks properly.',b:'Systems, not just tasks.'},Recovery:{s:'Build admin systems during this good window.',b:'Sustainable tidying.'}},y:{Calm:{s:'Admin is probably fine even when not fully steady — often lower-demand.',b:'Clear things. Set up something that reduces friction.'},Raid:{s:'Admin plus pressure and not fully regulated. Routine admin only.',b:'Not decision-heavy.'},Fire:{s:'Admin feeding the fire only. Otherwise leave it.',b:'Mechanical and minimal.'},Drop:{s:'Good capacity but not fully steady. Routine admin.',b:'Don\'t push into decision-heavy admin.'},Recovery:{s:'Admin is accessible and often calming.',b:'Mechanical. Completable.'}},r:{Calm:{s:'Routine admin might be the most accessible and calming thing right now.',b:'Small, mechanical, completable. Can actually help regulation.'},Raid:{s:'One tiny mechanical admin action at most.',b:'Don\'t make decisions.'},Fire:{s:'Admin only if it\'s feeding the fire and requires no decisions.',b:'Otherwise: regulate.'},Drop:{s:'One mechanical admin item if anything.',b:'Don\'t make financial or logistical decisions while dysregulated.'},Recovery:{s:'Routine admin can be regulating. Small and mechanical.',b:'Not decisions. Just completable tasks.'}}},
-    },
+  const DO={
+    stabilize:{base:{g:{c:'Low demand. Restorative. That\'s the right kind of move.',e:'Go do it. Re-scan if conditions change.'},y:{c:'Low demand and within your current capacity. That\'s the filter.',e:'Go do it. Come back if things shift.'},r:{c:'Regulation before everything else. Nothing productive needs to happen today.',e:'Go regulate. Put the phone down.'}},Work:{g:{c:'One work action. That\'s all.',e:'Go close that loop. Then stop.'},y:{c:'Small and concrete. That\'s the filter for today.',e:'Go do it. Nothing more after.'},r:{c:'Work can wait. Regulation can\'t.',e:'Go regulate. Work will still be there.'}},Health:{g:{c:'Real fuel, not comfort. Your body needs something that actually helps.',e:'Go tend to your body. That\'s the whole job right now.'},y:{c:'What your body needs, not what it wants as comfort.',e:'Go do it. Body first.'},r:{c:'Body and nervous system. Both need attention.',e:'Go tend to yourself. Nothing else matters right now.'}},Relationships:{g:{c:'Presence without performance. Just being in the room.',e:'Go be there. That\'s enough.'},y:{c:'Physical presence, low pressure. Not emotionally available — just not absent.',e:'Go be nearby. That\'s the move.'},r:{c:'Regulate before you engage. Going in dysregulated makes it worse.',e:'Go get regulated first. Then reassess.'}},Growth:{g:{c:'Low-stakes, restorative. Rest and low-demand creative work both count.',e:'Go do it. No guilt.'},y:{c:'Tactile, absorbing, low-demand.',e:'Go do it. Let it be easy.'},r:{c:'Low-stakes or rest. Both are valid. Neither is failure.',e:'Go. Let it be whatever it needs to be.'}},Admin:{g:{c:'One item. The one that frees up the most mental space.',e:'Go close it. Then stop.'},y:{c:'Small, mechanical, no decisions required.',e:'Go do it. Just that one thing.'},r:{c:'Routine admin or regulation — whichever you picked, that\'s right.',e:'Go. Put the phone down after.'}},},
+    maintain:{base:{g:{c:'One task from your system. No scope creep.',e:'Go do it. Check it off. Re-scan as needed.'},y:{c:'One thing, within your actual capacity. Steady.',e:'Go do it. Don\'t add more.'},r:{c:'If you\'re dysregulated, maintenance can wait. Stabilize first.',e:'Go regulate, or go do the one small thing. That\'s it.'}},Work:{g:{c:'Core work. One focused block. Nothing else.',e:'Go do it. Protect the block.'},y:{c:'One concrete work action. Completable from where you are.',e:'Go do it. Then reassess.'},r:{c:'Work is offline. Regulation first.',e:'Go regulate. Work will keep.'}},Health:{g:{c:'Baseline maintenance. The routine is load-bearing.',e:'Go do it. Consistency is the whole job.'},y:{c:'What your body needs, not comfort. Movement if you can.',e:'Go tend to your body.'},r:{c:'Body and nervous system first.',e:'Go. Body and nervous system before anything else.'}},Relationships:{g:{c:'Present, not performing. In the room.',e:'Go be there. Just that.'},y:{c:'Physical presence, low pressure. Not open — just not absent.',e:'Go be nearby. That\'s enough.'},r:{c:'Regulate before you engage relationally.',e:'Go regulate first. Then reassess.'}},Growth:{g:{c:'One slot for something that\'s actually yours. Protect it.',e:'Go do it. This time is yours.'},y:{c:'Lower-demand creative. Tactile over cognitively demanding.',e:'Go do it. Light counts.'},r:{c:'Tactile work or rest. Whichever regulates you more.',e:'Go. Let it be easy.'}},Admin:{g:{c:'One or two things. Maintenance mode.',e:'Go clear them. Then stop.'},y:{c:'Small and mechanical. No decisions.',e:'Go do it. Just that.'},r:{c:'Routine admin or regulation — one or the other.',e:'Go. Put the phone down after.'}},},
+    build:{base:{g:{c:'Your most meaningful project. Block the time. That\'s what this window is for.',e:'Go do it. Protect the session.'},y:{c:'One substantial thing. Your margin is thinner than usual — don\'t overload the session.',e:'Go do it. Just that one thing.'},r:{c:'You\'re dysregulated. Build waits. You have permission to not be productive today.',e:'Go regulate. The build window will come back.'}},Work:{g:{c:'The most important work. Block the time. Close the tabs.',e:'Go do it. This is the session.'},y:{c:'One focused work thing. Protect it — interruptions cost more today.',e:'Go do it. Protect the block.'},r:{c:'Work is offline. You have permission to not be productive today.',e:'Go regulate. Work will keep.'}},Health:{g:{c:'Something that compounds. Build the habit, not just today\'s checkbox.',e:'Go do it. This is the window.'},y:{c:'A movement habit or health practice — good even when not fully regulated.',e:'Go do it. Use the window.'},r:{c:'Body and nervous system before you build anything.',e:'Go regulate. Build comes after.'}},Relationships:{g:{c:'Actual presence. Grounded, not performing.',e:'Go be with the people you love. Really be there.'},y:{c:'Presence over depth. Be there without demanding yourself to go further than you have.',e:'Go be present. That level is enough.'},r:{c:'Regulate before relational depth. You can\'t connect well from a flooded state.',e:'Go regulate first. The relationship will still be there.'}},Growth:{g:{c:'Deep and yours. Protect this time like work time.',e:'Go do it. Start the thing.'},y:{c:'Creative work at the level your state supports.',e:'Go do it. Whatever level is honest.'},r:{c:'Low-stakes or rest. Don\'t set yourself up to feel worse.',e:'Go. Let it be what it needs to be.'}},Admin:{g:{c:'Sort it properly. Systems, not just tasks.',e:'Go do it. Clear the decks.'},y:{c:'Admin is usually fine even when not fully steady.',e:'Go do it. Nothing decision-heavy.'},r:{c:'Small and mechanical only. No big decisions while dysregulated.',e:'Go do it — or go regulate. One or the other.'}},},
   };
-
-  const frameMap=D[frame];
+  const frameMap=DO[frame];
   const areaMap=(priority&&frameMap[priority])?frameMap[priority]:frameMap.base;
-  const regMap=areaMap[reg]||areaMap.g;
-  const d=regMap[sit]||regMap.Calm;
-  const tag=sit&&sit!=='Calm'?`<span class="sit-tag" style="color:${sitM.c};background:${sitM.bg};border-color:${sitM.bd};">${sit}</span>`:'';
-  return`<div class="do-sum">${d.s}</div><div class="do-sub">${d.b}${tag?'<br>'+tag:''}</div>`;
+  const chosen=(areaMap[reg])||areaMap.g;
+  const tag=sit&&sit!=='Calm'?`<div class="sit-tag" style="color:${sitM.c};background:${sitM.bg};border-color:${sitM.bd};">${sit}</div>`:'';
+  return{confirm:chosen.c,execute:chosen.e,tag,frame};
 }
 
-let mode='now',state={bars:{},areas:{},sit:null,frame:null,priority:null},history=[],currentLogId=null,histTab='trends',trendDays=30;
+let nowState_={bars:{},sit:null,frame:null,priority:null,logId:null,complete:false};
+let horizonState_={areas:{},sit:null,frame:null,priority:null,logId:null,complete:false};
+// reassign
+Object.assign(nowState,nowState_);
+Object.assign(horizonState,horizonState_);
 
-function save(){try{localStorage.setItem(SK,JSON.stringify({mode,state,savedAt:Date.now()}));}catch(e){}}
-function saveHistory(){try{localStorage.setItem(HK,JSON.stringify(history));}catch(e){}}
-
-function isScanComplete(){
-  if(mode==='now') return NOW_BARS.every(b=>state.bars[b])&&!!state.bars[REG_BAR]&&!!state.sit;
-  return HORIZON_AREAS.every(a=>state.areas[a])&&!!state.sit;
+function showView(v){
+  currentView=v;
+  document.getElementById('view-now').style.display=v==='now'?'':'none';
+  document.getElementById('view-horizon').style.display=v==='horizon'?'':'none';
+  document.getElementById('view-hist').style.display=v==='hist'?'':'none';
+  document.getElementById('nav-now').className='nav-btn'+(v==='now'?' active':'');
+  document.getElementById('nav-horizon').className='nav-btn'+(v==='horizon'?' active':'');
+  document.getElementById('nav-hist').className='nav-btn'+(v==='hist'?' active':'');
+  if(v==='hist') renderHistory();
+  if(v==='horizon') buildPeriodBrief();
+  document.querySelectorAll('.rub-row.open').forEach(x=>x.classList.remove('open'));
 }
-function getSuggestedFrame(){
-  if(mode==='now'){
-    const reg=getReg();
-    if(reg==='r') return 'stabilize';
-    const vals=NOW_BARS.map(b=>(state.bars||{})[b]).filter(Boolean);
-    const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;
-    if(red>=2) return 'stabilize';
-    if(reg==='y'||red===1||yel>=3) return 'maintain';
-    return 'build';
+
+function nowScanComplete(){return NOW_BARS.every(b=>nowState.bars[b])&&!!nowState.bars[REG_BAR]&&!!nowState.sit;}
+function nowSuggestedFrame(){
+  const reg=getReg();
+  if(reg==='r') return 'stabilize';
+  const vals=NOW_BARS.map(b=>(nowState.bars||{})[b]).filter(Boolean);
+  const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;
+  if(red>=2) return 'stabilize';
+  if(reg==='y'||red===1||yel>=3) return 'maintain';
+  return 'build';
+}
+function nowFrameRule(){
+  const reg=getReg();
+  if(reg==='r') return 'Regulation is red → Stabilize suggested';
+  const vals=NOW_BARS.map(b=>(nowState.bars||{})[b]).filter(Boolean);
+  const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;
+  if(red>=2) return `${red} bars in red → Stabilize suggested`;
+  if(reg==='y') return 'Regulation limited → Maintain suggested';
+  if(red===1||yel>=3) return 'Limited capacity → Maintain suggested';
+  return 'Conditions good → Build suggested';
+}
+function checkNowCollapse(){
+  if(nowScanComplete()&&!nowState.complete){
+    nowState.complete=true;
+    const f=nowSuggestedFrame();
+    document.getElementById('scan-full-now').style.display='none';
+    document.getElementById('scan-chip-now').style.display='flex';
+    document.getElementById('steps-now').classList.add('visible');
+    renderNowChip();
+    selectFrame(f,true);
+    document.getElementById('frame-rule').textContent=nowFrameRule();
+    autoSaveToLog('now');
+    saveNowState();
   }
-  const vals=Object.values(state.areas||{});
+}
+function expandScan(mode){
+  if(mode==='now'){
+    nowState.complete=false;
+    document.getElementById('scan-full-now').style.display='';
+    document.getElementById('scan-chip-now').style.display='none';
+    document.getElementById('steps-now').classList.remove('visible');
+  } else {
+    horizonState.complete=false;
+    document.getElementById('scan-full-horizon').style.display='';
+    document.getElementById('scan-chip-horizon').style.display='none';
+    document.getElementById('steps-horizon').classList.remove('visible');
+  }
+}
+function renderNowChip(){
+  const el=document.getElementById('chip-pips-now');
+  const vals=[...NOW_BARS,REG_BAR].map(b=>nowState.bars[b]);
+  const pips=vals.map(v=>`<div class="pip" style="background:${CM[v]||'#5a5f78'};"></div>`).join('');
+  const s=nowState.sit,m2=s?SM[s]:null;
+  el.innerHTML=pips+(s?`<span class="sit-badge" style="color:${m2.c};background:${m2.bg};border-color:${m2.bd};">${s}</span>`:'');
+}
+function buildNowBars(){buildBarSection('bars-cond',NOW_BARS,'now');buildBarSection('bars-reg',[REG_BAR],'now');renderSits('now');}
+function selectFrame(f,auto){
+  nowState.frame=f;
+  ['stabilize','maintain','build'].forEach(m=>{document.getElementById('fc-'+m).className='fc '+m+(f===m?' active':'');});
+  renderNowGuidance();renderNowDo();
+  const entry=history.find(e=>e.id===nowState.logId);
+  if(entry){entry.frame=f;saveHistory();}
+  if(!auto)saveNowState();
+}
+function renderNowGuidance(){
+  const box=document.getElementById('gbox');
+  if(!nowState.frame){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Select a mode above.</div>';return;}
+  const lh=getLastHorizon();
+  const priority=lh?lh.priority:null;
+  const d=getNowGuidance(nowState.frame,priority);
+  box.innerHTML=`<div class="gmode ${nowState.frame}">${d.label}</div><div class="criteria">${d.criteria}</div><div class="pick-prompt">${d.pick}</div>`;
+}
+function renderNowDo(){
+  const box=document.getElementById('do-box');
+  if(!nowState.frame){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Complete the steps above.</div>';return;}
+  const lh=getLastHorizon();
+  const priority=lh?lh.priority:null;
+  const d=getNowDo(nowState.frame,nowState.sit,priority);
+  box.innerHTML=`<div class="do-sub">${d.confirm}${d.tag?'<br>'+d.tag:''}</div><div class="execute-prompt ${d.frame}">${d.execute}</div>`;
+}
+function resetScan(mode){
+  if(mode==='now'){
+    nowState={bars:{},sit:null,frame:null,priority:null,logId:null,complete:false};
+    document.getElementById('scan-full-now').style.display='';
+    document.getElementById('scan-chip-now').style.display='none';
+    document.getElementById('steps-now').classList.remove('visible');
+    document.getElementById('frame-rule').textContent='';
+    document.getElementById('note-input').value='';
+    document.getElementById('save-note-btn').textContent='Save note';
+    document.getElementById('save-note-btn').className='save-note-btn';
+    ['stabilize','maintain','build'].forEach(m=>{document.getElementById('fc-'+m).className='fc '+m;});
+    buildNowBars();renderNowGuidance();renderNowDo();saveNowState();
+  } else {
+    horizonState={areas:{},sit:null,frame:null,priority:null,logId:null,complete:false};
+    document.getElementById('scan-full-horizon').style.display='';
+    document.getElementById('scan-chip-horizon').style.display='none';
+    document.getElementById('steps-horizon').classList.remove('visible');
+    document.getElementById('hframe-rule').textContent='';
+    document.getElementById('hnote-input').value='';
+    document.getElementById('hsave-note-btn').textContent='Save note';
+    document.getElementById('hsave-note-btn').className='save-note-btn';
+    ['stabilize','maintain','build'].forEach(m=>{document.getElementById('hfc-'+m).className='fc '+m;});
+    buildHorizonBars();renderHorizonGuidance();renderHorizonDo();saveHorizonState();
+  }
+}
+
+function horizonScanComplete(){return HORIZON_AREAS.every(a=>horizonState.areas[a])&&!!horizonState.sit;}
+function horizonSuggestedFrame(){
+  const vals=Object.values(horizonState.areas||{});
   const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;
   return red>=2?'stabilize':(red===1||yel>=3)?'maintain':'build';
 }
-function getSuggestedPriority(){
-  if(mode==='now') return null;
-  const areas=state.areas||{};const order=['r','y','g'];let best=null,bestRank=99;
+function horizonSuggestedPriority(){
+  const areas=horizonState.areas||{};const order=['r','y','g'];let best=null,bestRank=99;
   HORIZON_AREAS.forEach(a=>{const rank=order.indexOf(areas[a]);if(rank<bestRank){bestRank=rank;best=a;}});
   return best;
 }
-function getFrameRuleText(){
-  if(mode==='now'){
-    const reg=getReg();
-    if(reg==='r') return 'Regulation is red → Stabilize suggested';
-    const vals=NOW_BARS.map(b=>(state.bars||{})[b]).filter(Boolean);
-    const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;
-    if(red>=2) return `${red} bars in red → Stabilize suggested`;
-    if(reg==='y') return 'Regulation limited → Maintain suggested';
-    if(red===1||yel>=3) return 'Limited capacity → Maintain suggested';
-    return 'Conditions good → Build suggested';
-  }
-  const vals=Object.values(state.areas||{});
+function horizonFrameRule(){
+  const vals=Object.values(horizonState.areas||{});
   const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;
   return red>=2?`${red} areas neglected → Stabilize suggested`:(red===1||yel>=3)?'Several areas slipping → Maintain suggested':'Areas mostly tended → Build suggested';
 }
-function checkAndCollapse(){
-  if(isScanComplete()){
-    document.getElementById('scan-full').style.display='none';
-    document.getElementById('scan-chip').style.display='flex';
-    document.getElementById('compact-steps').classList.add('visible');
-    renderChip();
-    state.priority=getSuggestedPriority();
-    const f=getSuggestedFrame();
-    selectFrame(f,true);
-    document.getElementById('frame-rule').textContent=getFrameRuleText();
-    renderPriorityArea();
-    autoSaveToLog();
+function checkHorizonCollapse(){
+  if(horizonScanComplete()&&!horizonState.complete){
+    horizonState.complete=true;
+    horizonState.priority=horizonSuggestedPriority();
+    const f=horizonSuggestedFrame();
+    document.getElementById('scan-full-horizon').style.display='none';
+    document.getElementById('scan-chip-horizon').style.display='flex';
+    document.getElementById('steps-horizon').classList.add('visible');
+    renderHorizonChip();
+    selectHFrame(f,true);
+    document.getElementById('hframe-rule').textContent=horizonFrameRule();
+    renderHorizonPriorityArea();
+    autoSaveToLog('horizon');
+    saveHorizonState();
   }
 }
-function expandScan(){
-  document.getElementById('scan-full').style.display='';
-  document.getElementById('scan-chip').style.display='none';
-  document.getElementById('compact-steps').classList.remove('visible');
-}
-function renderChip(){
-  const el=document.getElementById('chip-pips');
-  const items=mode==='now'?[...NOW_BARS,REG_BAR]:HORIZON_AREAS;
-  const sk=mode==='now'?'bars':'areas';
-  const vals=items.map(b=>state[sk][b]);
+function renderHorizonChip(){
+  const el=document.getElementById('chip-pips-horizon');
+  const vals=HORIZON_AREAS.map(a=>horizonState.areas[a]);
   const pips=vals.map(v=>`<div class="pip" style="background:${CM[v]||'#5a5f78'};"></div>`).join('');
-  const s=state.sit,m2=s?SM[s]:null;
+  const s=horizonState.sit,m2=s?SM[s]:null;
   el.innerHTML=pips+(s?`<span class="sit-badge" style="color:${m2.c};background:${m2.bg};border-color:${m2.bd};">${s}</span>`:'');
 }
-function renderPriorityArea(){
-  const box=document.getElementById('priority-area-box');
-  if(mode==='now'||!state.priority||!state.frame){box.style.display='none';return;}
-  const col=CM[state.areas[state.priority]||'y'];
+function renderHorizonPriorityArea(){
+  const box=document.getElementById('hpriority-area-box');
+  if(!horizonState.priority||!horizonState.frame){box.style.display='none';return;}
+  const col=CM[horizonState.areas[horizonState.priority]||'y'];
   box.style.display='block';
-  box.innerHTML=`<div class="priority-area"><div class="priority-label">Priority area</div><div style="font-weight:500;color:${col};font-size:12px;">▸ ${state.priority}</div></div>`;
+  box.innerHTML=`<div class="priority-area"><div class="priority-label">Priority area</div><div style="font-weight:500;color:${col};font-size:12px;">▸ ${horizonState.priority}</div></div>`;
+}
+function buildHorizonBars(){buildBarSection('bars-areas',HORIZON_AREAS,'horizon');renderSits('horizon');}
+function selectHFrame(f,auto){
+  horizonState.frame=f;
+  ['stabilize','maintain','build'].forEach(m=>{document.getElementById('hfc-'+m).className='fc '+m+(f===m?' active':'');});
+  renderHorizonGuidance();renderHorizonDo();renderHorizonPriorityArea();
+  const entry=history.find(e=>e.id===horizonState.logId);
+  if(entry){entry.frame=f;saveHistory();}
+  if(!auto)saveHorizonState();
+}
+function renderHorizonGuidance(){
+  const box=document.getElementById('hgbox');
+  if(!horizonState.frame){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Select a mode above.</div>';return;}
+  const priority=horizonState.priority||'default';
+  const HGUID={
+    stabilize:{Work:{criteria:'Find the one work commitment creating the most pressure and address it. No new projects. Capture everything else.',pick:'What\'s the one work thing you\'re actually doing this period?'},Health:{criteria:'Health before productivity this period. Real food, sleep, movement.',pick:'What\'s the one health basic most needing attention this period?'},Relationships:{criteria:'You might be withdrawing. You don\'t have to fix anything. Engage when you\'re regulated enough to be present — not before.',pick:'What\'s the smallest move toward presence you can make this period?'},Growth:{criteria:'Growth pauses this period. Protect any existing habit minimally. Rest is part of the recovery.',pick:'What existing creative habit can you protect, even minimally?'},Admin:{criteria:'The admin item you\'ve been putting off is probably the one to do. Stop the bleed — not a full tidy.',pick:'What\'s the one admin thing that would most reduce your background stress?'},default:{criteria:'Protect the basics. No expansion. Identify what\'s most destabilising and address that first.',pick:'What\'s the one thing most destabilising your life right now?'}},
+    maintain:{Work:{criteria:'Core work only — whatever\'s most important in your system. One focused block. No scope creep.',pick:'What\'s the core work focus for this period?'},Health:{criteria:'Maintain the routine — the things that keep you functional. Sleep, food, movement.',pick:'What health baseline are you committed to maintaining this period?'},Relationships:{criteria:'Physical presence is a form of connection even when you\'re not fully open. You don\'t have to be emotionally available — just not absent.',pick:'What does showing up look like for you this period?'},Growth:{criteria:'Protect one slot for something that\'s actually yours — whatever restores or engages you creatively.',pick:'What growth or creative thing are you protecting time for this period?'},Admin:{criteria:'Clear one or two things. Maintenance mode, not overhaul.',pick:'What\'s the one admin thing most worth clearing this period?'},default:{criteria:'Hold the line across all areas. Routine and consistency over ambition. No new commitments without something coming off.',pick:'What\'s your focus for holding the line this period?'}},
+    build:{Work:{criteria:'Go deep on the work that matters most. Block the time, protect it. One substantial output this period.',pick:'What\'s the most important work project you\'re going deep on this period?'},Health:{criteria:'Build something sustainable — a habit, a routine, something that compounds.',pick:'What health habit are you building or deepening this period?'},Relationships:{criteria:'This is a window for actual presence — not just being nearby. Presence and groundedness, not performance.',pick:'What does meaningful presence look like for you this period?'},Growth:{criteria:'Go deep on something that\'s actually yours. Protect this time like work time.',pick:'What are you going deep on this period?'},Admin:{criteria:'Sort the backlog properly. Set up systems that remove future drag. Tackle the thing you\'ve been putting off.',pick:'What admin thing are you sorting properly this period?'},default:{criteria:'This is a build period. Pick one area and go deeper. Ambitious and scoped.',pick:'What are you building this period?'}},
+  };
+  const d=HGUID[horizonState.frame][priority]||HGUID[horizonState.frame].default;
+  const label=horizonState.priority?`${horizonState.frame.charAt(0).toUpperCase()+horizonState.frame.slice(1)} · ${horizonState.priority}`:`${horizonState.frame.charAt(0).toUpperCase()+horizonState.frame.slice(1)}`;
+  box.innerHTML=`<div class="gmode ${horizonState.frame}">${label}</div><div class="criteria">${d.criteria}</div><div class="pick-prompt">${d.pick}</div>`;
+}
+function renderHorizonDo(){
+  const box=document.getElementById('hdo-box');
+  if(!horizonState.frame){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Complete the steps above.</div>';return;}
+  const fc=FC2[horizonState.frame];
+  const modeWord=horizonState.frame.charAt(0).toUpperCase()+horizonState.frame.slice(1);
+  const sit=horizonState.sit||'Calm',sitM=SM[sit];
+  const intentionText=horizonState.priority?`<strong style="color:${fc.c};">${modeWord}</strong> period. Priority: <strong style="color:${CM[horizonState.areas[horizonState.priority]||'y']};">${horizonState.priority}</strong>.`:`<strong style="color:${fc.c};">${modeWord}</strong> period.`;
+  const executeText=horizonState.frame==='build'?'Take this to your planner. What\'s the next action on your priority project?':horizonState.frame==='maintain'?'Take this to your planner. What are you protecting this period?':'Take this to your planner. What\'s the one thing most destabilising right now?';
+  const tag=horizonState.sit&&horizonState.sit!=='Calm'?`<div class="sit-tag" style="color:${sitM.c};background:${sitM.bg};border-color:${sitM.bd};">${horizonState.sit}</div>`:'';
+  box.innerHTML=`<div class="do-sub">${intentionText}${tag?'<br>'+tag:''}</div><div class="execute-prompt ${horizonState.frame}">${executeText}</div>`;
+}
+
+function buildBarSection(cid,items,stateKey){
+  const el=document.getElementById(cid);el.innerHTML='';
+  items.forEach(name=>{
+    const rid='rub-'+stateKey+'-'+name.replace(/\s+/g,'');
+    const wrap=document.createElement('div');
+    wrap.innerHTML=`<div class="bar-row"><div class="bar-name-wrap"><span class="bar-name">${name}</span><button class="info-btn" id="ib-${rid}">?</button></div><div class="tls" id="tls-${stateKey}-${name.replace(/\s+/g,'')}"></div></div><div class="rub-row" id="${rid}">${makeRub(name)}</div>`;
+    el.appendChild(wrap);
+    document.getElementById('ib-'+rid).addEventListener('click',function(e){
+      e.stopPropagation();
+      const r2=document.getElementById(rid),wasOpen=r2.classList.contains('open');
+      document.querySelectorAll('.rub-row.open').forEach(x=>x.classList.remove('open'));
+      if(!wasOpen)r2.classList.add('open');
+    });
+    refreshTL(name,stateKey);
+  });
+}
+function refreshTL(name,stateKey){
+  const el=document.getElementById('tls-'+stateKey+'-'+name.replace(/\s+/g,''));
+  if(!el)return;el.innerHTML='';
+  ['r','y','g'].forEach(c=>{
+    const isNow=stateKey==='now';
+    const cur=isNow?(nowState.bars||{})[name]:(horizonState.areas||{})[name];
+    const div=document.createElement('div');div.className='tl '+c+(cur===c?' sel':'');div.innerHTML='<div class="tldot"></div>';
+    div.addEventListener('click',function(){
+      if(isNow){if(!nowState.bars)nowState.bars={};nowState.bars[name]=c;refreshTL(name,stateKey);checkNowCollapse();saveNowState();}
+      else{if(!horizonState.areas)horizonState.areas={};horizonState.areas[name]=c;refreshTL(name,stateKey);checkHorizonCollapse();saveHorizonState();}
+    });
+    el.appendChild(div);
+  });
+}
+function renderSits(mode){
+  const el=document.getElementById('sit-row-'+mode);
+  const cur=mode==='now'?nowState.sit:horizonState.sit;
+  el.innerHTML=SITS.map(s=>`<button class="sit-btn${cur===s?' sel':''}" id="sit-${mode}-${s}">${s}</button>`).join('');
+  SITS.forEach(s=>{
+    document.getElementById('sit-'+mode+'-'+s).addEventListener('click',function(){
+      if(mode==='now'){nowState.sit=s;renderSits('now');renderNowDo();checkNowCollapse();saveNowState();}
+      else{horizonState.sit=s;renderSits('horizon');renderHorizonDo();checkHorizonCollapse();saveHorizonState();}
+    });
+  });
+}
+function makeRub(name){
+  const r=RUB[name];if(!r)return'';
+  return['r','y','g'].map(c=>`<div class="rub-item"><div class="rub-dot" style="background:${CM[c]};"></div><div class="rub-text">${r[c]}</div></div>`).join('');
+}
+function saveNote(){
+  const note=document.getElementById('note-input').value.trim();
+  const entry=history.find(e=>e.id===nowState.logId);
+  if(entry){entry.note=note;saveHistory();}
+  const btn=document.getElementById('save-note-btn');
+  btn.textContent='Saved ✓';btn.className='save-note-btn saved';
+  setTimeout(()=>{btn.textContent='Save note';btn.className='save-note-btn';},2000);
+}
+function saveHNote(){
+  const note=document.getElementById('hnote-input').value.trim();
+  const entry=history.find(e=>e.id===horizonState.logId);
+  if(entry){entry.note=note;saveHistory();}
+  const btn=document.getElementById('hsave-note-btn');
+  btn.textContent='Saved ✓';btn.className='save-note-btn saved';
+  setTimeout(()=>{btn.textContent='Save note';btn.className='save-note-btn';},2000);
+}
+function autoSaveToLog(mode){
+  let entry;
+  if(mode==='now'){
+    entry={id:Date.now(),ts:Date.now(),mode:'now',bars:{...nowState.bars},sit:nowState.sit,frame:nowState.frame,priority:null,note:''};
+    nowState.logId=entry.id;
+  } else {
+    entry={id:Date.now(),ts:Date.now(),mode:'horizon',areas:{...horizonState.areas},sit:horizonState.sit,frame:horizonState.frame,priority:horizonState.priority,note:''};
+    horizonState.logId=entry.id;
+  }
+  history.unshift(entry);
+  if(history.length>500)history=history.slice(0,500);
+  saveHistory();
 }
 function buildPeriodBrief(){
-  const el=document.getElementById('period-brief');
-  if(mode!=='horizon'){el.style.display='none';return;}
+  const el=document.getElementById('period-brief-horizon');
   const cutoff=Date.now()-(30*24*60*60*1000);
   const recent=history.filter(e=>e.ts>=cutoff);
   if(recent.length<3){el.style.display='none';return;}
@@ -407,148 +628,9 @@ function buildPeriodBrief(){
     });
     if(neglected.length){const names=neglected.map(n=>`<strong style="color:${CM[n.severity]};">${n.name}</strong>`).join(', ');lines.push({col:'#9499b0',text:`Areas consistently slipping: ${names}`});}
   }
-  if(recent.length>=3){
-    const sc={};recent.forEach(e=>{if(e.sit&&e.sit!=='Calm')sc[e.sit]=(sc[e.sit]||0)+1;});
-    const top=Object.entries(sc).sort((a,b)=>b[1]-a[1])[0];
-    if(top&&top[1]>=2){const m2=SM[top[0]];lines.push({col:m2.c,text:`Frequent situation: <strong>${top[0]}</strong> (${top[1]} times)`});}
-  }
   if(!lines.length){el.style.display='none';return;}
   el.style.display='block';
   el.innerHTML=`<div class="period-brief"><div class="brief-header">Last 30 days</div><div class="brief-lines">${lines.map(l=>`<div class="brief-line"><div class="brief-line-dot" style="background:${l.col};margin-top:5px;"></div><span>${l.text}</span></div>`).join('')}</div></div>`;
-}
-function autoSaveToLog(){
-  const entry={id:Date.now(),ts:Date.now(),mode,bars:{...state.bars},areas:{...(state.areas||{})},sit:state.sit,frame:state.frame,priority:state.priority,note:''};
-  currentLogId=entry.id;history.unshift(entry);
-  if(history.length>500)history=history.slice(0,500);
-  saveHistory();
-  document.getElementById('save-note-btn').textContent='Save note';
-  document.getElementById('save-note-btn').className='save-note-btn';
-  document.getElementById('note-input').value='';
-}
-function saveNote(){
-  const note=document.getElementById('note-input').value.trim();
-  const entry=history.find(e=>e.id===currentLogId);
-  if(entry){entry.note=note;saveHistory();}
-  const btn=document.getElementById('save-note-btn');
-  btn.textContent='Saved ✓';btn.className='save-note-btn saved';
-  setTimeout(()=>{btn.textContent='Save note';btn.className='save-note-btn';},2000);
-}
-function makeRub(name){
-  const r=RUB[name];if(!r)return'';
-  return['r','y','g'].map(c=>`<div class="rub-item"><div class="rub-dot" style="background:${CM[c]};"></div><div class="rub-text">${r[c]}</div></div>`).join('');
-}
-function buildBarSection(cid,items,sk){
-  const el=document.getElementById(cid);el.innerHTML='';
-  items.forEach(name=>{
-    const rid='rub-'+sk+'-'+name.replace(/\s+/g,'');
-    const wrap=document.createElement('div');
-    wrap.innerHTML=`<div class="bar-row"><div class="bar-name-wrap"><span class="bar-name">${name}</span><button class="info-btn" id="ib-${rid}">?</button></div><div class="tls" id="tls-${sk}-${name.replace(/\s+/g,'')}"></div></div><div class="rub-row" id="${rid}">${makeRub(name)}</div>`;
-    el.appendChild(wrap);
-    document.getElementById('ib-'+rid).addEventListener('click',function(e){
-      e.stopPropagation();
-      const r2=document.getElementById(rid),wasOpen=r2.classList.contains('open');
-      document.querySelectorAll('.rub-row.open').forEach(x=>x.classList.remove('open'));
-      if(!wasOpen)r2.classList.add('open');
-    });
-    refreshTL(name,sk);
-  });
-}
-function refreshTL(name,sk){
-  const el=document.getElementById('tls-'+sk+'-'+name.replace(/\s+/g,''));
-  if(!el)return;el.innerHTML='';
-  ['r','y','g'].forEach(c=>{
-    const cur=state[sk]&&state[sk][name];
-    const div=document.createElement('div');div.className='tl '+c+(cur===c?' sel':'');div.innerHTML='<div class="tldot"></div>';
-    div.addEventListener('click',function(){
-      if(!state[sk])state[sk]={};state[sk][name]=c;
-      refreshTL(name,sk);checkAndCollapse();save();
-    });
-    el.appendChild(div);
-  });
-}
-function buildAllBars(){
-  if(mode==='now'){buildBarSection('bars-cond',NOW_BARS,'bars');buildBarSection('bars-reg',[REG_BAR],'bars');}
-  else{buildBarSection('bars-areas',HORIZON_AREAS,'areas');}
-  renderSits();
-}
-function renderSits(){
-  document.getElementById('sit-row').innerHTML=SITS.map(s=>`<button class="sit-btn${state.sit===s?' sel':''}" id="sit-${s}">${s}</button>`).join('');
-  SITS.forEach(s=>{document.getElementById('sit-'+s).addEventListener('click',function(){state.sit=s;renderSits();renderDo();checkAndCollapse();save();});});
-}
-function syncNav(){
-  const scanVisible=document.getElementById('view-scan').style.display!=='none';
-  document.getElementById('nav-now').className='nav-btn'+(mode==='now'&&scanVisible?' active':'');
-  document.getElementById('nav-horizon').className='nav-btn'+(mode==='horizon'&&scanVisible?' active':'');
-  document.getElementById('nav-hist').className='nav-btn'+(!scanVisible?' active':'');
-  document.getElementById('now-section').style.display=mode==='now'?'':'none';
-  document.getElementById('horizon-section').style.display=mode==='horizon'?'':'none';
-}
-function showView(v){
-  document.getElementById('view-scan').style.display=v==='scan'?'':'none';
-  document.getElementById('view-hist').style.display=v==='hist'?'':'none';
-  syncNav();if(v==='hist')renderHistory();
-}
-function setMode(m){
-  mode=m;state={bars:{},areas:{},sit:null,frame:null,priority:null};
-  document.getElementById('restore-bar').style.display='none';
-  document.getElementById('frame-rule').textContent='';
-  document.getElementById('priority-area-box').style.display='none';
-  expandScan();syncNav();buildAllBars();renderGuidance();renderDo();buildPeriodBrief();save();
-}
-function selectFrame(f,auto){
-  state.frame=f;
-  ['stabilize','maintain','build'].forEach(m2=>{document.getElementById('fc-'+m2).className='fc '+m2+(f===m2?' active':'');});
-  renderGuidance();renderDo();renderPriorityArea();
-  const entry=history.find(e=>e.id===currentLogId);
-  if(entry){entry.frame=f;saveHistory();}
-  if(!auto)save();
-}
-function renderGuidance(){
-  const box=document.getElementById('gbox');
-  if(!state.frame){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Select a mode above.</div>';return;}
-  if(mode==='now'){
-    const lh=history.find(e=>e.mode==='horizon')||null;
-    const priority=lh?lh.priority:null;
-    const d=getNowGuidance(state.frame,priority);
-    box.innerHTML=`<div class="gmode ${state.frame}">${d.label}</div><div class="gitems">${d.items.map(i=>`<div class="gitem"><div class="gdot ${state.frame}"></div>${i}</div>`).join('')}</div>`;
-  } else {
-    const priority=state.priority||'default';
-    const HGUID={
-      stabilize:{Work:{items:['Find the one work commitment creating the most pressure and address it','Don\'t try to catch up — stop the bleed','No new projects or commitments this period','Capture everything else; actually leave it in your system']},Health:{items:['Sleep and recovery are the actual priority this period','Real food — not comfort food as a coping mechanism','Don\'t skip basics: food, movement, rest','Health before productivity']},Relationships:{items:['You\'re probably withdrawing — that\'s worth noticing without judgment','You don\'t have to fix anything this period','Go home when you\'re regulated enough to be present','Your wife and kid don\'t need a performance — just you, in the room, not distant']},Growth:{items:['Growth pauses — that\'s okay, not failure','Protect any existing creative habit, even minimally','Capture ideas; come back to them later','Rest is part of the recovery']},Admin:{items:['The admin item you\'ve been putting off is probably the one to do','Stop the bleed — not a full tidy','Smallest action to prevent escalation','The rest goes back in the system']},default:{items:['Protect the basics across all areas','No expansion — stabilise what exists','Identify what\'s most destabilising and address that first','Capture everything else']}},
-      maintain:{Work:{items:['Core work — curriculum, consult, what\'s in your system','One focused block in your best hours','Protect existing commitments; don\'t expand scope']},Health:{items:['Maintain the routine — lift, cook real food, sleep','If Fuel is yellow, check whether comfort food is doing extra work','Consistency is the job — shorter sessions still count']},Relationships:{items:['You might be a little withdrawn — notice it without spiraling','Physical presence is a form of connection even when you\'re not fully open','Be in the room. Sit near your wife. Do a thing with your kid.','You don\'t have to be emotionally available — just not absent']},Growth:{items:['Protect one slot for something that\'s actually yours — math, minis, DnD, a game session','These aren\'t extras — they\'re part of what makes you functional','If it keeps getting bumped, that\'s a planning problem']},Admin:{items:['Clear one or two things — ideally the ones that have been sitting','Maintenance mode, not overhaul','Set up one thing that reduces future friction']},default:{items:['Hold the line across all areas','Routine and consistency over ambition','No new commitments without something coming off','Protect what\'s already working']}},
-      build:{Work:{items:['Go deep on the curriculum work or consult project that matters most','Block the time — protect it like you mean it','One substantial output this period']},Health:{items:['Build something sustainable — a lift cycle, a real meal habit, an actual routine','If Fuel is chronically off, this is the window to address the food thing properly','Something that compounds over time, not just today\'s checkbox']},Relationships:{items:['This is a window — use it to actually be present, not just physically nearby','Presence and groundedness, not performance','A real conversation with your wife. Real floor time with your kid.','You don\'t have to go all in — but lean in a little']},Growth:{items:['Go deep on something that\'s actually yours — deep math, minis, home, a real creative session','Protect this time like work time','Start the thing. Finish the thing. It counts.']},Admin:{items:['Sort the backlog properly — not just patch it','Set up systems that remove future drag','Tackle the thing you\'ve been putting off — this is the window']},default:{items:['This is a build period — use it intentionally','Pick one area and go deeper','Ambitious and scoped — what actually gets done this period?']}},
-    };
-    const d=HGUID[state.frame][priority]||HGUID[state.frame].default;
-    const label=state.priority?`${state.frame.charAt(0).toUpperCase()+state.frame.slice(1)} · ${state.priority}`:`${state.frame.charAt(0).toUpperCase()+state.frame.slice(1)}`;
-    box.innerHTML=`<div class="gmode ${state.frame}">${label}</div><div class="gitems">${d.items.map(i=>`<div class="gitem"><div class="gdot ${state.frame}"></div>${i}</div>`).join('')}</div>`;
-  }
-}
-function renderDo(){
-  const box=document.getElementById('do-box');
-  if(!state.frame){box.innerHTML='<div class="do-sum" style="color:var(--text3);font-weight:400;font-size:12px;">Complete the steps above.</div>';return;}
-  if(mode==='now'){
-    const lh=history.find(e=>e.mode==='horizon')||null;
-    const priority=lh?lh.priority:null;
-    box.innerHTML=getNowDo(state.frame,state.sit,priority);
-  } else {
-    const fc=FC2[state.frame],modeWord=state.frame.charAt(0).toUpperCase()+state.frame.slice(1);
-    const sit=state.sit||'Calm',sitM=SM[sit];
-    const intentionText=state.priority?`This is a <strong style="color:${fc.c};">${modeWord}</strong> period. Priority area: <strong style="color:${CM[state.areas[state.priority]||'y']};">${state.priority}</strong>.`:`This is a <strong style="color:${fc.c};">${modeWord}</strong> period.`;
-    const planNudge=state.frame==='build'?'Take this to your planner. What\'s the next action on your priority project?':state.frame==='maintain'?'Take this to your planner. Protect your routines and hold the line.':'Take this to your planner. What\'s the one thing most destabilising right now?';
-    const tag=state.sit&&state.sit!=='Calm'?`<span class="sit-tag" style="color:${sitM.c};background:${sitM.bg};border-color:${sitM.bd};">${sit}</span>`:'';
-    box.innerHTML=`<div class="do-sum">${intentionText}</div><div class="do-sub">${planNudge}${tag?'<br>'+tag:''}</div>`;
-  }
-}
-function resetAll(){
-  state={bars:{},areas:{},sit:null,frame:null,priority:null};currentLogId=null;
-  document.getElementById('restore-bar').style.display='none';
-  document.getElementById('frame-rule').textContent='';
-  document.getElementById('priority-area-box').style.display='none';
-  document.getElementById('note-input').value='';
-  document.getElementById('save-note-btn').textContent='Save note';
-  document.getElementById('save-note-btn').className='save-note-btn';
-  ['stabilize','maintain','build'].forEach(m2=>{document.getElementById('fc-'+m2).className='fc '+m2;});
-  expandScan();buildAllBars();renderGuidance();renderDo();buildPeriodBrief();save();
 }
 function setHistTab(t){
   histTab=t;
@@ -623,52 +705,40 @@ function renderTrends(){
     });
     el.appendChild(sec3);
   }
-  const sc={};entries.forEach(e=>{if(e.sit)sc[e.sit]=(sc[e.sit]||0)+1;});
-  const stot=Object.values(sc).reduce((a,b)=>a+b,0);
-  if(stot){
-    const sec4=document.createElement('div');sec4.className='trend-section';sec4.innerHTML='<div class="trend-label">Situation breakdown</div>';
-    SITS.forEach(s=>{
-      if(!sc[s])return;const pct=Math.round(sc[s]/stot*100),m2=SM[s];
-      sec4.innerHTML+=`<div class="trend-row"><span class="trend-name" style="color:${m2.c};">${s}</span><div style="flex:1;background:var(--bg3);border-radius:3px;height:10px;overflow:hidden;"><div style="width:${pct}%;height:100%;background:${m2.c};opacity:0.7;"></div></div><span class="trend-pct">${pct}%</span></div>`;
-    });
-    el.appendChild(sec4);
-  }
-  const prio={};entries.filter(e=>e.priority).forEach(e=>{prio[e.priority]=(prio[e.priority]||0)+1;});
-  const ptot=Object.values(prio).reduce((a,b)=>a+b,0);
-  if(ptot){
-    const sec5=document.createElement('div');sec5.className='trend-section';sec5.innerHTML='<div class="trend-label">Priority area — Horizon</div>';
-    HORIZON_AREAS.forEach(a=>{
-      if(!prio[a])return;const pct=Math.round(prio[a]/ptot*100);
-      sec5.innerHTML+=`<div class="trend-row"><span class="trend-name">${a}</span><div style="flex:1;background:var(--bg3);border-radius:3px;height:10px;overflow:hidden;"><div style="width:${pct}%;height:100%;background:var(--text3);opacity:0.7;"></div></div><span class="trend-pct">${pct}%</span></div>`;
-    });
-    el.appendChild(sec5);
-  }
 }
-function formatAgo(ts){
-  if(!ts)return'';const d=Math.floor((Date.now()-ts)/1000);
-  if(d<60)return'just now';if(d<3600)return Math.floor(d/60)+'m ago';
-  if(d<86400)return Math.floor(d/3600)+'h ago';return Math.floor(d/86400)+'d ago';
+function saveNowState(){try{localStorage.setItem(SK,JSON.stringify({state:nowState,savedAt:Date.now()}));}catch(e){}}
+function saveHorizonState(){try{localStorage.setItem(HKS,JSON.stringify({state:horizonState,savedAt:Date.now()}));}catch(e){}}
+function saveHistory(){try{localStorage.setItem(HIST,JSON.stringify(history));}catch(e){}}
+function load(key){try{const v=localStorage.getItem(key);return v?JSON.parse(v):null;}catch(e){return null;}}
+function restoreNowUI(){
+  if(nowState.complete){
+    document.getElementById('scan-full-now').style.display='none';
+    document.getElementById('scan-chip-now').style.display='flex';
+    document.getElementById('steps-now').classList.add('visible');
+    renderNowChip();
+    ['stabilize','maintain','build'].forEach(m=>{document.getElementById('fc-'+m).className='fc '+m+(nowState.frame===m?' active':'');});
+    document.getElementById('frame-rule').textContent=nowFrameRule();
+    renderNowGuidance();renderNowDo();
+  } else {buildNowBars();renderNowGuidance();renderNowDo();}
+}
+function restoreHorizonUI(){
+  if(horizonState.complete){
+    document.getElementById('scan-full-horizon').style.display='none';
+    document.getElementById('scan-chip-horizon').style.display='flex';
+    document.getElementById('steps-horizon').classList.add('visible');
+    renderHorizonChip();
+    ['stabilize','maintain','build'].forEach(m=>{document.getElementById('hfc-'+m).className='fc '+m+(horizonState.frame===m?' active':'');});
+    document.getElementById('hframe-rule').textContent=horizonFrameRule();
+    renderHorizonGuidance();renderHorizonDo();renderHorizonPriorityArea();
+  } else {buildHorizonBars();renderHorizonGuidance();renderHorizonDo();}
 }
 function init(){
-  try{
-    const r=localStorage.getItem(SK);
-    if(r){
-      const d=JSON.parse(r);
-      if(d&&d.state){
-        mode=d.mode||'now';state=d.state;
-        document.getElementById('restore-text').textContent=`Restored from last session — ${formatAgo(d.savedAt)}`;
-        document.getElementById('restore-bar').style.display='flex';
-      }
-    }
-    const h=localStorage.getItem(HK);
-    if(h) history=JSON.parse(h)||[];
-  }catch(e){}
-  syncNav();buildAllBars();buildPeriodBrief();
-  if(state.frame)selectFrame(state.frame,true);
-  checkAndCollapse();
-  if('serviceWorker' in navigator){
-    navigator.serviceWorker.register('sw.js').catch(()=>{});
-  }
+  const nowSaved=load(SK),horizonSaved=load(HKS),histSaved=load(HIST);
+  if(histSaved) history=histSaved||[];
+  if(nowSaved&&nowSaved.state) nowState=nowSaved.state;
+  if(horizonSaved&&horizonSaved.state) horizonState=horizonSaved.state;
+  restoreNowUI();restoreHorizonUI();buildPeriodBrief();
+  if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
 }
 init();
 </script>
