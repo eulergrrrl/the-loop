@@ -1,4 +1,4 @@
-const CACHE = 'the-loop-v4';
+const CACHE = 'the-loop-v8b';
 const ASSETS = [
   '/the-loop/',
   '/the-loop/index.html',

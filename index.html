@@ -12,114 +12,111 @@
   <title>The Loop</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #0f1117; --bg2: #1a1d27; --bg3: #222636;
-      --border: rgba(255,255,255,0.1); --border2: rgba(255,255,255,0.18);
-      --text: #e8eaf0; --text2: #9499b0; --text3: #5a5f78;
-      --rm: 8px; --rl: 12px;
-    }
-    html, body { height: 100%; background: var(--bg); }
-    .app { background: var(--bg); color: var(--text); padding: env(safe-area-inset-top, 1.5rem) 1rem 2rem; padding-top: max(env(safe-area-inset-top), 1.5rem); max-width: 640px; margin: 0 auto; min-height: 100vh; font-family: -apple-system, system-ui, sans-serif; }
-    .wordmark { font-size: 11px; font-weight: 500; color: var(--text3); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 1.25rem; }
-    .nav { display: flex; gap: 8px; margin-bottom: 1.5rem; }
-    .nav-btn { flex:1; padding: 8px 0; font-size: 12px; font-weight: 500; border: 0.5px solid var(--border); background: transparent; color: var(--text2); border-radius: var(--rm); cursor: pointer; -webkit-tap-highlight-color: transparent; }
-    .nav-btn.active { background: var(--bg3); color: var(--text); border-color: var(--border2); }
-    .slabel { font-size: 11px; font-weight: 500; color: var(--text3); letter-spacing: .08em; text-transform: uppercase; margin-bottom: .4rem; }
-    .stitle { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: .75rem; }
-    .ssub { font-size: 12px; color: var(--text2); font-weight: 500; margin: .75rem 0 .4rem; }
-    .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
-    .bar-name-wrap { display: flex; align-items: center; gap: 5px; width: 110px; flex-shrink: 0; }
-    .bar-name { font-size: 13px; color: var(--text); }
-    .info-btn { width: 15px; height: 15px; border-radius: 50%; border: 1px solid var(--text3); background: transparent; color: var(--text3); font-size: 9px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 0; font-family: inherit; -webkit-tap-highlight-color: transparent; }
-    .tls { display: flex; gap: 5px; }
-    .tl { width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; -webkit-tap-highlight-color: transparent; }
-    .tl.r { background: rgba(220,38,38,.15); border-color: rgba(220,38,38,.2); }
-    .tl.y { background: rgba(202,138,4,.15); border-color: rgba(202,138,4,.2); }
-    .tl.g { background: rgba(22,163,74,.15); border-color: rgba(22,163,74,.2); }
-    .tl.r.sel { border-color: #f87171; background: rgba(220,38,38,.3); }
-    .tl.y.sel { border-color: #fbbf24; background: rgba(202,138,4,.3); }
-    .tl.g.sel { border-color: #4ade80; background: rgba(22,163,74,.3); }
-    .tldot { width: 10px; height: 10px; border-radius: 50%; }
-    .tl.r .tldot { background: #f87171; }
-    .tl.y .tldot { background: #fbbf24; }
-    .tl.g .tldot { background: #4ade80; }
-    .reg-divider { border: none; border-top: 0.5px solid var(--border); margin: .75rem 0; }
-    .rub-row { display: none; background: var(--bg3); border: 0.5px solid var(--border2); border-radius: var(--rm); padding: 10px 12px; margin-bottom: 6px; }
-    .rub-row.open { display: block; }
-    .rub-item { display: flex; gap: 9px; margin-bottom: 7px; }
-    .rub-item:last-child { margin-bottom: 0; }
-    .rub-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
-    .rub-text { font-size: 11px; color: var(--text2); line-height: 1.6; }
-    .sit-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: .4rem; }
-    .sit-btn { padding: 7px 14px; font-size: 12px; font-weight: 500; border: 0.5px solid var(--border); border-radius: var(--rm); cursor: pointer; background: transparent; color: var(--text2); -webkit-tap-highlight-color: transparent; }
-    .sit-btn.sel { background: var(--bg3); color: var(--text); border-color: var(--border2); }
-    .scan-chip { display: flex; align-items: center; justify-content: space-between; background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--rl); padding: 12px 14px; margin-bottom: 1rem; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-    .scan-chip:hover { border-color: var(--border2); }
-    .chip-label { font-size: 11px; font-weight: 500; color: var(--text3); letter-spacing: .06em; text-transform: uppercase; margin-right: 10px; flex-shrink: 0; }
-    .chip-edit { font-size: 11px; color: var(--text3); white-space: nowrap; }
-    .pip { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
-    .sit-badge { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: var(--rm); border: 0.5px solid; }
-    .compact-steps { display: none; }
-    .compact-steps.visible { display: block; }
-    .cstep { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--rl); padding: 10px 12px; margin-bottom: 8px; }
-    .cstep-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .cstep-num { font-size: 10px; font-weight: 500; color: var(--text3); letter-spacing: .08em; text-transform: uppercase; }
-    .frame-cards-compact { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 6px; }
-    .fc { padding: 10px 6px; border-radius: var(--rm); border: 0.5px solid var(--border); background: var(--bg3); text-align: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-    .fc.active { border-width: 2px; }
-    .fc.stabilize.active { border-color: #f87171; background: rgba(220,38,38,.08); }
-    .fc.maintain.active  { border-color: #fbbf24; background: rgba(202,138,4,.08); }
-    .fc.build.active     { border-color: #4ade80; background: rgba(22,163,74,.08); }
-    .fc-name { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
-    .fc-hint { font-size: 10px; color: var(--text2); line-height: 1.3; }
-    .frame-rule { font-size: 10px; color: var(--text3); margin-top: 6px; font-style: italic; }
-    .priority-area { margin-top: 8px; padding: 8px 10px; border-radius: var(--rm); border: 0.5px solid var(--border2); background: var(--bg3); }
-    .priority-label { color: var(--text3); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; }
-    .gmode { font-size: 12px; font-weight: 500; margin-bottom: 6px; }
-    .gmode.stabilize { color: #f87171; } .gmode.maintain { color: #fbbf24; } .gmode.build { color: #4ade80; }
-    .criteria { font-size: 11px; color: var(--text2); line-height: 1.6; margin-bottom: 8px; }
-    .pick-prompt { font-size: 12px; font-weight: 500; color: var(--text); margin-top: 8px; }
-    .do-sub { font-size: 11px; color: var(--text2); line-height: 1.5; margin-bottom: 8px; }
-    .execute-prompt { font-size: 13px; font-weight: 500; color: var(--text); padding: 10px 12px; background: var(--bg3); border-radius: var(--rm); border-left: 2px solid var(--border2); margin-top: 4px; }
-    .execute-prompt.stabilize { border-color: #f87171; }
-    .execute-prompt.maintain { border-color: #fbbf24; }
-    .execute-prompt.build { border-color: #4ade80; }
-    .sit-tag { display: inline-block; margin-top: 6px; padding: 2px 8px; font-size: 10px; font-weight: 500; border-radius: var(--rm); border: 0.5px solid; }
-    .note-box { margin-top: 8px; }
-    .note-box textarea { width: 100%; background: var(--bg3); border: 0.5px solid var(--border); border-radius: var(--rm); color: var(--text); font-family: inherit; font-size: 13px; padding: 8px 10px; resize: none; outline: none; line-height: 1.5; }
-    .note-box textarea:focus { border-color: var(--border2); }
-    .note-box textarea::placeholder { color: var(--text3); }
-    .btn-row { display: flex; gap: 6px; margin-top: 6px; }
-    .save-note-btn { flex:1; padding: 10px; font-size: 12px; font-weight: 500; border-radius: var(--rm); border: 0.5px solid var(--border2); cursor: pointer; background: transparent; color: var(--text2); -webkit-tap-highlight-color: transparent; }
-    .save-note-btn.saved { color: #4ade80; border-color: rgba(22,163,74,.4); }
-    .rescan-btn { flex:1; padding: 10px; font-size: 12px; font-weight: 500; border-radius: var(--rm); border: 0.5px solid var(--border); cursor: pointer; background: transparent; color: var(--text2); -webkit-tap-highlight-color: transparent; }
-    .hist-entry { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--rl); padding: 12px 14px; margin-bottom: 10px; }
-    .hist-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
-    .hist-date { font-size: 11px; color: var(--text3); }
-    .hist-tag { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: var(--rm); border: 0.5px solid; }
-    .hist-pips { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
-    .hist-note { font-size: 12px; color: var(--text2); margin-top: 8px; padding-top: 8px; border-top: 0.5px solid var(--border); line-height: 1.6; font-style: italic; }
-    .hist-empty { font-size: 13px; color: var(--text3); text-align: center; padding: 3rem 0; }
-    .hist-del { font-size: 10px; color: var(--text3); cursor: pointer; margin-left: auto; background: none; border: none; padding: 2px 6px; border-radius: 4px; -webkit-tap-highlight-color: transparent; }
-    .hist-del:hover { color: #f87171; }
-    .trend-section { margin-bottom: 1.5rem; }
-    .trend-label { font-size: 12px; color: var(--text2); font-weight: 500; margin-bottom: 10px; }
-    .trend-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-    .trend-name { font-size: 12px; color: var(--text2); width: 90px; flex-shrink: 0; }
-    .trend-bars { display: flex; gap: 2px; flex: 1; overflow: hidden; }
-    .trend-cell { flex-shrink: 0; width: 10px; height: 14px; border-radius: 2px; }
-    .trend-pct { font-size: 10px; color: var(--text3); width: 28px; text-align: right; flex-shrink: 0; }
-    .section-toggle { display: flex; gap: 8px; margin-bottom: 1.5rem; }
-    .stoggle-btn { padding: 5px 14px; font-size: 11px; font-weight: 500; border: 0.5px solid var(--border); border-radius: var(--rm); cursor: pointer; background: transparent; color: var(--text2); -webkit-tap-highlight-color: transparent; }
-    .stoggle-btn.active { background: var(--bg3); color: var(--text); border-color: var(--border2); }
-    .trend-window { display: flex; gap: 6px; margin-bottom: 1.25rem; }
-    .tw-btn { padding: 6px 12px; font-size: 11px; border: 0.5px solid var(--border); border-radius: var(--rm); cursor: pointer; background: transparent; color: var(--text3); -webkit-tap-highlight-color: transparent; }
-    .tw-btn.active { border-color: var(--border2); color: var(--text2); background: var(--bg3); }
-    .period-brief { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--rl); padding: 12px 14px; margin-bottom: 1.25rem; }
-    .brief-header { font-size: 10px; font-weight: 500; color: var(--text3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
-    .brief-lines { display: flex; flex-direction: column; gap: 4px; }
-    .brief-line { font-size: 11px; color: var(--text2); line-height: 1.5; display: flex; gap: 6px; align-items: baseline; }
-    .brief-line-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+    :root { --bg:#0f1117;--bg2:#1a1d27;--bg3:#222636;--border:rgba(255,255,255,0.1);--border2:rgba(255,255,255,0.18);--text:#e8eaf0;--text2:#9499b0;--text3:#5a5f78;--rm:8px;--rl:12px; }
+    html,body{height:100%;background:var(--bg);}
+    .app{background:var(--bg);color:var(--text);padding:env(safe-area-inset-top,1.5rem) 1rem 2rem;padding-top:max(env(safe-area-inset-top),1.5rem);max-width:640px;margin:0 auto;min-height:100vh;font-family:-apple-system,system-ui,sans-serif;}
+    .wordmark{font-size:11px;font-weight:500;color:var(--text3);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.25rem;}
+    .nav{display:flex;gap:8px;margin-bottom:1.5rem;}
+    .nav-btn{flex:1;padding:8px 0;font-size:12px;font-weight:500;border:0.5px solid var(--border);background:transparent;color:var(--text2);border-radius:var(--rm);cursor:pointer;-webkit-tap-highlight-color:transparent;}
+    .nav-btn.active{background:var(--bg3);color:var(--text);border-color:var(--border2);}
+    .slabel{font-size:11px;font-weight:500;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.4rem;}
+    .stitle{font-size:18px;font-weight:500;color:var(--text);margin-bottom:.75rem;}
+    .ssub-row{display:flex;align-items:center;gap:6px;margin:.75rem 0 .4rem;}
+    .ssub{font-size:12px;color:var(--text2);font-weight:500;}
+    .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:5px;}
+    .bar-name-wrap{display:flex;align-items:center;gap:5px;width:110px;flex-shrink:0;}
+    .bar-name{font-size:13px;color:var(--text);}
+    .info-btn{width:16px;height:16px;border-radius:50%;border:1px solid var(--text3);background:transparent;color:var(--text3);font-size:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:0;font-family:inherit;-webkit-tap-highlight-color:transparent;}
+    .tls{display:flex;gap:6px;}
+    .tl{width:34px;height:34px;border-radius:50%;border:2px solid transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent;}
+    .tl.r{background:rgba(220,38,38,.15);border-color:rgba(220,38,38,.2);}
+    .tl.y{background:rgba(202,138,4,.15);border-color:rgba(202,138,4,.2);}
+    .tl.g{background:rgba(22,163,74,.15);border-color:rgba(22,163,74,.2);}
+    .tl.r.sel{border-color:#f87171;background:rgba(220,38,38,.3);}
+    .tl.y.sel{border-color:#fbbf24;background:rgba(202,138,4,.3);}
+    .tl.g.sel{border-color:#4ade80;background:rgba(22,163,74,.3);}
+    .tldot{width:10px;height:10px;border-radius:50%;}
+    .tl.r .tldot{background:#f87171;}.tl.y .tldot{background:#fbbf24;}.tl.g .tldot{background:#4ade80;}
+    .reg-divider{border:none;border-top:0.5px solid var(--border);margin:.75rem 0;}
+    .rub-row{display:none;background:var(--bg3);border:0.5px solid var(--border2);border-radius:var(--rm);padding:10px 12px;margin-bottom:6px;}
+    .rub-row.open{display:block;}
+    .rub-item{display:flex;gap:9px;margin-bottom:7px;}.rub-item:last-child{margin-bottom:0;}
+    .rub-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+    .rub-text{font-size:11px;color:var(--text2);line-height:1.6;}
+    .rub-label{font-size:11px;font-weight:600;color:var(--text);margin-bottom:2px;}
+    .sit-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:.4rem;}
+    .sit-btn{padding:8px 14px;font-size:12px;font-weight:500;border:0.5px solid var(--border);border-radius:var(--rm);cursor:pointer;background:transparent;color:var(--text2);-webkit-tap-highlight-color:transparent;}
+    .sit-btn.sel{background:var(--bg3);color:var(--text);border-color:var(--border2);}
+    .scan-chip{display:flex;align-items:center;justify-content:space-between;background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--rl);padding:12px 14px;margin-bottom:1rem;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+    .chip-label{font-size:11px;font-weight:500;color:var(--text3);letter-spacing:.06em;text-transform:uppercase;margin-right:10px;flex-shrink:0;}
+    .chip-edit{font-size:11px;color:var(--text3);white-space:nowrap;}
+    .pip{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+    .sit-badge{font-size:10px;font-weight:500;padding:2px 8px;border-radius:var(--rm);border:0.5px solid;}
+    .compact-steps{display:none;}.compact-steps.visible{display:block;}
+    .cstep{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--rl);padding:10px 12px;margin-bottom:8px;}
+    .cstep-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+    .cstep-num{font-size:10px;font-weight:500;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;}
+    .frame-cards-compact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;}
+    .fc{padding:10px 6px;border-radius:var(--rm);border:0.5px solid var(--border);background:var(--bg3);text-align:center;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+    .fc.active{border-width:2px;}
+    .fc.stabilize.active{border-color:#f87171;background:rgba(220,38,38,.08);}
+    .fc.maintain.active{border-color:#fbbf24;background:rgba(202,138,4,.08);}
+    .fc.build.active{border-color:#4ade80;background:rgba(22,163,74,.08);}
+    .fc-name{font-size:12px;font-weight:500;color:var(--text);margin-bottom:2px;}
+    .fc-hint{font-size:10px;color:var(--text2);line-height:1.3;}
+    .frame-rule{font-size:10px;color:var(--text3);margin-top:6px;font-style:italic;}
+    .priority-picker{margin-top:10px;}
+    .priority-picker-label{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
+    .priority-options{display:flex;flex-direction:column;gap:4px;}
+    .priority-option{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:var(--rm);border:0.5px solid var(--border);background:var(--bg3);cursor:pointer;-webkit-tap-highlight-color:transparent;}
+    .priority-option.sel{border-color:var(--border2);background:var(--bg2);}
+    .priority-option-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+    .priority-option-name{font-size:12px;color:var(--text);flex:1;}
+    .priority-option-check{font-size:11px;color:#4ade80;}
+    .gmode{font-size:12px;font-weight:500;margin-bottom:6px;}
+    .gmode.stabilize{color:#f87171;}.gmode.maintain{color:#fbbf24;}.gmode.build{color:#4ade80;}
+    .criteria{font-size:11px;color:var(--text2);line-height:1.6;margin-bottom:8px;}
+    .pick-prompt{font-size:12px;font-weight:500;color:var(--text);margin-top:8px;}
+    .do-sub{font-size:11px;color:var(--text2);line-height:1.5;margin-bottom:8px;}
+    .execute-prompt{font-size:13px;font-weight:500;color:var(--text);padding:10px 12px;background:var(--bg3);border-radius:var(--rm);border-left:2px solid var(--border2);margin-top:4px;}
+    .execute-prompt.stabilize{border-color:#f87171;}.execute-prompt.maintain{border-color:#fbbf24;}.execute-prompt.build{border-color:#4ade80;}
+    .sit-tag{display:inline-block;margin-top:6px;padding:2px 8px;font-size:10px;font-weight:500;border-radius:var(--rm);border:0.5px solid;}
+    .weekly-focus-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:var(--text3);margin-bottom:1rem;}
+    .weekly-focus-dot{width:6px;height:6px;border-radius:50%;}
+    .note-box{margin-top:8px;}
+    .note-box textarea{width:100%;background:var(--bg3);border:0.5px solid var(--border);border-radius:var(--rm);color:var(--text);font-family:inherit;font-size:13px;padding:8px 10px;resize:none;outline:none;line-height:1.5;}
+    .note-box textarea:focus{border-color:var(--border2);}
+    .note-box textarea::placeholder{color:var(--text3);}
+    .btn-row{display:flex;gap:6px;margin-top:6px;}
+    .save-note-btn{flex:1;padding:10px;font-size:12px;font-weight:500;border-radius:var(--rm);border:0.5px solid var(--border2);cursor:pointer;background:transparent;color:var(--text2);-webkit-tap-highlight-color:transparent;}
+    .save-note-btn.saved{color:#4ade80;border-color:rgba(22,163,74,.4);}
+    .rescan-btn{flex:1;padding:10px;font-size:12px;font-weight:500;border-radius:var(--rm);border:0.5px solid var(--border);cursor:pointer;background:transparent;color:var(--text2);-webkit-tap-highlight-color:transparent;}
+    .hist-entry{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--rl);padding:12px 14px;margin-bottom:10px;}
+    .hist-meta{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;}
+    .hist-date{font-size:11px;color:var(--text3);}
+    .hist-tag{font-size:10px;font-weight:500;padding:2px 8px;border-radius:var(--rm);border:0.5px solid;}
+    .hist-pips{display:flex;gap:4px;flex-wrap:wrap;align-items:center;}
+    .hist-note{font-size:12px;color:var(--text2);margin-top:8px;padding-top:8px;border-top:0.5px solid var(--border);line-height:1.6;font-style:italic;}
+    .hist-empty{font-size:13px;color:var(--text3);text-align:center;padding:3rem 0;}
+    .hist-del{font-size:10px;color:var(--text3);cursor:pointer;margin-left:auto;background:none;border:none;padding:4px 8px;-webkit-tap-highlight-color:transparent;}
+    .trend-section{margin-bottom:1.5rem;}
+    .trend-label{font-size:12px;color:var(--text2);font-weight:500;margin-bottom:10px;}
+    .trend-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+    .trend-name{font-size:12px;color:var(--text2);width:90px;flex-shrink:0;}
+    .trend-bars{display:flex;gap:2px;flex:1;overflow:hidden;}
+    .trend-cell{flex-shrink:0;width:10px;height:14px;border-radius:2px;}
+    .trend-pct{font-size:10px;color:var(--text3);width:28px;text-align:right;flex-shrink:0;}
+    .section-toggle{display:flex;gap:8px;margin-bottom:1.5rem;}
+    .stoggle-btn{padding:6px 14px;font-size:11px;font-weight:500;border:0.5px solid var(--border);border-radius:var(--rm);cursor:pointer;background:transparent;color:var(--text2);-webkit-tap-highlight-color:transparent;}
+    .stoggle-btn.active{background:var(--bg3);color:var(--text);border-color:var(--border2);}
+    .trend-window{display:flex;gap:6px;margin-bottom:1.25rem;}
+    .tw-btn{padding:6px 12px;font-size:11px;border:0.5px solid var(--border);border-radius:var(--rm);cursor:pointer;background:transparent;color:var(--text3);-webkit-tap-highlight-color:transparent;}
+    .tw-btn.active{border-color:var(--border2);color:var(--text2);background:var(--bg3);}
+    .period-brief{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--rl);padding:12px 14px;margin-bottom:1.25rem;}
+    .brief-header{font-size:10px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;}
+    .brief-lines{display:flex;flex-direction:column;gap:4px;}
+    .brief-line{font-size:11px;color:var(--text2);line-height:1.5;display:flex;gap:6px;align-items:baseline;}
+    .brief-line-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:4px;}
   </style>
 </head>
 <body>
@@ -130,9 +127,8 @@
     <button class="nav-btn" id="nav-horizon" onclick="showView('horizon')">Horizon</button>
     <button class="nav-btn" id="nav-hist" onclick="showView('hist')">History</button>
   </div>
-
   <div id="view-now">
-    <div id="period-brief-now" style="display:none;"></div>
+    <div id="weekly-focus-badge" style="display:none;" class="weekly-focus-badge"></div>
     <div id="scan-chip-now" class="scan-chip" style="display:none;" onclick="expandScan('now')">
       <span class="chip-label">Scan</span>
       <div id="chip-pips-now" style="flex:1;display:flex;align-items:center;gap:6px;flex-wrap:wrap;"></div>
@@ -141,12 +137,18 @@
     <div id="scan-full-now">
       <div class="slabel">Scan</div>
       <div class="stitle">What's true right now?</div>
-      <div class="ssub">Condition bars</div>
-      <div style="height:8px;"></div>
+      <div style="height:4px;"></div>
       <div id="bars-cond"></div>
       <hr class="reg-divider">
       <div id="bars-reg"></div>
-      <div class="ssub" style="margin-top:1rem;">Situation</div>
+      <div class="ssub-row" style="margin-top:1rem;"><span class="ssub">Situation</span><button class="info-btn" id="sit-info-btn-now">?</button></div>
+      <div class="rub-row" id="sit-rub-now">
+        <div class="rub-item"><div class="rub-dot" style="background:#4ade80;"></div><div><div class="rub-label">Calm</div><div class="rub-text">Normal operating conditions. Nothing unusual demanding your attention.</div></div></div>
+        <div class="rub-item"><div class="rub-dot" style="background:#fbbf24;"></div><div><div class="rub-label">Raid</div><div class="rub-text">External pressure incoming or active. Demands are high but you're not in crisis.</div></div></div>
+        <div class="rub-item"><div class="rub-dot" style="background:#f87171;"></div><div><div class="rub-label">Fire</div><div class="rub-text">Something is actively wrong and needs immediate handling. Crisis mode.</div></div></div>
+        <div class="rub-item"><div class="rub-dot" style="background:#60a5fa;"></div><div><div class="rub-label">Drop</div><div class="rub-text">An unexpected opening or ease. Pressure has lifted, capacity has appeared.</div></div></div>
+        <div class="rub-item"><div class="rub-dot" style="background:#a78bfa;"></div><div><div class="rub-label">Recovery</div><div class="rub-text">Coming down from something hard. Not quite back to baseline yet.</div></div></div>
+      </div>
       <div class="sit-row" id="sit-row-now"></div>
     </div>
     <div id="steps-now" class="compact-steps">
@@ -159,24 +161,17 @@
         </div>
         <div class="frame-rule" id="frame-rule"></div>
       </div>
-      <div class="cstep">
-        <div class="cstep-header"><span class="cstep-num">Choose</span></div>
-        <div id="gbox"><div style="font-size:12px;color:var(--text3);">Select a mode above.</div></div>
-      </div>
+      <div class="cstep"><div class="cstep-header"><span class="cstep-num">Choose</span></div><div id="gbox"><div style="font-size:12px;color:var(--text3);">Select a mode above.</div></div></div>
       <div class="cstep">
         <div class="cstep-header"><span class="cstep-num">Do</span></div>
         <div id="do-box"><div style="font-size:12px;color:var(--text3);">Complete the steps above.</div></div>
         <div class="note-box">
           <textarea id="note-input" rows="2" placeholder="Add a note to this scan (optional)..."></textarea>
-          <div class="btn-row">
-            <button class="save-note-btn" id="save-note-btn" onclick="saveNote()">Save note</button>
-            <button class="rescan-btn" onclick="resetScan('now')">Re-scan ↺</button>
-          </div>
+          <div class="btn-row"><button class="save-note-btn" id="save-note-btn" onclick="saveNote()">Save note</button><button class="rescan-btn" onclick="resetScan('now')">Re-scan ↺</button></div>
         </div>
       </div>
     </div>
   </div>
-
   <div id="view-horizon" style="display:none;">
     <div id="period-brief-horizon" style="display:none;"></div>
     <div id="scan-chip-horizon" class="scan-chip" style="display:none;" onclick="expandScan('horizon')">
@@ -186,11 +181,17 @@
     </div>
     <div id="scan-full-horizon">
       <div class="slabel">Scan</div>
-      <div class="stitle">What's the broader picture?</div>
-      <div class="ssub">Areas of focus</div>
-      <div style="height:8px;"></div>
+      <div class="stitle">What's true this week?</div>
+      <div style="height:4px;"></div>
       <div id="bars-areas"></div>
-      <div class="ssub" style="margin-top:1rem;">Situation</div>
+      <div class="ssub-row" style="margin-top:1rem;"><span class="ssub">Situation</span><button class="info-btn" id="sit-info-btn-horizon">?</button></div>
+      <div class="rub-row" id="sit-rub-horizon">
+        <div class="rub-item"><div class="rub-dot" style="background:#4ade80;"></div><div><div class="rub-label">Calm</div><div class="rub-text">Normal operating conditions. Nothing unusual demanding your attention.</div></div></div>
+        <div class="rub-item"><div class="rub-dot" style="background:#fbbf24;"></div><div><div class="rub-label">Raid</div><div class="rub-text">External pressure incoming or active. Demands are high but you're not in crisis.</div></div></div>
+        <div class="rub-item"><div class="rub-dot" style="background:#f87171;"></div><div><div class="rub-label">Fire</div><div class="rub-text">Something is actively wrong and needs immediate handling. Crisis mode.</div></div></div>
+        <div class="rub-item"><div class="rub-dot" style="background:#60a5fa;"></div><div><div class="rub-label">Drop</div><div class="rub-text">An unexpected opening or ease. Pressure has lifted, capacity has appeared.</div></div></div>
+        <div class="rub-item"><div class="rub-dot" style="background:#a78bfa;"></div><div><div class="rub-label">Recovery</div><div class="rub-text">Coming down from something hard. Not quite back to baseline yet.</div></div></div>
+      </div>
       <div class="sit-row" id="sit-row-horizon"></div>
     </div>
     <div id="steps-horizon" class="compact-steps">
@@ -202,26 +203,19 @@
           <div class="fc build" id="hfc-build" onclick="selectHFrame('build')"><div class="fc-name">Build</div><div class="fc-hint">Deep work, big moves</div></div>
         </div>
         <div class="frame-rule" id="hframe-rule"></div>
-        <div id="hpriority-area-box" style="display:none;"></div>
+        <div id="hpriority-picker" class="priority-picker" style="display:none;"></div>
       </div>
-      <div class="cstep">
-        <div class="cstep-header"><span class="cstep-num">Choose</span></div>
-        <div id="hgbox"><div style="font-size:12px;color:var(--text3);">Select a mode above.</div></div>
-      </div>
+      <div class="cstep"><div class="cstep-header"><span class="cstep-num">Choose</span></div><div id="hgbox"><div style="font-size:12px;color:var(--text3);">Select a mode above.</div></div></div>
       <div class="cstep">
         <div class="cstep-header"><span class="cstep-num">Do</span></div>
         <div id="hdo-box"><div style="font-size:12px;color:var(--text3);">Complete the steps above.</div></div>
         <div class="note-box">
           <textarea id="hnote-input" rows="2" placeholder="Add a note to this scan (optional)..."></textarea>
-          <div class="btn-row">
-            <button class="save-note-btn" id="hsave-note-btn" onclick="saveHNote()">Save note</button>
-            <button class="rescan-btn" onclick="resetScan('horizon')">Re-scan ↺</button>
-          </div>
+          <div class="btn-row"><button class="save-note-btn" id="hsave-note-btn" onclick="saveHNote()">Save note</button><button class="rescan-btn" onclick="resetScan('horizon')">Re-scan ↺</button></div>
         </div>
       </div>
     </div>
   </div>
-
   <div id="view-hist" style="display:none;">
     <div class="section-toggle">
       <button class="stoggle-btn" id="ht-log" onclick="setHistTab('log')">Log</button>
@@ -231,9 +225,8 @@
     <div id="hist-trends"></div>
   </div>
 </div>
-
 <script>
-const SK='loop_pub_now', HKS='loop_pub_horizon', HIST='loop_pub_hist';
+const SK='loop_v2_now',HKS='loop_v2_horizon',HIST='loop_v2_hist';
 const NOW_BARS=['Rest','Fuel','Energy','Focus','Social','Joy'];
 const REG_BAR='Regulation';
 const HORIZON_AREAS=['Work','Health','Relationships','Growth','Admin'];
@@ -241,505 +234,79 @@ const SITS=['Calm','Raid','Fire','Drop','Recovery'];
 const CM={r:'#f87171',y:'#fbbf24',g:'#4ade80'};
 const FC2={stabilize:{c:'#f87171',bg:'rgba(220,38,38,.15)',bd:'rgba(220,38,38,.4)'},maintain:{c:'#fbbf24',bg:'rgba(202,138,4,.15)',bd:'rgba(202,138,4,.4)'},build:{c:'#4ade80',bg:'rgba(22,163,74,.15)',bd:'rgba(22,163,74,.4)'}};
 const SM={Calm:{c:'#4ade80',bg:'rgba(22,163,74,.15)',bd:'rgba(22,163,74,.4)'},Raid:{c:'#fbbf24',bg:'rgba(202,138,4,.15)',bd:'rgba(202,138,4,.4)'},Fire:{c:'#f87171',bg:'rgba(220,38,38,.15)',bd:'rgba(220,38,38,.4)'},Drop:{c:'#60a5fa',bg:'rgba(59,130,246,.15)',bd:'rgba(59,130,246,.4)'},Recovery:{c:'#a78bfa',bg:'rgba(139,92,246,.15)',bd:'rgba(139,92,246,.4)'}};
-
-const RUB={
-  Rest:{g:'Adequately rested. You can think and function without sleep being the main issue.',y:'A bit tired or under-rested. Still functional, but your resilience is thinner than usual.',r:'Fatigue is a real factor today. Foggy, brittle, or running on fumes — let this shape the plan.'},
-  Fuel:{g:'Fed, hydrated, physically steady. No crash incoming.',y:'A little off — hungry, dehydrated, or running on comfort food. Fine for now, but worth addressing.',r:'Under-fuelled or using food to cope with something. Either way, your body isn\'t in a good state. This matters.'},
-  Energy:{g:'Usable drive. Things feel doable and you have some margin.',y:'Some capacity, but not much room to push. Be selective about where you spend it.',r:'Flat, drained, or brittle. Even routine things feel heavier than they should. Plan accordingly.'},
-  Focus:{g:'You can get into a task and stay there. Deep or complex work is available.',y:'Workable, but concentration is patchy. Lean toward shorter or more concrete tasks.',r:'Scattered or foggy. Hard to hold a thread. Complex work will fight you today.'},
-  Social:{g:'Socially okay — connection feels accessible rather than costly.',y:'A little peopled-out or disconnected. Handle social demands with care.',r:'Socially depleted or brittle. Engagement takes more than you have right now.'},
-  Joy:{g:'Some lightness or pleasure is present. Not everything feels like obligation.',y:'Joy is low. Mostly running on duty and habit.',r:'Everything feels like extraction. Flat, grim, or going through the motions. Worth noting.'},
-  Regulation:{g:'Emotionally steady. You can think clearly, respond rather than react, be present without the nervous system hijacking the wheel.',y:'Something\'s activated or you\'re running a bit flat. Functional but working harder than baseline to stay steady. Handle sensitive things with care.',r:'Flooded, activated, or shut down. Heart racing, jaw tight, thoughts spiraling — or completely blank and checked out. Both count as red. Not the moment for hard conversations or decisions that matter. Regulate first.'},
-  Work:{g:'Core responsibilities handled. Demanding but manageable — no fires being ignored.',y:'Uneven. Some drift or backlog accumulating. Work is starting to create background stress.',r:'Behind, avoidant, or under siege. Something important is being missed or indefinitely deferred.'},
-  Health:{g:'Basics are intact — sleep, food, movement, recovery. Body feels supported.',y:'One or two basics are slipping. Still functional, but running thinner than is sustainable.',r:'Genuinely depleted — under-slept, under-moved, or leaning hard on food as a coping mechanism.'},
-  Relationships:{g:'Feeling connected. The important relationships in your life are getting enough attention.',y:'A bit withdrawn or thin. Present enough but not really there.',r:'Withdrawn or strained — or both. The distance is noticeable, even if no one\'s saying it yet.'},
-  Growth:{g:'Learning, creating, or moving toward something that matters. This part of life has air.',y:'Growth is mostly intention right now. The things that matter to you creatively keep getting bumped.',r:'Flatlined. Everything is going to maintenance and obligation. The meaningful stuff has disappeared.'},
-  Admin:{g:'Practical life is under control. Logistics, finances, and chores aren\'t creating hidden drag.',y:'Some backlog building up. The friction is manageable but increasing.',r:'Practical life is messy enough to be genuinely stressful. Admin is stealing mental bandwidth.'},
-};
-
+function isWeekend(){const d=new Date().getDay();return d===0||d===6;}
+function isEvening(){const n=new Date();return !isWeekend()&&n.getHours()>=17;}
+function isWorkOff(){return isWeekend()||isEvening();}
+const RUB={Rest:{g:'Adequately rested. You can think and function without sleep being the main issue.',y:'A bit tired or under-rested. Still functional, but your resilience is thinner than usual.',r:'Fatigue is a real factor today. Foggy, brittle, or running on fumes — let this shape the plan.'},Fuel:{g:'Fed, hydrated, physically steady. No crash incoming.',y:'A little off — hungry, dehydrated, or running on comfort food. Fine for now, but worth addressing.',r:'Under-fuelled or using food to cope with something. Either way, your body isn\'t in a good state. This matters.'},Energy:{g:'Usable drive. Things feel doable and you have some margin.',y:'Some capacity, but not much room to push. Be selective about where you spend it.',r:'Flat, drained, or brittle. Even routine things feel heavier than they should. Plan accordingly.'},Focus:{g:'You can get into a task and stay there. Deep or complex work is available.',y:'Workable, but concentration is patchy. Lean toward shorter or more concrete tasks.',r:'Scattered or foggy. Hard to hold a thread. Complex work will fight you today.'},Social:{g:'Socially okay — connection feels accessible rather than costly.',y:'A little peopled-out or disconnected. Handle social demands with care.',r:'Socially depleted or brittle. Engagement takes more than you have right now.'},Joy:{g:'Some lightness or pleasure is present. Not everything feels like obligation.',y:'Joy is low. Mostly running on duty and habit.',r:'Everything feels like extraction. Flat, grim, or going through the motions. Worth noting.'},Regulation:{g:'Emotionally steady. You can think clearly, respond rather than react, be present without the nervous system hijacking the wheel.',y:'Something\'s activated or you\'re running a bit flat. Functional but working harder than baseline. Handle sensitive things with care.',r:'Flooded, activated, or shut down. Heart racing, jaw tight, thoughts spiraling — or completely blank and checked out. Both count as red. Regulate first.'},Work:{g:'Core responsibilities handled. Demanding but manageable — no fires being ignored.',y:'Uneven. Some drift or backlog accumulating. Work is starting to create background stress.',r:'Behind, avoidant, or under siege. Something important is being missed or indefinitely deferred.'},Health:{g:'Basics are intact — sleep, food, movement, recovery. Body feels supported.',y:'One or two basics are slipping. Still functional, but running thinner than is sustainable.',r:'Genuinely depleted — under-slept, under-moved, or not taking care of your body.'},Relationships:{g:'Feeling connected. The important relationships in your life are getting enough attention.',y:'A bit withdrawn or thin. Present enough but not really there.',r:'Withdrawn or strained — or both. The distance is noticeable, even if no one\'s saying it yet.'},Growth:{g:'Learning, creating, or moving toward something that matters to you. This part of life has air.',y:'Growth is mostly intention right now. The things you care about creatively keep getting bumped.',r:'Flatlined. Everything is going to maintenance and obligation. The meaningful stuff has disappeared.'},Admin:{g:'Practical life is under control. Logistics, finances, and chores aren\'t creating hidden drag.',y:'Some backlog building up. The friction is manageable but increasing.',r:'Practical life is messy enough to be genuinely stressful. Admin is stealing mental bandwidth.'}};
 let nowState={bars:{},sit:null,frame:null,priority:null,logId:null,complete:false};
 let horizonState={areas:{},sit:null,frame:null,priority:null,logId:null,complete:false};
-let history=[], currentView='now', histTab='trends', trendDays=30;
-
+let history=[],currentView='now',histTab='trends',trendDays=30;
 function getReg(){return(nowState.bars||{})[REG_BAR]||null;}
-function getLastHorizon(){return history.find(e=>e.mode==='horizon')||null;}
-
-document.addEventListener('click',function(e){
-  if(!e.target.closest('.info-btn')&&!e.target.closest('.rub-row')){
-    document.querySelectorAll('.rub-row.open').forEach(x=>x.classList.remove('open'));
-  }
-});
-
+function getWeeklyFocus(){if(horizonState.priority)return horizonState.priority;const lh=history.find(e=>e.mode==='horizon');return lh?lh.priority:null;}
+function getEffectiveNowPriority(){const f=getWeeklyFocus();if(isWorkOff()&&f==='Work')return null;return f;}
+document.addEventListener('click',function(e){if(!e.target.closest('.info-btn')&&!e.target.closest('.rub-row')){document.querySelectorAll('.rub-row.open').forEach(x=>x.classList.remove('open'));}});
+document.getElementById('sit-info-btn-now').addEventListener('click',function(e){e.stopPropagation();const r=document.getElementById('sit-rub-now'),w=r.classList.contains('open');document.querySelectorAll('.rub-row.open').forEach(x=>x.classList.remove('open'));if(!w)r.classList.add('open');});
+document.getElementById('sit-info-btn-horizon').addEventListener('click',function(e){e.stopPropagation();const r=document.getElementById('sit-rub-horizon'),w=r.classList.contains('open');document.querySelectorAll('.rub-row.open').forEach(x=>x.classList.remove('open'));if(!w)r.classList.add('open');});
+function nowSuggestedFrame(){const reg=getReg();if(reg==='r')return'stabilize';const vals=NOW_BARS.map(b=>(nowState.bars||{})[b]).filter(Boolean);const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;if(red>=2)return'stabilize';if(reg==='y'||red===1||yel>=3)return'maintain';return'build';}
 function getNowGuidance(frame,priority){
   const reg=getReg()||'g';
-  const CHOOSE={
-    stabilize:{
-      base:{g:{criteria:'Your next move should be low demand and restorative. It does not have to be productive. Rest, food, something with your hands, being outside — all valid.',pick:'What\'s the one thing that fits right now?'},y:{criteria:'Your next move should be low demand. You\'re not quite steady, so anything requiring full presence or emotional output is the wrong pick. Self-care counts.',pick:'What\'s the one low-demand thing available to you right now?'},r:{criteria:'You have permission to not be productive today. Your next move should regulate your nervous system — alone time, movement, outside, music, something absorbing and low-stakes. Not work. Not hard conversations.',pick:'What will actually help you regulate right now?'}},
-      Work:{g:{criteria:'One work action only — the one that closes the most pressure. Everything else stays in your system.',pick:'What\'s the single work loop you can close right now?'},y:{criteria:'One very small work action. You\'re not steady enough for more. If it requires full concentration, it\'s the wrong pick.',pick:'What\'s the smallest work action available to you?'},r:{criteria:'Work is offline right now. That\'s correct, not failure. Your next move is regulation, not productivity.',pick:'What will help you regulate? That\'s the pick.'}},
-      Health:{g:{criteria:'Your next move should address the body first — real food, water, rest, or movement.',pick:'What does your body actually need right now?'},y:{criteria:'Body first. Notice if the urge to comfort eat is there — your body needs fuel, not comfort.',pick:'What will actually help your body right now?'},r:{criteria:'Body and nervous system both need attention. Real food, movement, or outside time.',pick:'What does your body and nervous system need most right now?'}},
-      Relationships:{g:{criteria:'You might be withdrawing. You don\'t have to fix anything. Your next move is just presence — being in the same room, near the people who matter.',pick:'What\'s the smallest move toward presence you can make right now?'},y:{criteria:'You\'re a bit withdrawn and not quite steady. Physical presence without pressure. Don\'t push into emotional territory — just be nearby.',pick:'Can you be in the room without it costing too much right now?'},r:{criteria:'You\'re dysregulated. Don\'t go into a strained situation from this state. Regulate first — alone time, movement, outside.',pick:'What do you need to get regulated before you engage with others?'}},
-      Growth:{g:{criteria:'Growth pauses today. Your next move is rest or something low-stakes — something absorbing that doesn\'t demand much.',pick:'What low-stakes thing would actually feel good right now?'},y:{criteria:'Low-stakes tactile or creative work might be okay — something with your hands, not something cognitively demanding.',pick:'Is there something tactile and absorbing available to you?'},r:{criteria:'Demanding creative work will fight you right now. Low-stakes tactile work might actually help regulate. Or rest. Both are valid.',pick:'Something low-stakes, rest, or regulation — which fits best right now?'}},
-      Admin:{g:{criteria:'One admin item only — the one creating the most background noise. Not a full tidy.',pick:'What\'s the one admin item that would most reduce your background stress?'},y:{criteria:'Routine admin might actually be steadying right now — small, mechanical, completable. Nothing requiring big decisions.',pick:'Is there a small mechanical admin task that doesn\'t require decisions?'},r:{criteria:'Routine admin might help regulate — low-demand and completable. Or skip it and regulate. Either is fine.',pick:'Routine admin or regulation — which does your nervous system need more?'}},
-    },
-    maintain:{
-      base:{g:{criteria:'Your next move should come from your trusted system. One meaningful task per active area — no more. Self-care and rest count as valid moves.',pick:'What\'s the next action in your system?'},y:{criteria:'One task, chosen carefully. You\'re not fully steady — protect your margin. Don\'t pick something that requires more than you have.',pick:'What\'s one task you can actually complete from where you are right now?'},r:{criteria:'You\'re dysregulated — maintain may be too much. Your next move should be stabilizing first.',pick:'What\'s the smallest possible move, or should you drop to Stabilize?'}},
-      Work:{g:{criteria:'Core work only — whatever\'s most important in your system. One focused block. No scope creep.',pick:'What\'s the next concrete work action in your system?'},y:{criteria:'Core work, shorter tasks. Your focus is thinner than usual — pick something concrete and completable.',pick:'What\'s one concrete work task you can actually finish right now?'},r:{criteria:'Work is offline while you\'re dysregulated. Your next move is regulation, not work.',pick:'What will help you regulate? That\'s the pick.'}},
-      Health:{g:{criteria:'Maintain your baseline — the things that keep you functional. Sleep, food, movement.',pick:'Which baseline health thing most needs your attention right now?'},y:{criteria:'Maintain the baseline and notice if comfort food is doing extra work. Something real to eat or drink. Movement if you can.',pick:'What does your body actually need — not want, need?'},r:{criteria:'Body and nervous system are struggling. Real food over comfort. Movement can help regulate.',pick:'What will address your body and nervous system most directly right now?'}},
-      Relationships:{g:{criteria:'Physical presence is a form of connection even when you\'re not fully open. You don\'t have to be emotionally available — just not absent.',pick:'What\'s one small move toward presence with the people who matter?'},y:{criteria:'You\'re a bit withdrawn and not quite steady. Physical presence without pressure — nearby, quiet, not performing.',pick:'Can you be present without it costing more than you have?'},r:{criteria:'You\'re dysregulated. Going into a tense situation from this state makes things worse. Regulate first.',pick:'What do you need before you can safely engage with the people at home?'}},
-      Growth:{g:{criteria:'Protect one slot for something that\'s actually yours — whatever restores or engages you creatively.',pick:'What growth or creative thing will you protect time for today?'},y:{criteria:'Lower-demand creative work — something tactile or absorbing over anything cognitively heavy.',pick:'What\'s a lower-demand creative or growth thing available to you right now?'},r:{criteria:'Deep creative work won\'t land while you\'re dysregulated. Low-stakes tactile work might help regulate, or rest instead.',pick:'Something low-stakes, absorbing, or rest — which fits your state right now?'}},
-      Admin:{g:{criteria:'Clear one or two things from your system. Maintenance mode — not overhaul.',pick:'What\'s the one admin thing most worth clearing right now?'},y:{criteria:'Routine admin — something mechanical and completable. Nothing requiring big decisions.',pick:'Is there a small mechanical admin task that won\'t cost much from where you are?'},r:{criteria:'Routine admin might actually be calming right now — small, mechanical, completable. Or skip it and regulate.',pick:'Routine admin or regulation — which does your system need more?'}},
-    },
-    build:{
-      base:{g:{criteria:'Your next move should be your most meaningful project. Block the time, protect the session. Ambitious but scoped.',pick:'What\'s the next action on your most meaningful project?'},y:{criteria:'Build is available but your margin is thinner than usual. Pick one substantial thing and protect it.',pick:'What\'s the one most meaningful thing you can actually complete today?'},r:{criteria:'You\'re dysregulated — Build is not the right frame. Deep work from this state is expensive thrashing. You have permission to not be productive today.',pick:'What will help you regulate? Drop to Stabilize or Maintain.'}},
-      Work:{g:{criteria:'Deep work on the thing that matters most. Block the time and protect it.',pick:'What\'s the next action on your most important work project?'},y:{criteria:'Deep work is available but your margin is thinner. Protect the session — interruptions will cost more today.',pick:'What\'s the one focused work task worth protecting time for today?'},r:{criteria:'Work is offline while you\'re dysregulated. You have permission to not be productive today.',pick:'What will help you regulate? That\'s the pick.'}},
-      Health:{g:{criteria:'Build or deepen something sustainable — a habit, a routine, something that compounds.',pick:'What health practice will you build or deepen today?'},y:{criteria:'Build a health habit — movement is good even when not fully regulated. Notice if comfort eating is doing extra work.',pick:'What health thing are you building or maintaining today?'},r:{criteria:'Body and nervous system need attention before you build anything. Movement, real food, alone time, outside.',pick:'What will regulate your body and nervous system right now?'}},
-      Relationships:{g:{criteria:'This is a window for actual presence — not just being nearby. Presence and groundedness, not performance.',pick:'What does genuine presence look like for you today?'},y:{criteria:'Build is available but you\'re not fully steady — presence over depth. Be there without demanding yourself to perform connection.',pick:'What level of presence is honest and sustainable from where you are?'},r:{criteria:'You\'re dysregulated — relational depth isn\'t available right now. Regulate first.',pick:'What do you need to get regulated before you can be present with the people you love?'}},
-      Growth:{g:{criteria:'This is the window — go deep on something that\'s actually yours. Protect this time like work time.',pick:'What\'s the growth or creative thing you\'re going deep on today?'},y:{criteria:'Creative work is available — something tactile might be more accessible than cognitively heavy work. Either counts.',pick:'What creative or growth thing fits your actual state today?'},r:{criteria:'Demanding creative work won\'t go well right now. Low-stakes tactile work might help regulate. Or rest.',pick:'Something low-stakes, tactile, or rest — which fits right now?'}},
-      Admin:{g:{criteria:'Sort the backlog properly — not just patch it. Set up systems. Tackle the thing you\'ve been putting off.',pick:'What\'s the admin thing worth sorting properly today?'},y:{criteria:'Admin is usually fine even when not fully steady — often lower demand. Clear things; nothing requiring big decisions.',pick:'What\'s one admin thing worth clearing today?'},r:{criteria:'Routine admin might be the most accessible thing right now — small, mechanical, completable. Don\'t make big decisions while dysregulated.',pick:'Is there a small mechanical admin task, or do you need to regulate first?'}},
-    },
-  };
-  const map=CHOOSE[frame];
-  const areaMap=(priority&&map[priority])?map[priority]:map.base;
-  const chosen=(areaMap[reg])||areaMap.g;
-  return{label:frame.charAt(0).toUpperCase()+frame.slice(1),criteria:chosen.criteria,pick:chosen.pick};
+  const C={stabilize:{base:{g:{c:'Your next move should be low demand and restorative. It does not have to be productive. Rest, food, something with your hands, being outside — all valid.',p:'What\'s the one thing that fits right now?'},y:{c:'Your next move should be low demand. You\'re not quite steady — anything requiring full presence is the wrong pick. Self-care counts.',p:'What\'s the one low-demand thing available to you right now?'},r:{c:'You have permission to not be productive today. Your next move should regulate your nervous system — alone time, movement, outside, music, something absorbing.',p:'What will actually help you regulate right now?'}},Work:{g:{c:'One work action only — the one that closes the most pressure. Everything else stays in your system.',p:'What\'s the single work loop you can close right now?'},y:{c:'One very small work action. You\'re not steady enough for more.',p:'What\'s the smallest work action available to you?'},r:{c:'Work is offline right now. That\'s correct, not failure. Your next move is regulation.',p:'What will help you regulate? That\'s the pick.'}},Health:{g:{c:'Your next move should address the body first — real food, water, rest, or whatever movement your body can handle today.',p:'What does your body actually need right now?'},y:{c:'Body first. Notice if the urge to comfort eat is there. Any movement should fit what your body has today.',p:'What will actually help your body right now?'},r:{c:'Body and nervous system both need attention. Real food, rest, and whatever gentle movement is available — no pressure to perform physically.',p:'What does your body and nervous system need most right now?'}},Relationships:{g:{c:'You might be withdrawing. You don\'t have to fix anything. Your next move is just presence — being in the same room, near the people who matter.',p:'What\'s the smallest move toward presence you can make right now?'},y:{c:'You\'re a bit withdrawn and not quite steady. Physical presence without pressure — just be nearby.',p:'Can you be in the room without it costing too much right now?'},r:{c:'You\'re dysregulated. Don\'t go into a strained situation from this state. Regulate first.',p:'What do you need to get regulated before you engage with others?'}},Growth:{g:{c:'Growth pauses today. Your next move is rest or something low-stakes and absorbing.',p:'What low-stakes thing would actually feel good right now?'},y:{c:'Low-stakes tactile or creative work might be okay — something with your hands, not cognitively demanding.',p:'Is there something tactile and absorbing available to you?'},r:{c:'Demanding creative work will fight you right now. Low-stakes tactile work might help regulate. Or rest. Both are valid.',p:'Something low-stakes, rest, or regulation — which fits best right now?'}},Admin:{g:{c:'One admin item only — the one creating the most background noise. Not a full tidy.',p:'What\'s the one admin item that would most reduce your background stress?'},y:{c:'Routine admin might actually be steadying right now — small, mechanical, completable.',p:'Is there a small mechanical admin task that doesn\'t require decisions?'},r:{c:'Routine admin might help regulate — low-demand and completable. Or skip it and regulate.',p:'Routine admin or regulation — which does your nervous system need more?'}}},maintain:{base:{g:{c:'Your next move should come from your trusted system. One meaningful task per active area — no more. Self-care and rest count.',p:'What\'s the next action in your system?'},y:{c:'One task, chosen carefully. You\'re not fully steady — protect your margin.',p:'What\'s one task you can actually complete from where you are right now?'},r:{c:'You\'re dysregulated — maintain may be too much. Stabilize first.',p:'What\'s the smallest possible move, or should you drop to Stabilize?'}},Work:{g:{c:'Core work only — whatever\'s most important in your system. One focused block. No scope creep.',p:'What\'s the next concrete work action in your system?'},y:{c:'Core work, shorter tasks. Your focus is thinner than usual.',p:'What\'s one concrete work task you can actually finish right now?'},r:{c:'Work is offline while you\'re dysregulated. Your next move is regulation.',p:'What will help you regulate? That\'s the pick.'}},Health:{g:{c:'Maintain your baseline — the things that keep you functional. Sleep, food, and movement that fits what your body can do today.',p:'Which baseline health thing most needs your attention right now?'},y:{c:'Maintain the baseline. Notice if comfort food is doing extra work. Whatever movement is available to your body today.',p:'What does your body actually need — not want, need?'},r:{c:'Body and nervous system are struggling. Real food over comfort. Rest if your body needs it, or gentle movement.',p:'What will address your body and nervous system most directly right now?'}},Relationships:{g:{c:'Physical presence is a form of connection even when you\'re not fully open. You don\'t have to be emotionally available — just not absent.',p:'What\'s one small move toward presence with the people who matter?'},y:{c:'You\'re a bit withdrawn and not quite steady. Physical presence without pressure.',p:'Can you be present without it costing more than you have?'},r:{c:'You\'re dysregulated. Going into a tense situation from this state makes things worse. Regulate first.',p:'What do you need before you can safely engage with the people at home?'}},Growth:{g:{c:'Protect one slot for something that\'s actually yours — whatever restores or engages you creatively. These aren\'t extras.',p:'What growth or creative thing will you protect time for today?'},y:{c:'Lower-demand creative work — something tactile or absorbing over anything cognitively heavy.',p:'What\'s a lower-demand creative or growth thing available to you right now?'},r:{c:'Deep creative work won\'t land while you\'re dysregulated. Low-stakes tactile work might help regulate, or rest.',p:'Something low-stakes, absorbing, or rest — which fits your state right now?'}},Admin:{g:{c:'Clear one or two things from your system. Maintenance mode — not overhaul.',p:'What\'s the one admin thing most worth clearing right now?'},y:{c:'Routine admin — something mechanical and completable. Nothing requiring big decisions.',p:'Is there a small mechanical admin task that won\'t cost much from where you are?'},r:{c:'Routine admin might actually be calming right now — small, mechanical, completable. Or skip it and regulate.',p:'Routine admin or regulation — which does your system need more?'}}},build:{base:{g:{c:'Your next move should be your most meaningful project. Block the time, protect the session. Ambitious but scoped.',p:'What\'s the next action on your most meaningful project?'},y:{c:'Build is available but your margin is thinner than usual. Pick one substantial thing and protect it.',p:'What\'s the one most meaningful thing you can actually complete today?'},r:{c:'You\'re dysregulated — Build is not the right frame. You have permission to not be productive today.',p:'What will help you regulate? Drop to Stabilize or Maintain.'}},Work:{g:{c:'Deep work on the thing that matters most. Block the time and protect it.',p:'What\'s the next action on your most important work project?'},y:{c:'Deep work is available but your margin is thinner. Protect the session.',p:'What\'s the one focused work task worth protecting time for today?'},r:{c:'Work is offline while you\'re dysregulated. You have permission to not be productive today.',p:'What will help you regulate? That\'s the pick.'}},Health:{g:{c:'Build or deepen something sustainable — a habit, a routine. Whatever form movement takes for your body right now counts.',p:'What health practice will you build or deepen today?'},y:{c:'Build a health habit — whatever movement your body can do today is valid. Notice if comfort eating is doing extra work.',p:'What health thing are you building or maintaining today?'},r:{c:'Body and nervous system need attention before you build anything. Rest if your body needs it. Gentle movement if that helps. Real food.',p:'What will regulate your body and nervous system right now?'}},Relationships:{g:{c:'This is a window for actual presence — not just being nearby. Presence and groundedness, not performance.',p:'What does genuine presence look like for you today?'},y:{c:'Build is available but you\'re not fully steady — presence over depth.',p:'What level of presence is honest and sustainable from where you are?'},r:{c:'You\'re dysregulated — relational depth isn\'t available right now. Regulate first.',p:'What do you need to get regulated before you can be present with the people you love?'}},Growth:{g:{c:'This is the window — go deep on something that\'s actually yours. Protect this time like work time.',p:'What\'s the growth or creative thing you\'re going deep on today?'},y:{c:'Creative work is available — something tactile might be more accessible than cognitively heavy work.',p:'What creative or growth thing fits your actual state today?'},r:{c:'Demanding creative work won\'t go well right now. Low-stakes tactile work might help regulate. Or rest.',p:'Something low-stakes, tactile, or rest — which fits right now?'}},Admin:{g:{c:'Sort the backlog properly — not just patch it. Set up systems. Tackle the thing you\'ve been putting off.',p:'What\'s the admin thing worth sorting properly today?'},y:{c:'Admin is usually fine even when not fully steady — often lower demand.',p:'What\'s one admin thing worth clearing today?'},r:{c:'Routine admin might be the most accessible thing right now — small, mechanical, completable.',p:'Is there a small mechanical admin task, or do you need to regulate first?'}}}};
+  const map=C[frame];const am=(priority&&map[priority])?map[priority]:map.base;const ch=(am[reg])||am.g;
+  return{label:frame.charAt(0).toUpperCase()+frame.slice(1),criteria:ch.c,pick:ch.p};
 }
-
 function getNowDo(frame,sit,priority){
-  const reg=getReg()||'g';
-  const sitM=SM[sit]||SM.Calm;
-  const DO={
-    stabilize:{base:{g:{c:'Low demand. Restorative. That\'s the right kind of move.',e:'Go do it. Re-scan if conditions change.'},y:{c:'Low demand and within your current capacity. That\'s the filter.',e:'Go do it. Come back if things shift.'},r:{c:'Regulation before everything else. Nothing productive needs to happen today.',e:'Go regulate. Put the phone down.'}},Work:{g:{c:'One work action. That\'s all.',e:'Go close that loop. Then stop.'},y:{c:'Small and concrete. That\'s the filter for today.',e:'Go do it. Nothing more after.'},r:{c:'Work can wait. Regulation can\'t.',e:'Go regulate. Work will still be there.'}},Health:{g:{c:'Real fuel, not comfort. Your body needs something that actually helps.',e:'Go tend to your body. That\'s the whole job right now.'},y:{c:'What your body needs, not what it wants as comfort.',e:'Go do it. Body first.'},r:{c:'Body and nervous system. Both need attention.',e:'Go tend to yourself. Nothing else matters right now.'}},Relationships:{g:{c:'Presence without performance. Just being in the room.',e:'Go be there. That\'s enough.'},y:{c:'Physical presence, low pressure. Not emotionally available — just not absent.',e:'Go be nearby. That\'s the move.'},r:{c:'Regulate before you engage. Going in dysregulated makes it worse.',e:'Go get regulated first. Then reassess.'}},Growth:{g:{c:'Low-stakes, restorative. Rest and low-demand creative work both count.',e:'Go do it. No guilt.'},y:{c:'Tactile, absorbing, low-demand.',e:'Go do it. Let it be easy.'},r:{c:'Low-stakes or rest. Both are valid. Neither is failure.',e:'Go. Let it be whatever it needs to be.'}},Admin:{g:{c:'One item. The one that frees up the most mental space.',e:'Go close it. Then stop.'},y:{c:'Small, mechanical, no decisions required.',e:'Go do it. Just that one thing.'},r:{c:'Routine admin or regulation — whichever you picked, that\'s right.',e:'Go. Put the phone down after.'}},},
-    maintain:{base:{g:{c:'One task from your system. No scope creep.',e:'Go do it. Check it off. Re-scan as needed.'},y:{c:'One thing, within your actual capacity. Steady.',e:'Go do it. Don\'t add more.'},r:{c:'If you\'re dysregulated, maintenance can wait. Stabilize first.',e:'Go regulate, or go do the one small thing. That\'s it.'}},Work:{g:{c:'Core work. One focused block. Nothing else.',e:'Go do it. Protect the block.'},y:{c:'One concrete work action. Completable from where you are.',e:'Go do it. Then reassess.'},r:{c:'Work is offline. Regulation first.',e:'Go regulate. Work will keep.'}},Health:{g:{c:'Baseline maintenance. The routine is load-bearing.',e:'Go do it. Consistency is the whole job.'},y:{c:'What your body needs, not comfort. Movement if you can.',e:'Go tend to your body.'},r:{c:'Body and nervous system first.',e:'Go. Body and nervous system before anything else.'}},Relationships:{g:{c:'Present, not performing. In the room.',e:'Go be there. Just that.'},y:{c:'Physical presence, low pressure. Not open — just not absent.',e:'Go be nearby. That\'s enough.'},r:{c:'Regulate before you engage relationally.',e:'Go regulate first. Then reassess.'}},Growth:{g:{c:'One slot for something that\'s actually yours. Protect it.',e:'Go do it. This time is yours.'},y:{c:'Lower-demand creative. Tactile over cognitively demanding.',e:'Go do it. Light counts.'},r:{c:'Tactile work or rest. Whichever regulates you more.',e:'Go. Let it be easy.'}},Admin:{g:{c:'One or two things. Maintenance mode.',e:'Go clear them. Then stop.'},y:{c:'Small and mechanical. No decisions.',e:'Go do it. Just that.'},r:{c:'Routine admin or regulation — one or the other.',e:'Go. Put the phone down after.'}},},
-    build:{base:{g:{c:'Your most meaningful project. Block the time. That\'s what this window is for.',e:'Go do it. Protect the session.'},y:{c:'One substantial thing. Your margin is thinner than usual — don\'t overload the session.',e:'Go do it. Just that one thing.'},r:{c:'You\'re dysregulated. Build waits. You have permission to not be productive today.',e:'Go regulate. The build window will come back.'}},Work:{g:{c:'The most important work. Block the time. Close the tabs.',e:'Go do it. This is the session.'},y:{c:'One focused work thing. Protect it — interruptions cost more today.',e:'Go do it. Protect the block.'},r:{c:'Work is offline. You have permission to not be productive today.',e:'Go regulate. Work will keep.'}},Health:{g:{c:'Something that compounds. Build the habit, not just today\'s checkbox.',e:'Go do it. This is the window.'},y:{c:'A movement habit or health practice — good even when not fully regulated.',e:'Go do it. Use the window.'},r:{c:'Body and nervous system before you build anything.',e:'Go regulate. Build comes after.'}},Relationships:{g:{c:'Actual presence. Grounded, not performing.',e:'Go be with the people you love. Really be there.'},y:{c:'Presence over depth. Be there without demanding yourself to go further than you have.',e:'Go be present. That level is enough.'},r:{c:'Regulate before relational depth. You can\'t connect well from a flooded state.',e:'Go regulate first. The relationship will still be there.'}},Growth:{g:{c:'Deep and yours. Protect this time like work time.',e:'Go do it. Start the thing.'},y:{c:'Creative work at the level your state supports.',e:'Go do it. Whatever level is honest.'},r:{c:'Low-stakes or rest. Don\'t set yourself up to feel worse.',e:'Go. Let it be what it needs to be.'}},Admin:{g:{c:'Sort it properly. Systems, not just tasks.',e:'Go do it. Clear the decks.'},y:{c:'Admin is usually fine even when not fully steady.',e:'Go do it. Nothing decision-heavy.'},r:{c:'Small and mechanical only. No big decisions while dysregulated.',e:'Go do it — or go regulate. One or the other.'}},},
-  };
-  const frameMap=DO[frame];
-  const areaMap=(priority&&frameMap[priority])?frameMap[priority]:frameMap.base;
-  const chosen=(areaMap[reg])||areaMap.g;
+  const reg=getReg()||'g';const sitM=SM[sit]||SM.Calm;
+  const D={stabilize:{base:{g:{c:'Low demand. Restorative. That\'s the right kind of move.',e:'Go do it. Re-scan if conditions change.'},y:{c:'Low demand and within your current capacity. That\'s the filter.',e:'Go do it. Come back if things shift.'},r:{c:'Regulation before everything else. Nothing productive needs to happen today.',e:'Go regulate. Put the phone down.'}},Work:{g:{c:'One work action. That\'s all.',e:'Go close that loop. Then stop.'},y:{c:'Small and concrete. That\'s the filter for today.',e:'Go do it. Nothing more after.'},r:{c:'Work can wait. Regulation can\'t.',e:'Go regulate. Work will still be there.'}},Health:{g:{c:'Body first. Real food, rest, and whatever movement fits today.',e:'Go tend to your body. That\'s the whole job right now.'},y:{c:'What your body needs — fuel over comfort, and movement only if it\'s available to you today.',e:'Go do it. Body first.'},r:{c:'Body and nervous system. Real food. Rest or gentle movement — whatever your body has.',e:'Go tend to yourself. Nothing else matters right now.'}},Relationships:{g:{c:'Presence without performance. Just being in the room.',e:'Go be there. That\'s enough.'},y:{c:'Physical presence, low pressure. Not emotionally available — just not absent.',e:'Go be nearby. That\'s the move.'},r:{c:'Regulate before you engage. Going in dysregulated makes it worse.',e:'Go get regulated first. Then reassess.'}},Growth:{g:{c:'Low-stakes, restorative. Rest and low-demand creative work both count.',e:'Go do it. No guilt.'},y:{c:'Tactile, absorbing, low-demand.',e:'Go do it. Let it be easy.'},r:{c:'Low-stakes or rest. Both are valid. Neither is failure.',e:'Go. Let it be whatever it needs to be.'}},Admin:{g:{c:'One item. The one that frees up the most mental space.',e:'Go close it. Then stop.'},y:{c:'Small, mechanical, no decisions required.',e:'Go do it. Just that one thing.'},r:{c:'Routine admin or regulation — whichever you picked, that\'s right.',e:'Go. Put the phone down after.'}}},maintain:{base:{g:{c:'One task from your system. No scope creep.',e:'Go do it. Check it off. Re-scan as needed.'},y:{c:'One thing, within your actual capacity. Steady.',e:'Go do it. Don\'t add more.'},r:{c:'If you\'re dysregulated, maintenance can wait. Stabilize first.',e:'Go regulate, or go do the one small thing. That\'s it.'}},Work:{g:{c:'Core work. One focused block. Nothing else.',e:'Go do it. Protect the block.'},y:{c:'One concrete work action. Completable from where you are.',e:'Go do it. Then reassess.'},r:{c:'Work is offline. Regulation first.',e:'Go regulate. Work will keep.'}},Health:{g:{c:'Baseline maintenance. Real food, sleep, and movement that fits what your body can do today.',e:'Go do it. Consistency is the whole job.'},y:{c:'What your body needs. Fuel over comfort. Movement only if available.',e:'Go tend to your body.'},r:{c:'Body and nervous system first. Rest or gentle movement — let your body lead.',e:'Go. Body and nervous system before anything else.'}},Relationships:{g:{c:'Present, not performing. In the room.',e:'Go be there. Just that.'},y:{c:'Physical presence, low pressure. Not open — just not absent.',e:'Go be nearby. That\'s enough.'},r:{c:'Regulate before you engage relationally.',e:'Go regulate first. Then reassess.'}},Growth:{g:{c:'One slot for something that\'s actually yours. Protect it.',e:'Go do it. This time is yours.'},y:{c:'Lower-demand creative. Tactile over cognitively demanding.',e:'Go do it. Light counts.'},r:{c:'Tactile work or rest. Whichever regulates you more.',e:'Go. Let it be easy.'}},Admin:{g:{c:'One or two things. Maintenance mode.',e:'Go clear them. Then stop.'},y:{c:'Small and mechanical. No decisions.',e:'Go do it. Just that.'},r:{c:'Routine admin or regulation — one or the other.',e:'Go. Put the phone down after.'}}},build:{base:{g:{c:'Your most meaningful project. Block the time. That\'s what this window is for.',e:'Go do it. Protect the session.'},y:{c:'One substantial thing. Your margin is thinner than usual — don\'t overload the session.',e:'Go do it. Just that one thing.'},r:{c:'You\'re dysregulated. Build waits. You have permission to not be productive today.',e:'Go regulate. The build window will come back.'}},Work:{g:{c:'The most important work. Block the time. Close the tabs.',e:'Go do it. This is the session.'},y:{c:'One focused work thing. Protect it — interruptions cost more today.',e:'Go do it. Protect the block.'},r:{c:'Work is offline. You have permission to not be productive today.',e:'Go regulate. Work will keep.'}},Health:{g:{c:'Build something sustainable. Whatever movement is available to your body today counts toward that.',e:'Go do it. This is the window.'},y:{c:'A health habit — whatever movement your body can do today is valid. Real food over comfort.',e:'Go do it. Use the window.'},r:{c:'Body and nervous system before you build anything. Rest or gentle movement. Real food.',e:'Go regulate. Build comes after.'}},Relationships:{g:{c:'Actual presence. Grounded, not performing.',e:'Go be with the people you love. Really be there.'},y:{c:'Presence over depth. Be there without demanding yourself to go further than you have.',e:'Go be present. That level is enough.'},r:{c:'Regulate before relational depth. You can\'t connect well from a flooded state.',e:'Go regulate first. The relationship will still be there.'}},Growth:{g:{c:'Deep and yours. Protect this time like work time.',e:'Go do it. Start the thing.'},y:{c:'Creative work at the level your state supports.',e:'Go do it. Whatever level is honest.'},r:{c:'Low-stakes or rest. Don\'t set yourself up to feel worse.',e:'Go. Let it be what it needs to be.'}},Admin:{g:{c:'Sort it properly. Systems, not just tasks.',e:'Go do it. Clear the decks.'},y:{c:'Admin is usually fine even when not fully steady.',e:'Go do it. Nothing decision-heavy.'},r:{c:'Small and mechanical only. No big decisions while dysregulated.',e:'Go do it — or go regulate. One or the other.'}}}};
+  const fm=D[frame];const am=(priority&&fm[priority])?fm[priority]:fm.base;const ch=(am[reg])||am.g;
   const tag=sit&&sit!=='Calm'?`<div class="sit-tag" style="color:${sitM.c};background:${sitM.bg};border-color:${sitM.bd};">${sit}</div>`:'';
-  return{confirm:chosen.c,execute:chosen.e,tag,frame};
+  return{confirm:ch.c,execute:ch.e,tag,frame};
 }
-
-let nowState_={bars:{},sit:null,frame:null,priority:null,logId:null,complete:false};
-let horizonState_={areas:{},sit:null,frame:null,priority:null,logId:null,complete:false};
-// reassign
-Object.assign(nowState,nowState_);
-Object.assign(horizonState,horizonState_);
-
-function showView(v){
-  currentView=v;
-  document.getElementById('view-now').style.display=v==='now'?'':'none';
-  document.getElementById('view-horizon').style.display=v==='horizon'?'':'none';
-  document.getElementById('view-hist').style.display=v==='hist'?'':'none';
-  document.getElementById('nav-now').className='nav-btn'+(v==='now'?' active':'');
-  document.getElementById('nav-horizon').className='nav-btn'+(v==='horizon'?' active':'');
-  document.getElementById('nav-hist').className='nav-btn'+(v==='hist'?' active':'');
-  if(v==='hist') renderHistory();
-  if(v==='horizon') buildPeriodBrief();
-  document.querySelectorAll('.rub-row.open').forEach(x=>x.classList.remove('open'));
-}
-
+const HGUID={stabilize:{Work:{c:'Find the one work commitment creating the most pressure this week and address it. No new projects. Capture everything else.',p:'What\'s the one work thing you\'re actually doing this week?'},Health:{c:'Health before productivity this week. Real food, sleep, and whatever movement your body can do. Notice if food is doing extra work as a coping mechanism.',p:'What\'s the one health basic most needing attention this week?'},Relationships:{c:'You might be withdrawing. You don\'t have to fix anything this week. Engage when you\'re regulated enough to be present — not before.',p:'What\'s the smallest move toward presence you can make this week?'},Growth:{c:'Growth pauses this week. Protect any existing creative habit, even minimally. Rest is part of the recovery.',p:'What existing creative or growth habit can you protect, even minimally?'},Admin:{c:'The admin item you\'ve been putting off is probably the one to do. Stop the bleed this week — not a full tidy.',p:'What\'s the one admin thing that would most reduce your background stress?'},default:{c:'Protect the basics this week. No expansion. Identify what\'s most destabilising and address that first.',p:'What\'s the one thing most destabilising your life right now?'}},maintain:{Work:{c:'Core work only this week — whatever\'s most important in your system. One focused block. No scope creep.',p:'What\'s the core work focus for this week?'},Health:{c:'Maintain the routine this week — sleep, food, and whatever movement your body can do. Consistency is the job.',p:'What health baseline are you committed to maintaining this week?'},Relationships:{c:'Physical presence is a form of connection even when you\'re not fully open. You don\'t have to be emotionally available this week — just not absent.',p:'What does showing up look like for you this week?'},Growth:{c:'Protect one slot this week for something that\'s actually yours — whatever restores or engages you creatively.',p:'What growth or creative thing are you protecting time for this week?'},Admin:{c:'Clear one or two things this week. Maintenance mode, not overhaul.',p:'What\'s the one admin thing most worth clearing this week?'},default:{c:'Hold the line across all areas this week. Routine and consistency over ambition.',p:'What\'s your focus for holding the line this week?'}},build:{Work:{c:'Go deep on the work that matters most this week. Block the time, protect it. One substantial output.',p:'What\'s the most important work project you\'re going deep on this week?'},Health:{c:'Build something sustainable this week — a habit, a routine. Whatever movement is available to your body is the right amount.',p:'What health habit are you building or deepening this week?'},Relationships:{c:'This is a window for actual presence — not just being nearby. Presence and groundedness, not performance.',p:'What does meaningful presence look like for you this week?'},Growth:{c:'Go deep on something that\'s actually yours this week. Protect this time like work time.',p:'What are you going deep on this week?'},Admin:{c:'Sort the backlog properly this week — not just patch it. Set up systems that remove future drag.',p:'What admin thing are you sorting properly this week?'},default:{c:'This is a build week. Pick one area and go deeper. Ambitious and scoped.',p:'What are you building this week?'}}};
+function showView(v){currentView=v;['now','horizon','hist'].forEach(x=>{document.getElementById('view-'+x).style.display=v===x?'':'none';document.getElementById('nav-'+x).className='nav-btn'+(v===x?' active':'');});if(v==='hist')renderHistory();if(v==='horizon')buildPeriodBrief();if(v==='now')renderWeeklyFocusBadge();document.querySelectorAll('.rub-row.open').forEach(x=>x.classList.remove('open'));}
+function renderWeeklyFocusBadge(){const el=document.getElementById('weekly-focus-badge');const focus=getEffectiveNowPriority();if(!focus||!horizonState.frame){el.style.display='none';return;}const col=CM[(horizonState.areas||{})[focus]||'y'];el.style.display='flex';el.innerHTML=`<div class="weekly-focus-dot" style="background:${col};"></div><span>Weekly focus: ${focus}</span>`;}
 function nowScanComplete(){return NOW_BARS.every(b=>nowState.bars[b])&&!!nowState.bars[REG_BAR]&&!!nowState.sit;}
-function nowSuggestedFrame(){
-  const reg=getReg();
-  if(reg==='r') return 'stabilize';
-  const vals=NOW_BARS.map(b=>(nowState.bars||{})[b]).filter(Boolean);
-  const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;
-  if(red>=2) return 'stabilize';
-  if(reg==='y'||red===1||yel>=3) return 'maintain';
-  return 'build';
-}
-function nowFrameRule(){
-  const reg=getReg();
-  if(reg==='r') return 'Regulation is red → Stabilize suggested';
-  const vals=NOW_BARS.map(b=>(nowState.bars||{})[b]).filter(Boolean);
-  const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;
-  if(red>=2) return `${red} bars in red → Stabilize suggested`;
-  if(reg==='y') return 'Regulation limited → Maintain suggested';
-  if(red===1||yel>=3) return 'Limited capacity → Maintain suggested';
-  return 'Conditions good → Build suggested';
-}
-function checkNowCollapse(){
-  if(nowScanComplete()&&!nowState.complete){
-    nowState.complete=true;
-    const f=nowSuggestedFrame();
-    document.getElementById('scan-full-now').style.display='none';
-    document.getElementById('scan-chip-now').style.display='flex';
-    document.getElementById('steps-now').classList.add('visible');
-    renderNowChip();
-    selectFrame(f,true);
-    document.getElementById('frame-rule').textContent=nowFrameRule();
-    autoSaveToLog('now');
-    saveNowState();
-  }
-}
-function expandScan(mode){
-  if(mode==='now'){
-    nowState.complete=false;
-    document.getElementById('scan-full-now').style.display='';
-    document.getElementById('scan-chip-now').style.display='none';
-    document.getElementById('steps-now').classList.remove('visible');
-  } else {
-    horizonState.complete=false;
-    document.getElementById('scan-full-horizon').style.display='';
-    document.getElementById('scan-chip-horizon').style.display='none';
-    document.getElementById('steps-horizon').classList.remove('visible');
-  }
-}
-function renderNowChip(){
-  const el=document.getElementById('chip-pips-now');
-  const vals=[...NOW_BARS,REG_BAR].map(b=>nowState.bars[b]);
-  const pips=vals.map(v=>`<div class="pip" style="background:${CM[v]||'#5a5f78'};"></div>`).join('');
-  const s=nowState.sit,m2=s?SM[s]:null;
-  el.innerHTML=pips+(s?`<span class="sit-badge" style="color:${m2.c};background:${m2.bg};border-color:${m2.bd};">${s}</span>`:'');
-}
+function nowFrameRule(){const reg=getReg();if(reg==='r')return'Regulation is red → Stabilize suggested';const vals=NOW_BARS.map(b=>(nowState.bars||{})[b]).filter(Boolean);const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;if(red>=2)return`${red} bars in red → Stabilize suggested`;if(reg==='y')return'Regulation limited → Maintain suggested';if(red===1||yel>=3)return'Limited capacity → Maintain suggested';return'Conditions good → Build suggested';}
+function checkNowCollapse(){if(nowScanComplete()&&!nowState.complete){nowState.complete=true;const f=nowSuggestedFrame();document.getElementById('scan-full-now').style.display='none';document.getElementById('scan-chip-now').style.display='flex';document.getElementById('steps-now').classList.add('visible');renderNowChip();selectFrame(f,true);document.getElementById('frame-rule').textContent=nowFrameRule();autoSaveToLog('now');saveNowState();}}
+function expandScan(mode){if(mode==='now'){nowState.complete=false;document.getElementById('scan-full-now').style.display='';document.getElementById('scan-chip-now').style.display='none';document.getElementById('steps-now').classList.remove('visible');}else{horizonState.complete=false;document.getElementById('scan-full-horizon').style.display='';document.getElementById('scan-chip-horizon').style.display='none';document.getElementById('steps-horizon').classList.remove('visible');}}
+function renderNowChip(){const el=document.getElementById('chip-pips-now');const vals=[...NOW_BARS,REG_BAR].map(b=>nowState.bars[b]);const pips=vals.map(v=>`<div class="pip" style="background:${CM[v]||'#5a5f78'};"></div>`).join('');const s=nowState.sit,m2=s?SM[s]:null;el.innerHTML=pips+(s?`<span class="sit-badge" style="color:${m2.c};background:${m2.bg};border-color:${m2.bd};">${s}</span>`:'');}
 function buildNowBars(){buildBarSection('bars-cond',NOW_BARS,'now');buildBarSection('bars-reg',[REG_BAR],'now');renderSits('now');}
-function selectFrame(f,auto){
-  nowState.frame=f;
-  ['stabilize','maintain','build'].forEach(m=>{document.getElementById('fc-'+m).className='fc '+m+(f===m?' active':'');});
-  renderNowGuidance();renderNowDo();
-  const entry=history.find(e=>e.id===nowState.logId);
-  if(entry){entry.frame=f;saveHistory();}
-  if(!auto)saveNowState();
-}
-function renderNowGuidance(){
-  const box=document.getElementById('gbox');
-  if(!nowState.frame){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Select a mode above.</div>';return;}
-  const lh=getLastHorizon();
-  const priority=lh?lh.priority:null;
-  const d=getNowGuidance(nowState.frame,priority);
-  box.innerHTML=`<div class="gmode ${nowState.frame}">${d.label}</div><div class="criteria">${d.criteria}</div><div class="pick-prompt">${d.pick}</div>`;
-}
-function renderNowDo(){
-  const box=document.getElementById('do-box');
-  if(!nowState.frame){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Complete the steps above.</div>';return;}
-  const lh=getLastHorizon();
-  const priority=lh?lh.priority:null;
-  const d=getNowDo(nowState.frame,nowState.sit,priority);
-  box.innerHTML=`<div class="do-sub">${d.confirm}${d.tag?'<br>'+d.tag:''}</div><div class="execute-prompt ${d.frame}">${d.execute}</div>`;
-}
-function resetScan(mode){
-  if(mode==='now'){
-    nowState={bars:{},sit:null,frame:null,priority:null,logId:null,complete:false};
-    document.getElementById('scan-full-now').style.display='';
-    document.getElementById('scan-chip-now').style.display='none';
-    document.getElementById('steps-now').classList.remove('visible');
-    document.getElementById('frame-rule').textContent='';
-    document.getElementById('note-input').value='';
-    document.getElementById('save-note-btn').textContent='Save note';
-    document.getElementById('save-note-btn').className='save-note-btn';
-    ['stabilize','maintain','build'].forEach(m=>{document.getElementById('fc-'+m).className='fc '+m;});
-    buildNowBars();renderNowGuidance();renderNowDo();saveNowState();
-  } else {
-    horizonState={areas:{},sit:null,frame:null,priority:null,logId:null,complete:false};
-    document.getElementById('scan-full-horizon').style.display='';
-    document.getElementById('scan-chip-horizon').style.display='none';
-    document.getElementById('steps-horizon').classList.remove('visible');
-    document.getElementById('hframe-rule').textContent='';
-    document.getElementById('hnote-input').value='';
-    document.getElementById('hsave-note-btn').textContent='Save note';
-    document.getElementById('hsave-note-btn').className='save-note-btn';
-    ['stabilize','maintain','build'].forEach(m=>{document.getElementById('hfc-'+m).className='fc '+m;});
-    buildHorizonBars();renderHorizonGuidance();renderHorizonDo();saveHorizonState();
-  }
-}
-
+function selectFrame(f,auto){nowState.frame=f;['stabilize','maintain','build'].forEach(m=>{document.getElementById('fc-'+m).className='fc '+m+(f===m?' active':'');});renderNowGuidance();renderNowDo();const entry=history.find(e=>e.id===nowState.logId);if(entry){entry.frame=f;saveHistory();}if(!auto)saveNowState();}
+function renderNowGuidance(){const box=document.getElementById('gbox');if(!nowState.frame){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Select a mode above.</div>';return;}const d=getNowGuidance(nowState.frame,getEffectiveNowPriority());box.innerHTML=`<div class="gmode ${nowState.frame}">${d.label}</div><div class="criteria">${d.criteria}</div><div class="pick-prompt">${d.pick}</div>`;}
+function renderNowDo(){const box=document.getElementById('do-box');if(!nowState.frame){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Complete the steps above.</div>';return;}const d=getNowDo(nowState.frame,nowState.sit,getEffectiveNowPriority());box.innerHTML=`<div class="do-sub">${d.confirm}${d.tag?'<br>'+d.tag:''}</div><div class="execute-prompt ${d.frame}">${d.execute}</div>`;}
+function resetScan(mode){if(mode==='now'){nowState={bars:{},sit:null,frame:null,priority:null,logId:null,complete:false};document.getElementById('scan-full-now').style.display='';document.getElementById('scan-chip-now').style.display='none';document.getElementById('steps-now').classList.remove('visible');document.getElementById('frame-rule').textContent='';document.getElementById('note-input').value='';document.getElementById('save-note-btn').textContent='Save note';document.getElementById('save-note-btn').className='save-note-btn';['stabilize','maintain','build'].forEach(m=>{document.getElementById('fc-'+m).className='fc '+m;});buildNowBars();renderNowGuidance();renderNowDo();saveNowState();}else{horizonState={areas:{},sit:null,frame:null,priority:null,logId:null,complete:false};document.getElementById('scan-full-horizon').style.display='';document.getElementById('scan-chip-horizon').style.display='none';document.getElementById('steps-horizon').classList.remove('visible');document.getElementById('hframe-rule').textContent='';document.getElementById('hnote-input').value='';document.getElementById('hsave-note-btn').textContent='Save note';document.getElementById('hsave-note-btn').className='save-note-btn';['stabilize','maintain','build'].forEach(m=>{document.getElementById('hfc-'+m).className='fc '+m;});buildHorizonBars();renderHorizonGuidance();renderHorizonDo();saveHorizonState();}}
 function horizonScanComplete(){return HORIZON_AREAS.every(a=>horizonState.areas[a])&&!!horizonState.sit;}
-function horizonSuggestedFrame(){
-  const vals=Object.values(horizonState.areas||{});
-  const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;
-  return red>=2?'stabilize':(red===1||yel>=3)?'maintain':'build';
-}
-function horizonSuggestedPriority(){
-  const areas=horizonState.areas||{};const order=['r','y','g'];let best=null,bestRank=99;
-  HORIZON_AREAS.forEach(a=>{const rank=order.indexOf(areas[a]);if(rank<bestRank){bestRank=rank;best=a;}});
-  return best;
-}
-function horizonFrameRule(){
-  const vals=Object.values(horizonState.areas||{});
-  const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;
-  return red>=2?`${red} areas neglected → Stabilize suggested`:(red===1||yel>=3)?'Several areas slipping → Maintain suggested':'Areas mostly tended → Build suggested';
-}
-function checkHorizonCollapse(){
-  if(horizonScanComplete()&&!horizonState.complete){
-    horizonState.complete=true;
-    horizonState.priority=horizonSuggestedPriority();
-    const f=horizonSuggestedFrame();
-    document.getElementById('scan-full-horizon').style.display='none';
-    document.getElementById('scan-chip-horizon').style.display='flex';
-    document.getElementById('steps-horizon').classList.add('visible');
-    renderHorizonChip();
-    selectHFrame(f,true);
-    document.getElementById('hframe-rule').textContent=horizonFrameRule();
-    renderHorizonPriorityArea();
-    autoSaveToLog('horizon');
-    saveHorizonState();
-  }
-}
-function renderHorizonChip(){
-  const el=document.getElementById('chip-pips-horizon');
-  const vals=HORIZON_AREAS.map(a=>horizonState.areas[a]);
-  const pips=vals.map(v=>`<div class="pip" style="background:${CM[v]||'#5a5f78'};"></div>`).join('');
-  const s=horizonState.sit,m2=s?SM[s]:null;
-  el.innerHTML=pips+(s?`<span class="sit-badge" style="color:${m2.c};background:${m2.bg};border-color:${m2.bd};">${s}</span>`:'');
-}
-function renderHorizonPriorityArea(){
-  const box=document.getElementById('hpriority-area-box');
-  if(!horizonState.priority||!horizonState.frame){box.style.display='none';return;}
-  const col=CM[horizonState.areas[horizonState.priority]||'y'];
-  box.style.display='block';
-  box.innerHTML=`<div class="priority-area"><div class="priority-label">Priority area</div><div style="font-weight:500;color:${col};font-size:12px;">▸ ${horizonState.priority}</div></div>`;
-}
+function horizonSuggestedFrame(){const areas=horizonState.areas||{};const rel=HORIZON_AREAS.filter(a=>!isWorkOff()||a!=='Work');const vals=rel.map(a=>areas[a]).filter(Boolean);const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;return red>=2?'stabilize':(red===1||yel>=3)?'maintain':'build';}
+function horizonFrameRule(){const areas=horizonState.areas||{};const rel=HORIZON_AREAS.filter(a=>!isWorkOff()||a!=='Work');const vals=rel.map(a=>areas[a]).filter(Boolean);const red=vals.filter(v=>v==='r').length,yel=vals.filter(v=>v==='y').length;return red>=2?`${red} areas neglected → Stabilize suggested`:(red===1||yel>=3)?'Several areas slipping → Maintain suggested':'Areas mostly tended → Build suggested';}
+function checkHorizonCollapse(){if(horizonScanComplete()&&!horizonState.complete){horizonState.complete=true;const f=horizonSuggestedFrame();document.getElementById('scan-full-horizon').style.display='none';document.getElementById('scan-chip-horizon').style.display='flex';document.getElementById('steps-horizon').classList.add('visible');renderHorizonChip();selectHFrame(f,true);document.getElementById('hframe-rule').textContent=horizonFrameRule();renderPriorityPicker();autoSaveToLog('horizon');saveHorizonState();}}
+function renderPriorityPicker(){const box=document.getElementById('hpriority-picker');if(!horizonState.frame){box.style.display='none';return;}box.style.display='block';const areas=horizonState.areas||{};const opts=HORIZON_AREAS.filter(a=>!isWorkOff()||a!=='Work');box.innerHTML=`<div class="priority-picker-label">What's your focus this week?</div><div class="priority-options">${opts.map(a=>{const col=CM[areas[a]||'y'];const sel=horizonState.priority===a;return`<div class="priority-option${sel?' sel':''}" onclick="selectPriority('${a}')"><div class="priority-option-dot" style="background:${col};"></div><span class="priority-option-name">${a}</span>${sel?'<span class="priority-option-check">✓</span>':''}</div>`;}).join('')}</div>`;}
+function selectPriority(area){horizonState.priority=area;const entry=history.find(e=>e.id===horizonState.logId);if(entry){entry.priority=area;saveHistory();}renderPriorityPicker();renderHorizonGuidance();renderHorizonDo();renderWeeklyFocusBadge();saveHorizonState();}
+function renderHorizonChip(){const el=document.getElementById('chip-pips-horizon');const vals=HORIZON_AREAS.map(a=>horizonState.areas[a]);const pips=vals.map(v=>`<div class="pip" style="background:${CM[v]||'#5a5f78'};"></div>`).join('');const s=horizonState.sit,m2=s?SM[s]:null;el.innerHTML=pips+(s?`<span class="sit-badge" style="color:${m2.c};background:${m2.bg};border-color:${m2.bd};">${s}</span>`:'');}
 function buildHorizonBars(){buildBarSection('bars-areas',HORIZON_AREAS,'horizon');renderSits('horizon');}
-function selectHFrame(f,auto){
-  horizonState.frame=f;
-  ['stabilize','maintain','build'].forEach(m=>{document.getElementById('hfc-'+m).className='fc '+m+(f===m?' active':'');});
-  renderHorizonGuidance();renderHorizonDo();renderHorizonPriorityArea();
-  const entry=history.find(e=>e.id===horizonState.logId);
-  if(entry){entry.frame=f;saveHistory();}
-  if(!auto)saveHorizonState();
-}
-function renderHorizonGuidance(){
-  const box=document.getElementById('hgbox');
-  if(!horizonState.frame){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Select a mode above.</div>';return;}
-  const priority=horizonState.priority||'default';
-  const HGUID={
-    stabilize:{Work:{criteria:'Find the one work commitment creating the most pressure and address it. No new projects. Capture everything else.',pick:'What\'s the one work thing you\'re actually doing this period?'},Health:{criteria:'Health before productivity this period. Real food, sleep, movement.',pick:'What\'s the one health basic most needing attention this period?'},Relationships:{criteria:'You might be withdrawing. You don\'t have to fix anything. Engage when you\'re regulated enough to be present — not before.',pick:'What\'s the smallest move toward presence you can make this period?'},Growth:{criteria:'Growth pauses this period. Protect any existing habit minimally. Rest is part of the recovery.',pick:'What existing creative habit can you protect, even minimally?'},Admin:{criteria:'The admin item you\'ve been putting off is probably the one to do. Stop the bleed — not a full tidy.',pick:'What\'s the one admin thing that would most reduce your background stress?'},default:{criteria:'Protect the basics. No expansion. Identify what\'s most destabilising and address that first.',pick:'What\'s the one thing most destabilising your life right now?'}},
-    maintain:{Work:{criteria:'Core work only — whatever\'s most important in your system. One focused block. No scope creep.',pick:'What\'s the core work focus for this period?'},Health:{criteria:'Maintain the routine — the things that keep you functional. Sleep, food, movement.',pick:'What health baseline are you committed to maintaining this period?'},Relationships:{criteria:'Physical presence is a form of connection even when you\'re not fully open. You don\'t have to be emotionally available — just not absent.',pick:'What does showing up look like for you this period?'},Growth:{criteria:'Protect one slot for something that\'s actually yours — whatever restores or engages you creatively.',pick:'What growth or creative thing are you protecting time for this period?'},Admin:{criteria:'Clear one or two things. Maintenance mode, not overhaul.',pick:'What\'s the one admin thing most worth clearing this period?'},default:{criteria:'Hold the line across all areas. Routine and consistency over ambition. No new commitments without something coming off.',pick:'What\'s your focus for holding the line this period?'}},
-    build:{Work:{criteria:'Go deep on the work that matters most. Block the time, protect it. One substantial output this period.',pick:'What\'s the most important work project you\'re going deep on this period?'},Health:{criteria:'Build something sustainable — a habit, a routine, something that compounds.',pick:'What health habit are you building or deepening this period?'},Relationships:{criteria:'This is a window for actual presence — not just being nearby. Presence and groundedness, not performance.',pick:'What does meaningful presence look like for you this period?'},Growth:{criteria:'Go deep on something that\'s actually yours. Protect this time like work time.',pick:'What are you going deep on this period?'},Admin:{criteria:'Sort the backlog properly. Set up systems that remove future drag. Tackle the thing you\'ve been putting off.',pick:'What admin thing are you sorting properly this period?'},default:{criteria:'This is a build period. Pick one area and go deeper. Ambitious and scoped.',pick:'What are you building this period?'}},
-  };
-  const d=HGUID[horizonState.frame][priority]||HGUID[horizonState.frame].default;
-  const label=horizonState.priority?`${horizonState.frame.charAt(0).toUpperCase()+horizonState.frame.slice(1)} · ${horizonState.priority}`:`${horizonState.frame.charAt(0).toUpperCase()+horizonState.frame.slice(1)}`;
-  box.innerHTML=`<div class="gmode ${horizonState.frame}">${label}</div><div class="criteria">${d.criteria}</div><div class="pick-prompt">${d.pick}</div>`;
-}
-function renderHorizonDo(){
-  const box=document.getElementById('hdo-box');
-  if(!horizonState.frame){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Complete the steps above.</div>';return;}
-  const fc=FC2[horizonState.frame];
-  const modeWord=horizonState.frame.charAt(0).toUpperCase()+horizonState.frame.slice(1);
-  const sit=horizonState.sit||'Calm',sitM=SM[sit];
-  const intentionText=horizonState.priority?`<strong style="color:${fc.c};">${modeWord}</strong> period. Priority: <strong style="color:${CM[horizonState.areas[horizonState.priority]||'y']};">${horizonState.priority}</strong>.`:`<strong style="color:${fc.c};">${modeWord}</strong> period.`;
-  const executeText=horizonState.frame==='build'?'Take this to your planner. What\'s the next action on your priority project?':horizonState.frame==='maintain'?'Take this to your planner. What are you protecting this period?':'Take this to your planner. What\'s the one thing most destabilising right now?';
-  const tag=horizonState.sit&&horizonState.sit!=='Calm'?`<div class="sit-tag" style="color:${sitM.c};background:${sitM.bg};border-color:${sitM.bd};">${horizonState.sit}</div>`:'';
-  box.innerHTML=`<div class="do-sub">${intentionText}${tag?'<br>'+tag:''}</div><div class="execute-prompt ${horizonState.frame}">${executeText}</div>`;
-}
-
-function buildBarSection(cid,items,stateKey){
-  const el=document.getElementById(cid);el.innerHTML='';
-  items.forEach(name=>{
-    const rid='rub-'+stateKey+'-'+name.replace(/\s+/g,'');
-    const wrap=document.createElement('div');
-    wrap.innerHTML=`<div class="bar-row"><div class="bar-name-wrap"><span class="bar-name">${name}</span><button class="info-btn" id="ib-${rid}">?</button></div><div class="tls" id="tls-${stateKey}-${name.replace(/\s+/g,'')}"></div></div><div class="rub-row" id="${rid}">${makeRub(name)}</div>`;
-    el.appendChild(wrap);
-    document.getElementById('ib-'+rid).addEventListener('click',function(e){
-      e.stopPropagation();
-      const r2=document.getElementById(rid),wasOpen=r2.classList.contains('open');
-      document.querySelectorAll('.rub-row.open').forEach(x=>x.classList.remove('open'));
-      if(!wasOpen)r2.classList.add('open');
-    });
-    refreshTL(name,stateKey);
-  });
-}
-function refreshTL(name,stateKey){
-  const el=document.getElementById('tls-'+stateKey+'-'+name.replace(/\s+/g,''));
-  if(!el)return;el.innerHTML='';
-  ['r','y','g'].forEach(c=>{
-    const isNow=stateKey==='now';
-    const cur=isNow?(nowState.bars||{})[name]:(horizonState.areas||{})[name];
-    const div=document.createElement('div');div.className='tl '+c+(cur===c?' sel':'');div.innerHTML='<div class="tldot"></div>';
-    div.addEventListener('click',function(){
-      if(isNow){if(!nowState.bars)nowState.bars={};nowState.bars[name]=c;refreshTL(name,stateKey);checkNowCollapse();saveNowState();}
-      else{if(!horizonState.areas)horizonState.areas={};horizonState.areas[name]=c;refreshTL(name,stateKey);checkHorizonCollapse();saveHorizonState();}
-    });
-    el.appendChild(div);
-  });
-}
-function renderSits(mode){
-  const el=document.getElementById('sit-row-'+mode);
-  const cur=mode==='now'?nowState.sit:horizonState.sit;
-  el.innerHTML=SITS.map(s=>`<button class="sit-btn${cur===s?' sel':''}" id="sit-${mode}-${s}">${s}</button>`).join('');
-  SITS.forEach(s=>{
-    document.getElementById('sit-'+mode+'-'+s).addEventListener('click',function(){
-      if(mode==='now'){nowState.sit=s;renderSits('now');renderNowDo();checkNowCollapse();saveNowState();}
-      else{horizonState.sit=s;renderSits('horizon');renderHorizonDo();checkHorizonCollapse();saveHorizonState();}
-    });
-  });
-}
-function makeRub(name){
-  const r=RUB[name];if(!r)return'';
-  return['r','y','g'].map(c=>`<div class="rub-item"><div class="rub-dot" style="background:${CM[c]};"></div><div class="rub-text">${r[c]}</div></div>`).join('');
-}
-function saveNote(){
-  const note=document.getElementById('note-input').value.trim();
-  const entry=history.find(e=>e.id===nowState.logId);
-  if(entry){entry.note=note;saveHistory();}
-  const btn=document.getElementById('save-note-btn');
-  btn.textContent='Saved ✓';btn.className='save-note-btn saved';
-  setTimeout(()=>{btn.textContent='Save note';btn.className='save-note-btn';},2000);
-}
-function saveHNote(){
-  const note=document.getElementById('hnote-input').value.trim();
-  const entry=history.find(e=>e.id===horizonState.logId);
-  if(entry){entry.note=note;saveHistory();}
-  const btn=document.getElementById('hsave-note-btn');
-  btn.textContent='Saved ✓';btn.className='save-note-btn saved';
-  setTimeout(()=>{btn.textContent='Save note';btn.className='save-note-btn';},2000);
-}
-function autoSaveToLog(mode){
-  let entry;
-  if(mode==='now'){
-    entry={id:Date.now(),ts:Date.now(),mode:'now',bars:{...nowState.bars},sit:nowState.sit,frame:nowState.frame,priority:null,note:''};
-    nowState.logId=entry.id;
-  } else {
-    entry={id:Date.now(),ts:Date.now(),mode:'horizon',areas:{...horizonState.areas},sit:horizonState.sit,frame:horizonState.frame,priority:horizonState.priority,note:''};
-    horizonState.logId=entry.id;
-  }
-  history.unshift(entry);
-  if(history.length>500)history=history.slice(0,500);
-  saveHistory();
-}
-function buildPeriodBrief(){
-  const el=document.getElementById('period-brief-horizon');
-  const cutoff=Date.now()-(30*24*60*60*1000);
-  const recent=history.filter(e=>e.ts>=cutoff);
-  if(recent.length<3){el.style.display='none';return;}
-  const nowEntries=recent.filter(e=>e.mode==='now');
-  const horizonEntries=recent.filter(e=>e.mode==='horizon');
-  const lines=[];
-  if(nowEntries.length>=2){
-    const fc4={};nowEntries.forEach(e=>{if(e.frame)fc4[e.frame]=(fc4[e.frame]||0)+1;});
-    const dom=Object.entries(fc4).sort((a,b)=>b[1]-a[1])[0];
-    if(dom){const pct=Math.round(dom[1]/nowEntries.length*100);lines.push({col:FC2[dom[0]].c,text:`Mostly <strong>${dom[0]}</strong> in Now scans (${pct}% of last 30 days)`});}
-  }
-  if(nowEntries.length>=2){
-    const struggling=[];
-    [...NOW_BARS,REG_BAR].forEach(b=>{
-      const vals=nowEntries.map(e=>(e.bars||{})[b]).filter(Boolean);if(!vals.length)return;
-      const ry=vals.filter(v=>v==='r'||v==='y').length/vals.length;
-      if(ry>=0.6)struggling.push({name:b,redPct:Math.round(vals.filter(v=>v==='r').length/vals.length*100)});
-    });
-    if(struggling.length){const names=struggling.map(s=>s.redPct>40?`<strong style="color:#f87171;">${s.name}</strong>`:`<strong style="color:#fbbf24;">${s.name}</strong>`).join(', ');lines.push({col:'#9499b0',text:`Condition bars often limited: ${names}`});}
-  }
-  if(horizonEntries.length>=1){
-    const neglected=[];
-    HORIZON_AREAS.forEach(a=>{
-      const vals=horizonEntries.map(e=>(e.areas||{})[a]).filter(Boolean);if(!vals.length)return;
-      const rp=vals.filter(v=>v==='r').length/vals.length,yp=vals.filter(v=>v==='y').length/vals.length;
-      if(rp>=0.5)neglected.push({name:a,severity:'r'});else if(yp>=0.6)neglected.push({name:a,severity:'y'});
-    });
-    if(neglected.length){const names=neglected.map(n=>`<strong style="color:${CM[n.severity]};">${n.name}</strong>`).join(', ');lines.push({col:'#9499b0',text:`Areas consistently slipping: ${names}`});}
-  }
-  if(!lines.length){el.style.display='none';return;}
-  el.style.display='block';
-  el.innerHTML=`<div class="period-brief"><div class="brief-header">Last 30 days</div><div class="brief-lines">${lines.map(l=>`<div class="brief-line"><div class="brief-line-dot" style="background:${l.col};margin-top:5px;"></div><span>${l.text}</span></div>`).join('')}</div></div>`;
-}
-function setHistTab(t){
-  histTab=t;
-  document.getElementById('ht-log').className='stoggle-btn'+(t==='log'?' active':'');
-  document.getElementById('ht-trends').className='stoggle-btn'+(t==='trends'?' active':'');
-  document.getElementById('hist-log').style.display=t==='log'?'':'none';
-  document.getElementById('hist-trends').style.display=t==='trends'?'':'none';
-  renderHistory();
-}
+function selectHFrame(f,auto){horizonState.frame=f;['stabilize','maintain','build'].forEach(m=>{document.getElementById('hfc-'+m).className='fc '+m+(f===m?' active':'');});renderHorizonGuidance();renderHorizonDo();renderPriorityPicker();const entry=history.find(e=>e.id===horizonState.logId);if(entry){entry.frame=f;saveHistory();}if(!auto)saveHorizonState();}
+function renderHorizonGuidance(){const box=document.getElementById('hgbox');if(!horizonState.frame){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Select a mode above.</div>';return;}if(!horizonState.priority){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Pick your weekly focus above.</div>';return;}const d=HGUID[horizonState.frame][horizonState.priority]||HGUID[horizonState.frame].default;const label=`${horizonState.frame.charAt(0).toUpperCase()+horizonState.frame.slice(1)} · ${horizonState.priority}`;box.innerHTML=`<div class="gmode ${horizonState.frame}">${label}</div><div class="criteria">${d.c}</div><div class="pick-prompt">${d.p}</div>`;}
+function renderHorizonDo(){const box=document.getElementById('hdo-box');if(!horizonState.frame||!horizonState.priority){box.innerHTML='<div style="font-size:12px;color:var(--text3);">Complete the steps above.</div>';return;}const fc=FC2[horizonState.frame];const mw=horizonState.frame.charAt(0).toUpperCase()+horizonState.frame.slice(1);const sit=horizonState.sit||'Calm',sitM=SM[sit];const areas=horizonState.areas||{};const it=`<strong style="color:${fc.c};">${mw}</strong> week. Focus: <strong style="color:${CM[areas[horizonState.priority]||'y']};">${horizonState.priority}</strong>.`;const et=horizonState.frame==='build'?'Take this to your weekly plan. What\'s the next action on your focus project?':horizonState.frame==='maintain'?'Take this to your weekly plan. What are you protecting this week?':'Take this to your weekly plan. What\'s the one thing most destabilising right now?';const tag=horizonState.sit&&horizonState.sit!=='Calm'?`<div class="sit-tag" style="color:${sitM.c};background:${sitM.bg};border-color:${sitM.bd};">${horizonState.sit}</div>`:'';box.innerHTML=`<div class="do-sub">${it}${tag?'<br>'+tag:''}</div><div class="execute-prompt ${horizonState.frame}">${et}</div>`;}
+function buildBarSection(cid,items,sk){const el=document.getElementById(cid);el.innerHTML='';items.forEach(name=>{const rid='rub-'+sk+'-'+name.replace(/\s+/g,'');const wrap=document.createElement('div');wrap.innerHTML=`<div class="bar-row"><div class="bar-name-wrap"><span class="bar-name">${name}</span><button class="info-btn" id="ib-${rid}">?</button></div><div class="tls" id="tls-${sk}-${name.replace(/\s+/g,'')}"></div></div><div class="rub-row" id="${rid}">${makeRub(name)}</div>`;el.appendChild(wrap);document.getElementById('ib-'+rid).addEventListener('click',function(e){e.stopPropagation();const r2=document.getElementById(rid),w=r2.classList.contains('open');document.querySelectorAll('.rub-row.open').forEach(x=>x.classList.remove('open'));if(!w)r2.classList.add('open');});refreshTL(name,sk);});}
+function refreshTL(name,sk){const el=document.getElementById('tls-'+sk+'-'+name.replace(/\s+/g,''));if(!el)return;el.innerHTML='';['r','y','g'].forEach(c=>{const isNow=sk==='now';const cur=isNow?(nowState.bars||{})[name]:(horizonState.areas||{})[name];const div=document.createElement('div');div.className='tl '+c+(cur===c?' sel':'');div.innerHTML='<div class="tldot"></div>';div.addEventListener('click',function(){if(isNow){if(!nowState.bars)nowState.bars={};nowState.bars[name]=c;refreshTL(name,sk);checkNowCollapse();saveNowState();}else{if(!horizonState.areas)horizonState.areas={};horizonState.areas[name]=c;refreshTL(name,sk);checkHorizonCollapse();saveHorizonState();}});el.appendChild(div);});}
+function renderSits(mode){const el=document.getElementById('sit-row-'+mode);const cur=mode==='now'?nowState.sit:horizonState.sit;el.innerHTML=SITS.map(s=>`<button class="sit-btn${cur===s?' sel':''}" id="sit-${mode}-${s}">${s}</button>`).join('');SITS.forEach(s=>{document.getElementById('sit-'+mode+'-'+s).addEventListener('click',function(){if(mode==='now'){nowState.sit=s;renderSits('now');renderNowDo();checkNowCollapse();saveNowState();}else{horizonState.sit=s;renderSits('horizon');renderHorizonDo();checkHorizonCollapse();saveHorizonState();}});});}
+function makeRub(name){const r=RUB[name];if(!r)return'';return['r','y','g'].map(c=>`<div class="rub-item"><div class="rub-dot" style="background:${CM[c]};"></div><div class="rub-text">${r[c]}</div></div>`).join('');}
+function saveNote(){const note=document.getElementById('note-input').value.trim();const entry=history.find(e=>e.id===nowState.logId);if(entry){entry.note=note;saveHistory();}const btn=document.getElementById('save-note-btn');btn.textContent='Saved ✓';btn.className='save-note-btn saved';setTimeout(()=>{btn.textContent='Save note';btn.className='save-note-btn';},2000);}
+function saveHNote(){const note=document.getElementById('hnote-input').value.trim();const entry=history.find(e=>e.id===horizonState.logId);if(entry){entry.note=note;saveHistory();}const btn=document.getElementById('hsave-note-btn');btn.textContent='Saved ✓';btn.className='save-note-btn saved';setTimeout(()=>{btn.textContent='Save note';btn.className='save-note-btn';},2000);}
+function autoSaveToLog(mode){let entry;if(mode==='now'){entry={id:Date.now(),ts:Date.now(),mode:'now',bars:{...nowState.bars},sit:nowState.sit,frame:nowState.frame,priority:null,note:''};nowState.logId=entry.id;}else{entry={id:Date.now(),ts:Date.now(),mode:'horizon',areas:{...horizonState.areas},sit:horizonState.sit,frame:horizonState.frame,priority:horizonState.priority,note:''};horizonState.logId=entry.id;}history.unshift(entry);if(history.length>500)history=history.slice(0,500);saveHistory();}
+function buildPeriodBrief(){const el=document.getElementById('period-brief-horizon');const cutoff=Date.now()-(30*24*60*60*1000);const recent=history.filter(e=>e.ts>=cutoff);if(recent.length<3){el.style.display='none';return;}const nowE=recent.filter(e=>e.mode==='now');const horE=recent.filter(e=>e.mode==='horizon');const lines=[];if(nowE.length>=2){const fc4={};nowE.forEach(e=>{if(e.frame)fc4[e.frame]=(fc4[e.frame]||0)+1;});const dom=Object.entries(fc4).sort((a,b)=>b[1]-a[1])[0];if(dom){const pct=Math.round(dom[1]/nowE.length*100);lines.push({col:FC2[dom[0]].c,text:`Mostly <strong>${dom[0]}</strong> in Now scans (${pct}% of last 30 days)`});}const struggling=[];[...NOW_BARS,REG_BAR].forEach(b=>{const vals=nowE.map(e=>(e.bars||{})[b]).filter(Boolean);if(!vals.length)return;if(vals.filter(v=>v==='r'||v==='y').length/vals.length>=0.6)struggling.push({name:b,redPct:Math.round(vals.filter(v=>v==='r').length/vals.length*100)});});if(struggling.length){const names=struggling.map(s=>s.redPct>40?`<strong style="color:#f87171;">${s.name}</strong>`:`<strong style="color:#fbbf24;">${s.name}</strong>`).join(', ');lines.push({col:'#9499b0',text:`Condition bars often limited: ${names}`});}}if(horE.length>=1){const neglected=[];HORIZON_AREAS.forEach(a=>{const vals=horE.map(e=>(e.areas||{})[a]).filter(Boolean);if(!vals.length)return;const rp=vals.filter(v=>v==='r').length/vals.length,yp=vals.filter(v=>v==='y').length/vals.length;if(rp>=0.5)neglected.push({name:a,severity:'r'});else if(yp>=0.6)neglected.push({name:a,severity:'y'});});if(neglected.length){const names=neglected.map(n=>`<strong style="color:${CM[n.severity]};">${n.name}</strong>`).join(', ');lines.push({col:'#9499b0',text:`Areas consistently slipping: ${names}`});}}if(!lines.length){el.style.display='none';return;}el.style.display='block';el.innerHTML=`<div class="period-brief"><div class="brief-header">Last 30 days</div><div class="brief-lines">${lines.map(l=>`<div class="brief-line"><div class="brief-line-dot" style="background:${l.col};margin-top:5px;"></div><span>${l.text}</span></div>`).join('')}</div></div>`;}
+function setHistTab(t){histTab=t;document.getElementById('ht-log').className='stoggle-btn'+(t==='log'?' active':'');document.getElementById('ht-trends').className='stoggle-btn'+(t==='trends'?' active':'');document.getElementById('hist-log').style.display=t==='log'?'':'none';document.getElementById('hist-trends').style.display=t==='trends'?'':'none';renderHistory();}
 function renderHistory(){if(histTab==='log')renderLog();else renderTrends();}
-function formatDate(ts){
-  const d=new Date(ts);
-  return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'})+' · '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
-}
+function formatDate(ts){const d=new Date(ts);return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'})+' · '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});}
 function getWindowedHistory(){return history.filter(e=>e.ts>=Date.now()-(trendDays*24*60*60*1000));}
-function renderLog(){
-  const el=document.getElementById('hist-log');
-  const entries=getWindowedHistory();
-  if(!entries.length){el.innerHTML='<div class="hist-empty">Colony log empty.</div>';return;}
-  el.innerHTML='';
-  entries.forEach(e=>{
-    const isNow=e.mode==='now';
-    const items=isNow?[...NOW_BARS,REG_BAR]:HORIZON_AREAS;
-    const sk=isNow?'bars':'areas';
-    const vals=items.map(b=>(e[sk]||{})[b]||'');
-    const pips=vals.map(v=>`<div class="pip" style="background:${CM[v]||'#5a5f78'};"></div>`).join('');
-    const sm2=e.sit?SM[e.sit]:null;
-    const sitBadge=e.sit?`<span class="hist-tag" style="color:${sm2.c};background:${sm2.bg};border-color:${sm2.bd};">${e.sit}</span>`:'';
-    const fc3=e.frame?FC2[e.frame]:null;
-    const frameBadge=e.frame?`<span class="hist-tag" style="color:${fc3.c};background:${fc3.bg};border-color:${fc3.bd};">${e.frame}</span>`:'';
-    const modeTag=`<span style="font-size:10px;color:var(--text3);">${isNow?'now':'horizon'}</span>`;
-    const priTag=e.priority?`<span style="font-size:10px;color:var(--text3);">▸ ${e.priority}</span>`:'';
-    const div=document.createElement('div');div.className='hist-entry';
-    div.innerHTML=`<div class="hist-meta"><span class="hist-date">${formatDate(e.ts)}</span>${modeTag}${frameBadge}${sitBadge}${priTag}<button class="hist-del" onclick="deleteEntry(${e.id})">✕</button></div><div class="hist-pips">${pips}</div>${e.note?`<div class="hist-note">${e.note}</div>`:''}`;
-    el.appendChild(div);
-  });
-}
+function renderLog(){const el=document.getElementById('hist-log');const entries=getWindowedHistory();if(!entries.length){el.innerHTML='<div class="hist-empty">Colony log empty.</div>';return;}el.innerHTML='';entries.forEach(e=>{const isNow=e.mode==='now';const items=isNow?[...NOW_BARS,REG_BAR]:HORIZON_AREAS;const sk=isNow?'bars':'areas';const pips=items.map(b=>(e[sk]||{})[b]||'').map(v=>`<div class="pip" style="background:${CM[v]||'#5a5f78'};"></div>`).join('');const sm2=e.sit?SM[e.sit]:null;const sb=e.sit?`<span class="hist-tag" style="color:${sm2.c};background:${sm2.bg};border-color:${sm2.bd};">${e.sit}</span>`:'';const fc3=e.frame?FC2[e.frame]:null;const fb=e.frame?`<span class="hist-tag" style="color:${fc3.c};background:${fc3.bg};border-color:${fc3.bd};">${e.frame}</span>`:'';const mt=`<span style="font-size:10px;color:var(--text3);">${isNow?'now':'horizon'}</span>`;const pt=e.priority?`<span style="font-size:10px;color:var(--text3);">▸ ${e.priority}</span>`:'';const div=document.createElement('div');div.className='hist-entry';div.innerHTML=`<div class="hist-meta"><span class="hist-date">${formatDate(e.ts)}</span>${mt}${fb}${sb}${pt}<button class="hist-del" onclick="deleteEntry(${e.id})">✕</button></div><div class="hist-pips">${pips}</div>${e.note?`<div class="hist-note">${e.note}</div>`:''}`;el.appendChild(div);});}
 function deleteEntry(id){history=history.filter(e=>e.id!==id);saveHistory();renderHistory();}
-function renderTrends(){
-  const el=document.getElementById('hist-trends');el.innerHTML='';
-  const wp=document.createElement('div');wp.className='trend-window';
-  [30,90,180].forEach(d=>{
-    const b=document.createElement('button');b.className='tw-btn'+(trendDays===d?' active':'');b.textContent=d+'d';
-    b.addEventListener('click',()=>{trendDays=d;renderTrends();});wp.appendChild(b);
-  });
-  el.appendChild(wp);
-  const entries=getWindowedHistory();
-  if(entries.length<2){const empty=document.createElement('div');empty.className='hist-empty';empty.textContent='Not enough scans in this window yet.';el.appendChild(empty);return;}
-  function makeSection(title,items,dk,filterMode){
-    const src=filterMode?entries.filter(e=>e.mode===filterMode):entries;if(!src.length)return;
-    const sec=document.createElement('div');sec.className='trend-section';sec.innerHTML=`<div class="trend-label">${title}</div>`;
-    let any=false;
-    items.forEach(name=>{
-      const vals=src.map(e=>(e[dk]||{})[name]).filter(Boolean);if(!vals.length)return;any=true;
-      const row=document.createElement('div');row.className='trend-row';
-      const cells=vals.slice(-60).map(v=>`<div class="trend-cell" style="background:${CM[v]||'#333'};opacity:0.85;"></div>`).join('');
-      const rp=Math.round(vals.filter(v=>v==='r').length/vals.length*100);
-      row.innerHTML=`<span class="trend-name">${name}</span><div class="trend-bars">${cells}</div><span class="trend-pct">${rp}%</span>`;
-      sec.appendChild(row);
-    });
-    if(any)el.appendChild(sec);
-  }
-  makeSection('Condition bars — Now',[...NOW_BARS,REG_BAR],'bars','now');
-  makeSection('Areas of focus — Horizon',HORIZON_AREAS,'areas','horizon');
-  const fc4={};entries.forEach(e=>{if(e.frame)fc4[e.frame]=(fc4[e.frame]||0)+1;});
-  const tot=Object.values(fc4).reduce((a,b)=>a+b,0);
-  if(tot){
-    const sec3=document.createElement('div');sec3.className='trend-section';sec3.innerHTML='<div class="trend-label">Mode distribution</div>';
-    ['stabilize','maintain','build'].forEach(f=>{
-      const count=fc4[f]||0,pct=Math.round(count/tot*100),fc5=FC2[f];
-      sec3.innerHTML+=`<div class="trend-row"><span class="trend-name" style="color:${fc5.c};">${f}</span><div style="flex:1;background:var(--bg3);border-radius:3px;height:10px;overflow:hidden;"><div style="width:${pct}%;height:100%;background:${fc5.c};opacity:0.7;"></div></div><span class="trend-pct">${pct}%</span></div>`;
-    });
-    el.appendChild(sec3);
-  }
-}
+function renderTrends(){const el=document.getElementById('hist-trends');el.innerHTML='';const wp=document.createElement('div');wp.className='trend-window';[30,90,180].forEach(d=>{const b=document.createElement('button');b.className='tw-btn'+(trendDays===d?' active':'');b.textContent=d+'d';b.addEventListener('click',()=>{trendDays=d;renderTrends();});wp.appendChild(b);});el.appendChild(wp);const entries=getWindowedHistory();if(entries.length<2){const em=document.createElement('div');em.className='hist-empty';em.textContent='Not enough scans in this window yet.';el.appendChild(em);return;}function makeSection(title,items,dk,fm){const src=fm?entries.filter(e=>e.mode===fm):entries;if(!src.length)return;const sec=document.createElement('div');sec.className='trend-section';sec.innerHTML=`<div class="trend-label">${title}</div>`;let any=false;items.forEach(name=>{const vals=src.map(e=>(e[dk]||{})[name]).filter(Boolean);if(!vals.length)return;any=true;const row=document.createElement('div');row.className='trend-row';const cells=vals.slice(-60).map(v=>`<div class="trend-cell" style="background:${CM[v]||'#333'};opacity:0.85;"></div>`).join('');const rp=Math.round(vals.filter(v=>v==='r').length/vals.length*100);row.innerHTML=`<span class="trend-name">${name}</span><div class="trend-bars">${cells}</div><span class="trend-pct">${rp}%</span>`;sec.appendChild(row);});if(any)el.appendChild(sec);}makeSection('Condition bars — Now',[...NOW_BARS,REG_BAR],'bars','now');makeSection('Areas of focus — Horizon',HORIZON_AREAS,'areas','horizon');const fc4={};entries.forEach(e=>{if(e.frame)fc4[e.frame]=(fc4[e.frame]||0)+1;});const tot=Object.values(fc4).reduce((a,b)=>a+b,0);if(tot){const sec3=document.createElement('div');sec3.className='trend-section';sec3.innerHTML='<div class="trend-label">Mode distribution</div>';['stabilize','maintain','build'].forEach(f=>{const count=fc4[f]||0,pct=Math.round(count/tot*100),fc5=FC2[f];sec3.innerHTML+=`<div class="trend-row"><span class="trend-name" style="color:${fc5.c};">${f}</span><div style="flex:1;background:var(--bg3);border-radius:3px;height:10px;overflow:hidden;"><div style="width:${pct}%;height:100%;background:${fc5.c};opacity:0.7;"></div></div><span class="trend-pct">${pct}%</span></div>`;});el.appendChild(sec3);}}
 function saveNowState(){try{localStorage.setItem(SK,JSON.stringify({state:nowState,savedAt:Date.now()}));}catch(e){}}
 function saveHorizonState(){try{localStorage.setItem(HKS,JSON.stringify({state:horizonState,savedAt:Date.now()}));}catch(e){}}
 function saveHistory(){try{localStorage.setItem(HIST,JSON.stringify(history));}catch(e){}}
-function load(key){try{const v=localStorage.getItem(key);return v?JSON.parse(v):null;}catch(e){return null;}}
-function restoreNowUI(){
-  if(nowState.complete){
-    document.getElementById('scan-full-now').style.display='none';
-    document.getElementById('scan-chip-now').style.display='flex';
-    document.getElementById('steps-now').classList.add('visible');
-    renderNowChip();
-    ['stabilize','maintain','build'].forEach(m=>{document.getElementById('fc-'+m).className='fc '+m+(nowState.frame===m?' active':'');});
-    document.getElementById('frame-rule').textContent=nowFrameRule();
-    renderNowGuidance();renderNowDo();
-  } else {buildNowBars();renderNowGuidance();renderNowDo();}
-}
-function restoreHorizonUI(){
-  if(horizonState.complete){
-    document.getElementById('scan-full-horizon').style.display='none';
-    document.getElementById('scan-chip-horizon').style.display='flex';
-    document.getElementById('steps-horizon').classList.add('visible');
-    renderHorizonChip();
-    ['stabilize','maintain','build'].forEach(m=>{document.getElementById('hfc-'+m).className='fc '+m+(horizonState.frame===m?' active':'');});
-    document.getElementById('hframe-rule').textContent=horizonFrameRule();
-    renderHorizonGuidance();renderHorizonDo();renderHorizonPriorityArea();
-  } else {buildHorizonBars();renderHorizonGuidance();renderHorizonDo();}
-}
-function init(){
-  const nowSaved=load(SK),horizonSaved=load(HKS),histSaved=load(HIST);
-  if(histSaved) history=histSaved||[];
-  if(nowSaved&&nowSaved.state) nowState=nowSaved.state;
-  if(horizonSaved&&horizonSaved.state) horizonState=horizonSaved.state;
-  restoreNowUI();restoreHorizonUI();buildPeriodBrief();
-  if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
-}
+function loadLS(key){try{const v=localStorage.getItem(key);return v?JSON.parse(v):null;}catch(e){return null;}}
+function restoreNowUI(){if(nowState.complete){document.getElementById('scan-full-now').style.display='none';document.getElementById('scan-chip-now').style.display='flex';document.getElementById('steps-now').classList.add('visible');renderNowChip();['stabilize','maintain','build'].forEach(m=>{document.getElementById('fc-'+m).className='fc '+m+(nowState.frame===m?' active':'');});document.getElementById('frame-rule').textContent=nowFrameRule();renderNowGuidance();renderNowDo();}else{buildNowBars();renderNowGuidance();renderNowDo();}renderWeeklyFocusBadge();}
+function restoreHorizonUI(){if(horizonState.complete){document.getElementById('scan-full-horizon').style.display='none';document.getElementById('scan-chip-horizon').style.display='flex';document.getElementById('steps-horizon').classList.add('visible');renderHorizonChip();['stabilize','maintain','build'].forEach(m=>{document.getElementById('hfc-'+m).className='fc '+m+(horizonState.frame===m?' active':'');});document.getElementById('hframe-rule').textContent=horizonFrameRule();renderHorizonGuidance();renderHorizonDo();renderPriorityPicker();}else{buildHorizonBars();renderHorizonGuidance();renderHorizonDo();}}
+function init(){const ns=loadLS(SK),hs=loadLS(HKS),hist=loadLS(HIST);if(hist)history=hist||[];if(ns&&ns.state)nowState=ns.state;if(hs&&hs.state)horizonState=hs.state;restoreNowUI();restoreHorizonUI();buildPeriodBrief();if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});}
 init();
 </script>
 </body>

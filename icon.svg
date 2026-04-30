@@ -1,25 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <rect width="512" height="512" fill="#0f1117"/>
-  <!-- Outer ring - faint, like a distant structure -->
   <circle cx="256" cy="256" r="180" fill="none" stroke="#2a3a4a" stroke-width="2"/>
-  <!-- Middle ring -->
   <circle cx="256" cy="256" r="120" fill="none" stroke="#1e3a4a" stroke-width="1.5"/>
-  <!-- Signal tower / loop symbol - central vertical line -->
   <line x1="256" y1="140" x2="256" y2="372" stroke="#4a6a7a" stroke-width="3" stroke-linecap="round"/>
-  <!-- Horizontal crossbar -->
   <line x1="196" y1="200" x2="316" y2="200" stroke="#4a6a7a" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- Small arms suggesting transmission / scan -->
   <line x1="196" y1="200" x2="176" y2="240" stroke="#3a5a6a" stroke-width="1.5" stroke-linecap="round"/>
   <line x1="316" y1="200" x2="336" y2="240" stroke="#3a5a6a" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Ground line -->
   <line x1="206" y1="372" x2="306" y2="372" stroke="#4a6a7a" stroke-width="2" stroke-linecap="round"/>
-  <!-- Warm light source - small glow at the top of the tower -->
   <circle cx="256" cy="148" r="6" fill="#c8a882" opacity="0.9"/>
   <circle cx="256" cy="148" r="12" fill="#c8a882" opacity="0.15"/>
   <circle cx="256" cy="148" r="20" fill="#c8a882" opacity="0.06"/>
-  <!-- Subtle horizon line -->
   <line x1="80" y1="372" x2="432" y2="372" stroke="#1e2a36" stroke-width="1"/>
-  <!-- Muted reflection dots on horizon - very Stålenhag -->
   <circle cx="180" cy="390" r="2" fill="#2a4a5a" opacity="0.5"/>
   <circle cx="256" cy="395" r="1.5" fill="#2a4a5a" opacity="0.4"/>
   <circle cx="332" cy="390" r="2" fill="#2a4a5a" opacity="0.5"/>
